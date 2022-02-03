@@ -7,19 +7,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @ApiModel("UpdateUserMessageRequest 修改用户信息")
 public class UpdateUserMessageRequest {
-    @ApiModelProperty("性别")
-    private Integer gender;
-
-    @ApiModelProperty("联系电话")
-    private String telephone;
-
-    @ApiModelProperty("居住地")
-    private String residence;
-
+    @ApiModelProperty("状态")
+    private Short status;
 }

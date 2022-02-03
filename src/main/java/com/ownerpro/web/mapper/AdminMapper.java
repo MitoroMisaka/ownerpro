@@ -1,9 +1,9 @@
 package com.ownerpro.web.mapper;
 
+import com.ownerpro.web.MyMapper;
 import com.ownerpro.web.entity.Admin;
 import com.ownerpro.web.entity.User;
 import org.apache.ibatis.annotations.Select;
-import com.ownerpro.web.MyMapper;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -2,7 +2,7 @@ package com.ownerpro.web.controller.admin;
 
 import com.ownerpro.web.common.Result;
 import com.ownerpro.web.exception.RRException;
-import com.ownerpro.web.service.admin.CarService;
+import com.ownerpro.web.service.team.TeamService;
 import io.swagger.annotations.*;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +13,12 @@ import javax.validation.constraints.NotNull;
 
 @RestController
 @Api("管理员车辆控制器")
-@RequestMapping("/car")
+@RequestMapping("/team")
 @Validated
-public class CarController {
-
+public class TeamController {
+    /*
     @Autowired
-    private CarService carService;
+    private TeamService teamService;
 
     @RequiresRoles("admin")
     @GetMapping("/all")
@@ -28,7 +28,7 @@ public class CarController {
             @ApiImplicitParam(name = "pageNum", value = "页数 (不小于0)", required = true, paramType = "query", dataType = "Integer")})
     public Result getAllCars(@NotNull @RequestParam("pageSize")Integer pageSize,
                              @NotNull @RequestParam("pageNum")Integer pageNum){
-        return Result.success(carService.getAllCars(pageNum,pageSize));
+        return Result.success(teamService.getTeam());
     }
 
     @RequiresRoles("admin")
@@ -64,6 +64,6 @@ public class CarController {
                                  @RequestParam("pageNum")Integer pageNum) {
         if(pageSize==null && pageNum==null) return Result.success("获得成功",carService.getAllFreeCars());
        return Result.success("获取成功",carService.getAllFreeCars(pageNum, pageSize));
-    }
+    }*/
 
 }

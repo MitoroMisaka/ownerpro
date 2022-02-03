@@ -1,4 +1,4 @@
-package com.ownerpro.web.service.account.impl;
+package com.ownerpro.web.service.team.Impl;
 
 import com.ownerpro.web.mapper.AdminMapper;
 import com.ownerpro.web.mapper.UserMapper;
@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class AccountServiceImpl extends BaseService implements AccountService {
+public class TeamServiceImpl extends BaseService implements AccountService {
 
     @Autowired
     private UserMapper userMapper;

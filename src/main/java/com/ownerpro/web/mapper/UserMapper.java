@@ -1,8 +1,8 @@
 package com.ownerpro.web.mapper;
 
+import com.ownerpro.web.MyMapper;
 import com.ownerpro.web.entity.Admin;
 import com.ownerpro.web.entity.User;
-import com.ownerpro.web.MyMapper;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -22,8 +22,8 @@ public interface UserMapper extends MyMapper<User> {
     @Select("SELECT password FROM user WHERE username=#{username}")
     String getPasswordByUsername(@Param("username")String username);
 
-    @Select("SELECT id,username,password,gender,telephone,residence FROM user WHERE username=#{username}")
-    User getUserByUsername(String username);
+    @Select("SELECT id,username,password,signDate,status FROM user WHERE username=#{username}")
+    User getUserByUsername(@Param(("username")) String username);
 
     @Select("SELECT * FROM user WHERE id=#{id}")
     User getUserById(Integer id);
@@ -31,14 +31,8 @@ public interface UserMapper extends MyMapper<User> {
     @Insert("INSERT INTO user(username,password) VALUES(#{username},#{password})")
     int insertUser(@Param("username")String username,@Param("password")String password);
 
-    @Update("UPDATE user SET gender=#{gender} WHERE username=#{username}")
-    void updateUserGender(@Param("gender")Integer gender,@Param("username")String username);
-
-    @Update("UPDATE user SET residence=#{residence} WHERE username=#{username}")
-    void updateUserResidence(@Param("residence")String residence,@Param("username")String username);
-
-    @Update("UPDATE user SET telephone=#{telephone} WHERE username=#{username}")
-    void updateUserTelephone(@Param("telephone")String telephone,@Param("username")String username);
+    @Update("UPDATE user SET status = #{status} WHERE username=#{username}")
+    void updateUserStatus(@Param("status") Short status,@Param("username")String username);
 
     @Select("SELECT * FROM admin WHERE username=#{username}")
     Admin getAdminByUsername(@Param("username")String username);

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -28,12 +29,9 @@ public class User implements Serializable
     @ApiModelProperty("密码")
     private String password;
 
-    @ApiModelProperty("性别")
-    private Integer gender;
+    @ApiModelProperty("状态")
+    private Short status;
 
-    @ApiModelProperty("联系电话")
-    private String telephone;
-
-    @ApiModelProperty("居住地")
-    private String residence;
+    @ApiModelProperty("注册日期")
+    private Timestamp signDate;
 }

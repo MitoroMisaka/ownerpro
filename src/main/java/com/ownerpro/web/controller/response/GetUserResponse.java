@@ -8,7 +8,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Id;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
@@ -25,14 +27,11 @@ public class GetUserResponse implements Serializable {
     @ApiModelProperty("密码")
     private String password;
 
-    @ApiModelProperty("性别")
-    private Integer gender;
+    @ApiModelProperty("状态")
+    private Short status;
 
-    @ApiModelProperty("联系电话")
-    private String telephone;
-
-    @ApiModelProperty("居住地")
-    private String residence;
+    @ApiModelProperty("注册日期")
+    private Timestamp signDate;
 
     @ApiModelProperty("类别")
     private Integer type;
@@ -41,8 +40,8 @@ public class GetUserResponse implements Serializable {
         this.id = user.getId();
         this.username = user.getUsername();
         this.password = user.getPassword();
-        this.telephone = user.getTelephone();
-        this.residence = user.getResidence();
+        this.signDate = user.getSignDate();
+        this.status = user.getStatus();
         this.type = type;
     }
 }

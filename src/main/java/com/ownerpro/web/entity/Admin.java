@@ -19,10 +19,10 @@ import java.io.Serializable;
 @ApiModel("Controller 管理员")
 public class Admin implements Serializable {
     @Id
-    @ApiModelProperty("管理员id")
+    @ApiModelProperty("id")
     private Long id;
 
-    @ApiModelProperty("管理员用户名")
+    @ApiModelProperty("用户名")
     private String username;
 
     @ApiModelProperty("密码")
