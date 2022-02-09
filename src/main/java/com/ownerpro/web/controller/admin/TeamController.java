@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.NotNull;
 
 @RestController
-@Api("管理员车辆控制器")
+@Api("管理员团队控制器")
 @RequestMapping("/team")
 @Validated
 public class TeamController {
-    /*
+
     @Autowired
     private TeamService teamService;
 
-    @RequiresRoles("admin")
+    /*@RequiresRoles("admin")
     @GetMapping("/all")
     @ApiOperation("查看所有车辆")
     @ApiImplicitParams({
@@ -29,41 +29,78 @@ public class TeamController {
     public Result getAllCars(@NotNull @RequestParam("pageSize")Integer pageSize,
                              @NotNull @RequestParam("pageNum")Integer pageNum){
         return Result.success(teamService.getTeam());
-    }
+    }*/
 
-    @RequiresRoles("admin")
+    @RequiresRoles("user")
     @PostMapping("/add")
-    @ApiOperation("添加车辆")
-    @ApiImplicitParam(name = "num",value = "添加的车辆数量（不写默认为1）",paramType = "query",dataType = "Integer")
-    public Result AddCar(@RequestParam(value = "num",defaultValue = "1")Integer num){
-        carService.addCar(num);
+    @ApiOperation("添加团队")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "name",value = "添加的团队名",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "age",value = "添加的团队年龄",paramType = "query",dataType = "Short"),
+            @ApiImplicitParam(name = "hobby",value = "添加的团队爱好",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "contact",value = "添加的团队方式",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "introduction",value = "添加的团队介绍",paramType = "query",dataType = "String")
+            })
+    public Result AddCar(@RequestParam(value = "name",defaultValue = "1")String name,
+                         @RequestParam(value = "age",defaultValue = "0")Short age ,
+                         @RequestParam(value = "hobby")String hobby,
+            @RequestParam(value = "contact")String contact,
+            @RequestParam(value = "introduction")String introduction){
+        teamService.signUp(name, age, hobby, contact, introduction);
         return Result.success("添加成功");
     }
 
-    @RequiresRoles("admin")
-    @PostMapping("/delete")
-    @ApiOperation("删除车辆")
-    @ApiImplicitParam(name = "id",value = "所要删除车辆的id",paramType = "query",dataType = "Long")
-    public Result DeleteCar(@RequestParam(value = "id")Long id){
+    @RequiresRoles("user")
+    @PostMapping("/update_age")
+    @ApiOperation("修改年龄")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "name",value = "修改的团队名称", paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "age",value = "修改的团队年龄", paramType = "query",dataType = "Short")
+    })
+    public Result ChangeAge(@RequestParam(value = "name")String name,
+                            @RequestParam(value = "age")Short age){
         try{
-            carService.deleteCar(id);
+            teamService.changeAge(age, name);
         }catch(RRException e){
-            if(e.getEnumExceptionType().getErrorCode()==1004)
-                return Result.fail("该车辆正在被使用，目前不能删除");
+            return Result.fail("修改失败");
         }
-        return Result.success("删除成功");
+        return Result.success("修改成功");
     }
 
-    @RequiresRoles("admin")
-    @GetMapping("/free")
-    @ApiOperation("获取空闲车辆的列表")
+    @RequiresRoles("user")
+    @PostMapping("/update_hobby")
+    @ApiOperation("修改爱好")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "pageSize",value = "每页显示数量 (不小于0)",required = true,paramType = "query",dataType = "Integer"),
-            @ApiImplicitParam(name = "pageNum", value = "页数 (不小于0)", required = true, paramType = "query", dataType = "Integer")})
-    public Result getAllFreeCars(@RequestParam("pageSize")Integer pageSize,
-                                 @RequestParam("pageNum")Integer pageNum) {
-        if(pageSize==null && pageNum==null) return Result.success("获得成功",carService.getAllFreeCars());
-       return Result.success("获取成功",carService.getAllFreeCars(pageNum, pageSize));
-    }*/
+            @ApiImplicitParam(name = "name",value = "修改的团队名称", paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "hobby",value = "修改的团队爱好", paramType = "query",dataType = "String")
+    })
+    public Result ChangeHobby(@RequestParam(value = "name")String name,
+                            @RequestParam(value = "String")String hobby){
+        try{
+            teamService.changeHobby(hobby, name);
+        }catch(RRException e){
+            return Result.fail("修改失败");
+        }
+        return Result.success("修改成功");
+    }
+
+    @RequiresRoles("user")
+    @PostMapping("/update_contact")
+    @ApiOperation("修改联系方式")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "name",value = "修改的团队名称", paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "contact",value = "修改的团队联系方式", paramType = "query",dataType = "String")
+    })
+    public Result ChangeContact(@RequestParam(value = "name")String name,
+                              @RequestParam(value = "contact")String contact){
+        try{
+            teamService.changeContact(contact, name);
+        }catch(RRException e){
+            return Result.fail("修改失败");
+        }
+        return Result.success("修改成功");
+    }
+
+
 
 }

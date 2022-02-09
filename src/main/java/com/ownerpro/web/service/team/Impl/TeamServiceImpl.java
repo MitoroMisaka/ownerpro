@@ -1,7 +1,7 @@
 package com.ownerpro.web.service.team.Impl;
 
-import com.ownerpro.web.mapper.AdminMapper;
-import com.ownerpro.web.mapper.UserMapper;
+import com.ownerpro.web.entity.Team;
+import com.ownerpro.web.mapper.*;
 import com.ownerpro.web.service.BaseService;
 import com.ownerpro.web.service.account.AccountService;
 import com.ownerpro.web.common.EnumExceptionType;
@@ -13,6 +13,7 @@ import com.ownerpro.web.mapper.AdminMapper;
 import com.ownerpro.web.mapper.UserMapper;
 import com.ownerpro.web.service.BaseService;
 import com.ownerpro.web.service.account.AccountService;
+import com.ownerpro.web.service.team.TeamService;
 import com.ownerpro.web.util.PasswordUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,68 +21,38 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class TeamServiceImpl extends BaseService implements AccountService {
+public class TeamServiceImpl extends BaseService implements TeamService {
 
     @Autowired
-    private UserMapper userMapper;
-
-    @Autowired
-    private AdminMapper adminMapper;
+    private TeamMapper teamMapper;
 
     @Override
-    public void signUp(String username,String password) {
-
-        User user = User.builder().username(username).build();
-
-        //查看用户是否已存在
-        if (userMapper.getUserByUsername(username) != null || adminMapper.getAdminByUsername(username) != null)
-            throw new RRException(EnumExceptionType.USER_ALREADY_EXIST);
-
-        user.setPassword(PasswordUtil.convert(password));
-
-        //注册
-        if (userMapper.insertUser(user.getUsername(),user.getPassword()) != 1) {
-            throw new RRException(EnumExceptionType.SYSTEM_INTERNAL_ANOMALY);
-        }
+    public void signUp(String name, Short age, String hobby, String contact, String introduction){
+        teamMapper.insertTeam(name, age, hobby, contact, introduction);
     }
 
     @Override
-    public void changePassword(String username,String password){
-        String originalPassword = userMapper.getPasswordByUsername(username);
-        if(originalPassword.equals(PasswordUtil.convert(password))){
-            throw new RRException(EnumExceptionType.PASSWORD_SAME);
-        }
-        userMapper.updatePasswordByUsername(PasswordUtil.convert(password),username);
-    }
-
-
-    @Override
-    public void updateUserMessage(String username, UpdateUserMessageRequest updateUserMessageRequest){
-        if(updateUserMessageRequest.getStatus()!=null) userMapper.updateUserStatus(updateUserMessageRequest.getStatus(),username);
+    public void changeAge(Short age, String name){
+        teamMapper.updateAgeByName(name, age);
     }
 
     @Override
-    public void checkUsername(String username){
-        User user = userMapper.getUserByUsername(username);
-        if(user!=null){
-            throw new RRException(EnumExceptionType.PASSWORD_SAME);
-        }
+    public void changeHobby(String hobby, String name){
+        teamMapper.updateHobbyByName(hobby, name);
     }
 
     @Override
-    public User getUser(String username){
-        return userMapper.getUserByUsername(username);
+    public void changeContact(String contact, String name){
+        teamMapper.updateContactByName(contact, name);
     }
 
     @Override
-    public void checkPassword(String username,String password){
-        if(userMapper.getPasswordByUsername(username).equals(password)){
-            throw new RRException(EnumExceptionType.USER_ALREADY_EXIST);
-        }
+    public void changeIntroduction(String introduction, String name ){
+        teamMapper.updateIntroductionByName(introduction, name);
     }
 
     @Override
-    public Admin getAdmin(String username){
-        return userMapper.getAdminByUsername(username);
+    public Team getTeam(String name){
+        return teamMapper.getTeamByName(name);
     }
 }
