@@ -31,7 +31,7 @@ public interface TeamMapper extends MyMapper<Team>{
     @Select("SELECT * FROM team WHERE name=#{name}")
     Team getTeamByName(@Param("name")String name);
 
-    @Insert("INSERT INTO team VALUES(null,#{name},#{age},#{contact},#{introduction})")
+    @Insert("INSERT INTO team VALUES(null,#{name},#{age},#{hobby},#{contact},#{introduction})")
     int insertTeam(@Param("name")String name,
                    @Param("age")Short age,
                    @Param("hobby")String hobby,

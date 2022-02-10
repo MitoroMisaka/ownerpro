@@ -1,6 +1,7 @@
 package com.ownerpro.web.controller.admin;
 
 import com.ownerpro.web.common.Result;
+import com.ownerpro.web.entity.Team;
 import com.ownerpro.web.exception.RRException;
 import com.ownerpro.web.service.team.TeamService;
 import io.swagger.annotations.*;
@@ -85,20 +86,28 @@ public class TeamController {
     }
 
     @RequiresRoles("user")
-    @PostMapping("/update_contact")
-    @ApiOperation("修改联系方式")
+    @PostMapping("/update_introduction")
+    @ApiOperation("修改团队介绍")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "name",value = "修改的团队名称", paramType = "query",dataType = "String"),
-            @ApiImplicitParam(name = "contact",value = "修改的团队联系方式", paramType = "query",dataType = "String")
+            @ApiImplicitParam(name = "introduction",value = "修改的团队介绍", paramType = "query",dataType = "String")
     })
-    public Result ChangeContact(@RequestParam(value = "name")String name,
-                              @RequestParam(value = "contact")String contact){
+    public Result ChangeIntro(@RequestParam(value = "name")String name,
+                              @RequestParam(value = "introduction")String introduction){
         try{
-            teamService.changeContact(contact, name);
+            teamService.changeIntroduction(introduction, name);
         }catch(RRException e){
             return Result.fail("修改失败");
         }
         return Result.success("修改成功");
+    }
+
+    @RequiresRoles("user")
+    @GetMapping("/info")
+    @ApiOperation("获得团队详情")
+    @ApiImplicitParam(name = "name",value = "要获取的团队名称", paramType = "query",dataType = "String")
+    public Team ChangeContact(@RequestParam(value = "name")String name){
+        return teamService.getTeam(name);
     }
 
 
