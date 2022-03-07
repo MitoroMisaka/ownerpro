@@ -18,6 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
+
 @Service
 @Transactional
 public class AccountServiceImpl extends BaseService implements AccountService {
@@ -33,16 +35,12 @@ public class AccountServiceImpl extends BaseService implements AccountService {
 
         User user = User.builder().username(username).build();
 
-        //查看用户是否已存在
-        if (userMapper.getUserByUsername(username) != null || adminMapper.getAdminByUsername(username) != null)
-            throw new RRException(EnumExceptionType.USER_ALREADY_EXIST);
-
         user.setPassword(PasswordUtil.convert(password));
 
-        //注册
-        if (userMapper.insertUser(user.getUsername(),user.getPassword()) != 1) {
-            throw new RRException(EnumExceptionType.SYSTEM_INTERNAL_ANOMALY);
-        }
+        Timestamp datetime = new Timestamp(System.currentTimeMillis());
+
+        userMapper.insertUser(user.getUsername(),user.getPassword(),datetime);
+
     }
 
     @Override

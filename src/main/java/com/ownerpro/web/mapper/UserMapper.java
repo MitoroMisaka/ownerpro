@@ -9,6 +9,8 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
+
 /**
  * user  generated at 2019-11-30 18:52:33 by: undestiny
  */
@@ -28,8 +30,9 @@ public interface UserMapper extends MyMapper<User> {
     @Select("SELECT * FROM user WHERE id=#{id}")
     User getUserById(Integer id);
 
-    @Insert("INSERT INTO user(username,password) VALUES(#{username},#{password})")
-    int insertUser(@Param("username")String username,@Param("password")String password);
+    @Insert("INSERT INTO user(username, password, signDate, status) VALUES(#{username},#{password},#{signDate},0)")
+    int insertUser(@Param("username")String username, @Param("password")String password
+                , @Param("signDate")Timestamp signDate);
 
     @Update("UPDATE user SET status = #{status} WHERE username=#{username}")
     void updateUserStatus(@Param("status") Short status,@Param("username")String username);

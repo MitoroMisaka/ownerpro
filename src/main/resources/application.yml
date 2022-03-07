@@ -12,9 +12,9 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ownerpro?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://sh-cynosdbmysql-grp-9oc9in82.sql.tencentcdb.com:26625/ownerpro?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
-    password: 111111
+    password: Ljc2472319246
 
   jackson:
     time-zone: GMT+8

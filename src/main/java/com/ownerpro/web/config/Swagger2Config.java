@@ -23,7 +23,7 @@ public class Swagger2Config {
                 .groupName("account")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.phoenix.logistics.controller.account"))//设定扫描范围
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.account"))//设定扫描范围
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -34,7 +34,7 @@ public class Swagger2Config {
                 .groupName("admin")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.phoenix.logistics.controller.admin"))//设定扫描范围
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.admin"))//设定扫描范围
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -45,7 +45,7 @@ public class Swagger2Config {
                 .groupName("user")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.phoenix.logistics.controller.user"))//设定扫描范围
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.user"))//设定扫描范围
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -56,7 +56,7 @@ public class Swagger2Config {
                 .groupName("request")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.phoenix.logistics.controller.request"))//设定扫描范围
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.request"))//设定扫描范围
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -67,7 +67,7 @@ public class Swagger2Config {
                 .groupName("response")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.phoenix.logistics.controller.response"))//设定扫描范围
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.response"))//设定扫描范围
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -75,8 +75,8 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("物流平台 API Documentation")
-                .description("物流平台接口文档")
+                .title("OwnerPro API Documentation")
+                .description("OwnerPro接口文档")
 //                .termsOfServiceUrl("http://localhost:8081/swagger-ui.html")//数据源
                 .version("1.0")
                 .build();

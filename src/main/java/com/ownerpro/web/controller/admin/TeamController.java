@@ -102,7 +102,7 @@ public class TeamController {
         return Result.success("修改成功");
     }
 
-    @RequiresRoles("user")
+
     @GetMapping("/info")
     @ApiOperation("获得团队详情")
     @ApiImplicitParam(name = "name",value = "要获取的团队名称", paramType = "query",dataType = "String")
