@@ -11,30 +11,20 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("Team 团队")
-public class Team implements Serializable
+@ApiModel("Writer entity")
+public class Writer implements Serializable
 {
     @Id
     @ApiModelProperty("id")
-    private Long id;
+    private Long writer_id;
 
     @ApiModelProperty("姓名")
     private String name;
 
-    @ApiModelProperty("年龄")
-    private Short age;
-
-    @ApiModelProperty("爱好")
-    private String hobby;
-
-    @ApiModelProperty("联系方式")
-    private String contact;
-
-    @ApiModelProperty("自我介绍")
-    private String introduction;
+    @ApiModelProperty("邮箱")
+    private String email;
 }

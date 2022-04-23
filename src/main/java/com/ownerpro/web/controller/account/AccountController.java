@@ -1,11 +1,11 @@
 package com.ownerpro.web.controller.account;
 
 import com.ownerpro.web.controller.request.UpdateUserMessageRequest;
-import com.ownerpro.web.exception.RRException;
 import com.ownerpro.web.controller.response.GetAdminResponse;
-import com.ownerpro.web.controller.response.GetUserResponse;
 import com.ownerpro.web.entity.Admin;
 import com.ownerpro.web.entity.User;
+import com.ownerpro.web.exception.RRException;
+import com.ownerpro.web.controller.response.GetUserResponse;
 import com.ownerpro.web.service.account.AccountService;
 import io.swagger.annotations.*;
 import org.apache.shiro.SecurityUtils;
@@ -36,10 +36,10 @@ public class AccountController {
             @ApiImplicitParam(name = "username", value = "用户名", required = true, paramType = "query", dataType = "String"),
             @ApiImplicitParam(name = "password", value = "密码(长度6-20)", required = true, paramType = "query", dataType = "String")
     })
-    public Result doLogin(@RequestParam("username")@NotNull String username, @RequestParam("password")@NotNull @Size(min = 6,max = 20)String password) {
+    public Result doLogin(@RequestParam("username")@NotNull String username, @RequestParam("password")@NotNull @Size(min = 6,max = 20)String password ){
 
-        if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
-            return Result.fail("用户名或密码不能为空！");
+        if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password) ) {
+            return Result.fail("用户名,密码和姓名不能为空！");
         }
         AuthenticationToken token = new UsernamePasswordToken(username, PasswordUtil.convert(password));
 
@@ -72,10 +72,12 @@ public class AccountController {
     @ApiOperation("注册")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "username", value = "用户名（3到20个字符）", required = true, paramType = "query", dataType = "String"),
-            @ApiImplicitParam(name = "password", value = "密码（6到20位）", required = true, paramType = "query", dataType = "String")})
+            @ApiImplicitParam(name = "password", value = "密码（6到20位）", required = true, paramType = "query", dataType = "String"),
+            @ApiImplicitParam(name = "name", value = "姓名（3到20个字符）", required = true, paramType = "query", dataType = "String")})
     public Result signUp(@NotNull @Size(max = 20,min = 3) @RequestParam("username")String username,
-                         @NotNull @Size(max = 20,min = 6) @RequestParam("password")String password){
-        accountService.signUp(username,password);
+                         @NotNull @Size(max = 20,min = 6) @RequestParam("password")String password,
+                         @NotNull @Size(max = 20,min = 3) @RequestParam("name")String name) throws IOException {
+        accountService.signUp(username,password,name);
         return Result.success("注册成功!");
     }
 
@@ -117,16 +119,6 @@ public class AccountController {
         return Result.success("新密码符合规范");
     }
 
-
-    @RequiresRoles("user")
-    @PostMapping("/changeMessage")
-    @ApiOperation("修改用户个人信息")
-    public Result changeUserMessage(@NotNull @Valid @RequestBody UpdateUserMessageRequest updateUserMessageRequest){
-        UserDTO principal = (UserDTO) SecurityUtils.getSubject().getPrincipal();
-        String username = principal.getUsername();
-        accountService.updateUserMessage(username,updateUserMessageRequest);
-        return Result.success("修改成功");
-    }
 
     @GetMapping("/checkUsername")
     @ApiOperation("检验用户名是否重复")

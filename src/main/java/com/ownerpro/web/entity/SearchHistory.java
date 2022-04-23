@@ -10,27 +10,25 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("User 用户")
-public class User implements Serializable
+@ApiModel("search_history entity")
+public class SearchHistory implements Serializable
 {
     @Id
+    @ApiModelProperty("id")
+    private Long history_id;
+
     @ApiModelProperty("用户id")
     private Long id;
 
-    @ApiModelProperty("姓名")
-    private String name;
+    @ApiModelProperty("内容")
+    private String content;
 
-    @ApiModelProperty("用户名")
-    private String username;
-
-    @ApiModelProperty("密码")
-    private String password;
-
-    @ApiModelProperty("类型")
-    private String type;
+    @ApiModelProperty("时间")
+    private Timestamp time;
 }

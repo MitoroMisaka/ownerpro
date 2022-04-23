@@ -1,6 +1,8 @@
 package com.ownerpro.web.controller.response;
 
+
 import com.ownerpro.web.entity.Admin;
+import com.ownerpro.web.entity.User;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

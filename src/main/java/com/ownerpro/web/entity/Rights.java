@@ -15,22 +15,25 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("User 用户")
-public class User implements Serializable
+@ApiModel("rights entity")
+public class Rights implements Serializable
 {
     @Id
+    @ApiModelProperty("id")
+    private Long rights_id;
+
     @ApiModelProperty("用户id")
     private Long id;
 
-    @ApiModelProperty("姓名")
-    private String name;
+    @ApiModelProperty("评论权限")
+    private int comment;
 
-    @ApiModelProperty("用户名")
-    private String username;
+    @ApiModelProperty("删除权限")
+    private int delete;
 
-    @ApiModelProperty("密码")
-    private String password;
+    @ApiModelProperty("读权限")
+    private int read;
 
-    @ApiModelProperty("类型")
-    private String type;
+    @ApiModelProperty("更新权限")
+    private int update;
 }

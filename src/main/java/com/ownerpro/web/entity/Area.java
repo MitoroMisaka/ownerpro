@@ -15,15 +15,14 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("Controller 管理员")
-public class Admin implements Serializable {
+@ApiModel("Area entity")
+public class Area implements Serializable
+{
     @Id
-    @ApiModelProperty("管理员id")
-    private Long id;
+    @ApiModelProperty("id")
+    private Long area_id;
 
-    @ApiModelProperty("管理员用户名")
-    private String username;
+    @ApiModelProperty("领域名")
+    private String area_name;
 
-    @ApiModelProperty("密码")
-    private String password;
 }
