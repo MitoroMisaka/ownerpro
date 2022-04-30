@@ -23,7 +23,7 @@ public class Swagger2Config {
                 .groupName("account")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.account"))//设定扫描范围
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.account"))//设定扫描范围
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -31,43 +31,10 @@ public class Swagger2Config {
     @Bean
     public Docket createAdminApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("admin")
+                .groupName("article")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.admin"))//设定扫描范围
-                .paths(PathSelectors.any())
-                .build();
-    }
-
-    @Bean
-    public Docket createUserApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("user")
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.user"))//设定扫描范围
-                .paths(PathSelectors.any())
-                .build();
-    }
-
-    @Bean
-    public Docket createRequestApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("request")
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.request"))//设定扫描范围
-                .paths(PathSelectors.any())
-                .build();
-    }
-
-    @Bean
-    public Docket createResponseApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("response")
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.response"))//设定扫描范围
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.article"))//设定扫描范围
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -75,8 +42,8 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("OwnerPro API Documentation")
-                .description("OwnerPro接口文档")
+                .title("PaperManager API Documentation")
+                .description("PaperManager接口文档")
 //                .termsOfServiceUrl("http://localhost:8081/swagger-ui.html")//数据源
                 .version("1.0")
                 .build();

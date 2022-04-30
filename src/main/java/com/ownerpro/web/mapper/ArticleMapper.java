@@ -1,0 +1,72 @@
+package com.ownerpro.web.mapper;
+
+import com.ownerpro.web.MyMapper;
+import com.ownerpro.web.entity.Article;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
+
+import java.sql.Timestamp;
+
+/**
+ * article  generated at 2022/4/29 by:rai
+ */
+@Repository
+public interface ArticleMapper extends MyMapper<Article> {
+    @Insert("INSERT INTO article (title,magazine,date,url,abstract_content,upload_time) VALUES (#{title},#{magazine},#{date},#{url},#{abstract_content},#{upload_time})")
+    void insertArticle(@Param("title") String title, @Param("magazine") String magazine, @Param("date") Timestamp date,
+                       @Param("url") String url, @Param("abstract_content") String abstract_content, @Param("upload_time") Timestamp upload_time);
+
+    @Select("SELECT article_id FROM article WHERE title = #{title}")
+    Long selectIDByTitle(@Param("title") String title);
+
+    @Insert("INSERT INTO article_writer (writer_id, article_id) VALUES (#{writer_id},#{article_id})")
+    void insertArticleWriter(@Param("writer_id") Long writer_id, @Param("article_id") Long article_id);
+
+    @Insert("INSERT INTO article_type (type_id, article_id) VALUES (#{type_id},#{article_id})")
+    void insertArticleType(@Param("type_id") Long type_id, @Param("article_id") Long article_id);
+
+    @Insert("INSERT INTO article_keyword (keyword_id, article_id) VALUES (#{keyword_id},#{article_id})")
+    void insertArticleKeyword(@Param("article_id") Long article_id, @Param("keyword_id") Long keyword_id);
+
+    @Insert("INSERT INTO article_area (area_id, article_id) VALUES (#{area_id}, #{article_id})")
+    void insertArticleArea(@Param("area_id") Long area_id, @Param("article_id") Long article_id);
+
+    //check if the writer exist in the database
+    @Select("SELECT writer_id FROM writer WHERE name = #{name}")
+    Long isWriterExists(@Param("name")String name);
+
+    @Insert("INSERT INTO writer (name) VALUES (#{name})")
+    void insertWriter(@Param("name") String name);
+
+    @Select("SELECT article_writer_id FROM article_writer WHERE article_id = #{article_id} AND writer_id = #{writer_id}")
+    Long isArticleWriterExists(@Param("article_id")Long article_id, @Param("writer_id")Long writer_id);
+
+    @Select("SELECT article_type_id FROM article_type WHERE article_id = #{article_id} AND type_id = #{type_id}")
+    Long isArticleTypeExists(@Param("article_id")Long article_id, @Param("type_id")Long type_id);
+
+    @Select("SELECT area_id FROM area WHERE name = #{name}")
+    Long isAreaExists(@Param("name")String name);
+
+    @Insert("INSERT INTO area (name) VALUES (#{name})")
+    void insertArea(@Param("name")String name);
+
+    @Select("SELECT article_area_id FROM article_area WHERE article_id = #{article_id} AND area_id = #{area_id}")
+    Long isArticleAreaExists(@Param("article_id")Long article_id, @Param("area_id")Long area_id);
+
+    @Select("SELECT keyword_id FROM keyword WHERE name = #{name}")
+    Long isKeywordExists(@Param("name")String name);
+
+    @Insert("INSERT INTO keyword (name) VALUES (#{name})")
+    void insertKeyword(@Param("name")String name);
+
+    @Select("SELECT article_keyword_id FROM article_keyword WHERE article_id = #{article_id} AND keyword_id = #{keyword_id}")
+    Long isArticleKeywordExists(@Param("article_id")Long article_id, @Param("keyword_id")Long keyword_id);
+
+    @Select("SELECT type_id FROM type WHERE name = #{name}")
+    Long isTypeExists(@Param("name")String name);
+
+    @Insert("INSERT INTO type (name) VALUES (#{name})")
+    void insertType(@Param("name")String name);
+}

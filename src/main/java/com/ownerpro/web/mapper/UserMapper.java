@@ -17,6 +17,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper extends MyMapper<User> {
 
+
     @Update("UPDATE user SET password=#{password} WHERE username=#{username}")
     int updatePasswordByUsername(@Param("password")String password,@Param("username")String username);
 
