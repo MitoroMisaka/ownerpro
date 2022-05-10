@@ -29,5 +29,5 @@ public class Note implements Serializable
     private String content;
 
     @ApiModelProperty("发布者")
-    private Long publisher;
+    private String publisher;
 }

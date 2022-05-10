@@ -1,6 +1,16 @@
 package com.ownerpro.web.service.article;
 
 
+import com.ownerpro.web.common.Page;
+import com.ownerpro.web.common.PageParam;
+import com.ownerpro.web.controller.article.ArticleListResponse;
+import com.ownerpro.web.controller.article.ArticleResponse;
+import com.ownerpro.web.controller.comment.CommentResponse;
+import com.ownerpro.web.entity.Comment;
+import com.ownerpro.web.entity.Reference;
+
+
+import java.sql.Time;
 import java.sql.Timestamp;
 
 public interface ArticleService {
@@ -47,4 +57,20 @@ public interface ArticleService {
     Boolean isArticleTypeExists(Long article_id, Long type_id);
 
     Boolean isArticleKeywordExists(Long article_id, Long keyword_id);
+
+    Page<ArticleListResponse> getAllArticles(Integer pageNum, Integer pageSize, String order);
+
+    ArticleResponse selectArticleById(Long article_id);
+
+    Page<Reference> getAllReferences(PageParam pageParam);
+    //About the note
+    void addNote(Long article_id, String content, String publisher);
+
+    String getNameByUsername(String username);
+
+    Long getIdByUsername(String username);
+
+    void addComment(Long article_id, String content, Long super_id, Long id, Timestamp comment_time, String name );
+
+    Page<CommentResponse> getComment(PageParam pageParam);
 }

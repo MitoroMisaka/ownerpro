@@ -1,15 +1,22 @@
 package com.ownerpro.web.controller.article;
 
 
+import com.ownerpro.web.common.PageParam;
 import com.ownerpro.web.common.Result;
+import com.ownerpro.web.controller.comment.CommentRequest;
+import com.ownerpro.web.dto.UserDTO;
+import com.ownerpro.web.entity.NoteRequest;
 import com.ownerpro.web.service.article.ArticleService;
+import com.ownerpro.web.util.SessionUtil;
 import io.swagger.annotations.*;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -27,8 +34,10 @@ public class ArticleController {
     @Autowired
     ArticleService articleService;
 
+    @Autowired
+    SessionUtil sessionUtil;
 
-    @PostMapping("/add")
+    @PostMapping("/addArticle")
     @ApiOperation(value = "添加文章", notes = "添加文章")
     public Result addArticle(@ApiParam @RequestBody ArticleRequest articleRequest) throws ParseException {
         //add basic info of article
@@ -112,6 +121,68 @@ public class ArticleController {
         return Result.success("添加成功！");
     }
 
+    @GetMapping("/get_all_article")
+    @ApiOperation(value = "获取所有文章", notes = "获取所有文章")
+    @ApiImplicitParams({
+            //get pageSize, pageNum, order
+            @ApiImplicitParam(name = "pageSize", value = "页面大小", paramType = "query", dataType = "Integer"),
+            @ApiImplicitParam(name = "pageNum", value = "页面起始", paramType = "query", dataType = "Integer"),
+            @ApiImplicitParam(name = "orderBy", value = "排序规则（'id asc'格式,id是排序字段，asc/desc是升序降序）", paramType = "query", dataType = "Integer")
+    })
+    public Object getAllArticle(@NotNull @RequestParam(value = "pageSize") Integer pageSize,
+                                @NotNull @RequestParam(value = "pageNum") Integer pageNum,
+                                @NotNull @RequestParam(value = "orderBy") String orderBy) {
+        return articleService.getAllArticles(pageNum, pageSize, orderBy);
+    }
 
+    @GetMapping("/get_article_info")
+    @ApiOperation(value = "获取文章信息", notes = "获取文章信息")
+    @ApiModelProperty()
+    public ArticleResponse getArticleInfo(@Validated @NotNull Long article_id){
+        try {
+        return articleService.selectArticleById(article_id);
+        }catch (Exception e){
+            return null;
+        }
+    }
+
+    @GetMapping("/get_all_reference")
+    @ApiOperation(value = "获取所有引用", notes = "获取所有引用")
+    public Object getAllReference(@NotNull @RequestBody PageParam pageParam){
+        return articleService.getAllReferences(pageParam);
+    }
+
+    @PostMapping("/add_note")
+    @ApiOperation(value = "添加笔记", notes = "添加笔记")
+    public Result addNote(@RequestBody  NoteRequest noteRequest){
+        Long article_id = noteRequest.getArticle_id();
+        String content = noteRequest.getContent();
+        UserDTO principal = (UserDTO) SecurityUtils.getSubject().getPrincipal();
+        String username = principal.getUsername();
+        String publisher = articleService.getNameByUsername(username);
+        articleService.addNote(article_id, content, publisher);
+        return Result.success("添加成功！");
+    }
+
+    @PostMapping("/add_comment")
+    @ApiOperation(value = "添加评论", notes = "添加评论")
+    public Result addComment(@RequestBody CommentRequest commentRequest){
+        Long article_id = commentRequest.getArticle_id();
+        String content = commentRequest.getContent();
+        Long super_id = commentRequest.getSuper_id();
+        UserDTO principal = (UserDTO) SecurityUtils.getSubject().getPrincipal();
+        Long user_id = articleService.getIdByUsername(principal.getUsername());
+        String name = articleService.getNameByUsername(principal.getUsername());
+        //get the time now
+        Timestamp time = new Timestamp(System.currentTimeMillis());
+        articleService.addComment(article_id, content, super_id, user_id, time, name);
+        return Result.success("添加成功！");
+    }
+
+    @GetMapping("/get_comment")
+    @ApiOperation(value = "获取评论", notes = "获取评论")
+    public Object getComment(@NotNull @RequestBody PageParam pageParam){
+        return articleService.getComment(pageParam);
+    }
 }
 

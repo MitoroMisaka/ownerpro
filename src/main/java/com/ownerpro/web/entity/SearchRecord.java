@@ -10,21 +10,25 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("Refer_to entity")
-public class ReferTo implements Serializable
+@ApiModel("search_history entity")
+public class SearchRecord implements Serializable
 {
     @Id
     @ApiModelProperty("id")
-    private Long refer_to_id;
+    private Long history_id;
 
-    @ApiModelProperty("论文id")
-    private Long article_id;
+    @ApiModelProperty("用户id")
+    private Long id;
 
-    @ApiModelProperty("引用id")
-    private Long reference_id;
+    @ApiModelProperty("内容")
+    private String content;
+
+    @ApiModelProperty("时间")
+    private Timestamp time;
 }

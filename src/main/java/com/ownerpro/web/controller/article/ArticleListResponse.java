@@ -10,15 +10,17 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("ArticleRequest")
-public class ArticleRequest implements Serializable
+@ApiModel("ArticleResponse")
+public class ArticleListResponse implements Serializable
 {
+    @ApiModelProperty("id")
+    private Long article_id;
+
     @ApiModelProperty("标题")
     private String title;
 
@@ -26,7 +28,7 @@ public class ArticleRequest implements Serializable
     private String magazine;
 
     @ApiModelProperty("刊会时间")
-    private String date;
+    private Timestamp date;
 
     @ApiModelProperty("主要内容")
     private String abstract_content;
@@ -34,19 +36,9 @@ public class ArticleRequest implements Serializable
     @ApiModelProperty("链接")
     private String url;
 
-    @ApiModelProperty("作者数组")
-    private List<String> writer;
+    @ApiModelProperty("上传时间")
+    private Timestamp upload_time;
 
-    @ApiModelProperty("文章类型数组")
-    private List<String> type;
-
-    @ApiModelProperty("文章领域数组")
-    private List<String> area;
-
-    @ApiModelProperty("文章关键字数组")
-    private List<String> keyword;
-
-    List<String> getWriter(){
-        return this.writer;
-    }
+    @ApiModelProperty("评论数")
+    private Integer comment_num;
 }

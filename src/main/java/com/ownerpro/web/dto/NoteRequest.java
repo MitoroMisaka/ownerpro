@@ -15,16 +15,12 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("ResearchArea")
-public class ResearchArea implements Serializable
+@ApiModel("NoteRequest")
+public class NoteRequest implements Serializable
 {
-    @Id
-    @ApiModelProperty("id")
-    private Long research_area_id;
-
     @ApiModelProperty("论文id")
     private Long article_id;
 
-    @ApiModelProperty("领域id")
-    private Long area_id;
+    @ApiModelProperty("笔记内容")
+    private String content;
 }

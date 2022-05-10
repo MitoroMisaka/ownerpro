@@ -60,8 +60,8 @@ public class ShiroConfig {
         hashMap.put("/account/signUp", "anon");
         hashMap.put("/account/user/all", "roles[user]");
 
-        //adminOrder
-        hashMap.put("/admin_order/deal", "roles[admin]");
+        //article
+        hashMap.put("/article/delete", "roles[admin]");
         hashMap.put("/admin_order/detail", "roles[admin]");
         hashMap.put("/admin_order/message", "roles[admin]");
         hashMap.put("/admin_order/search", "roles[admin]");

@@ -15,16 +15,16 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("Reference entity")
-public class Reference implements Serializable
+@ApiModel("ArticleArea")
+public class ArticleArea implements Serializable
 {
     @Id
     @ApiModelProperty("id")
-    private Long reference_id;
+    private Long article_area_id;
 
-    @ApiModelProperty("标题")
-    private String name;
+    @ApiModelProperty("论文id")
+    private Long article_id;
 
-    @ApiModelProperty("链接")
-    private String url;
+    @ApiModelProperty("领域id")
+    private Long area_id;
 }

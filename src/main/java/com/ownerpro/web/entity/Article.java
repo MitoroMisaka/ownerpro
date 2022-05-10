@@ -40,4 +40,7 @@ public class Article implements Serializable
 
     @ApiModelProperty("论文上传时间")
     private Timestamp upload_time;
+
+    @ApiModelProperty("评论数")
+    private Integer comment_num;
 }

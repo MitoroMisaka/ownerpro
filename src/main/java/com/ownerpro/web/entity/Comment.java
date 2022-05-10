@@ -39,4 +39,7 @@ public class Comment implements Serializable
 
     @ApiModelProperty("树形评论id")
     private Long super_id;
+
+    @ApiModelProperty("姓名")
+    private String name;
 }

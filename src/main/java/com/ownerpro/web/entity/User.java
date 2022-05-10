@@ -31,6 +31,9 @@ public class User implements Serializable
     @ApiModelProperty("密码")
     private String password;
 
+    @ApiModelProperty("SessionID")
+    private String sessionId;
+
     @ApiModelProperty("类型")
     private String type;
 }

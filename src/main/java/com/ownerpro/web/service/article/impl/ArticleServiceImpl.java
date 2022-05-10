@@ -1,16 +1,28 @@
 package com.ownerpro.web.service.article.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.ownerpro.web.common.Page;
+import com.ownerpro.web.common.PageParam;
+import com.ownerpro.web.controller.article.ArticleListResponse;
+import com.ownerpro.web.controller.article.ArticleResponse;
+import com.ownerpro.web.controller.comment.CommentResponse;
+import com.ownerpro.web.entity.Comment;
+import com.ownerpro.web.entity.Reference;
 import com.ownerpro.web.mapper.ArticleMapper;
 import com.ownerpro.web.service.article.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service("articleService")
 public class ArticleServiceImpl implements ArticleService {
     @Autowired
     ArticleMapper articleMapper;
+
 
     @Override
     public void insertArticle(String title, String magazine, Timestamp date, String url, String abstract_content, Timestamp upload_time){
@@ -171,5 +183,71 @@ public class ArticleServiceImpl implements ArticleService {
         }else{
             return true;
         }
+    }
+
+    @Override
+    public Page<ArticleListResponse> getAllArticles(Integer pageNum, Integer pageSize, String order){
+        //use startpage to page
+        PageHelper.startPage(pageNum, pageSize, order);
+        List<ArticleListResponse> articleListResponseList =  articleMapper.getArticleList();
+        return new Page<>(new PageInfo<>(articleListResponseList));
+    }
+
+    @Override
+    public ArticleResponse selectArticleById(Long article_id){
+        ArticleListResponse articleListResponse = articleMapper.getArticleById(article_id);
+        //get and add article_id title magazine date abstract_content url into articleResponse
+        List<String> Writer = articleMapper.getWriterByArticleId(article_id);
+        List<String> keyword = articleMapper.getKeywordByArticleId(article_id);
+        List<String> area = articleMapper.getAreaByArticleId(article_id);
+        List<String> type = articleMapper.getTypeByArticleId(article_id);
+        List<String> reference = articleMapper.getReferenceByArticleId(article_id);
+        return new ArticleResponse(articleListResponse.getArticle_id(), articleListResponse.getTitle(), articleListResponse.getMagazine(), articleListResponse.getDate(),
+                articleListResponse.getAbstract_content(), articleListResponse.getUrl(),articleListResponse.getUpload_time(), Writer, keyword, area, type, reference);
+    }
+
+    @Override
+    public Page<Reference> getAllReferences(PageParam pageParam){
+        int pageNum = pageParam.getPageNum();
+        int pageSize = pageParam.getPageSize();
+        PageHelper.startPage(pageNum, pageSize);
+        List<Reference> referenceList = articleMapper.getAllReferences();
+        return new Page<>(new PageInfo<>(referenceList));
+    }
+    //About the notes
+    @Override
+    public void addNote(Long article_id, String content, String publisher){
+        articleMapper.addNote(article_id, content , publisher);
+    }
+
+    @Override
+    public String getNameByUsername(String username){
+        return articleMapper.getNameByUsername(username);
+    }
+
+    @Override
+    public Long getIdByUsername(String username){
+        return articleMapper.getIdByUsername(username);
+    }
+
+    @Override
+    public void addComment(Long article_id, String content, Long super_id, Long id, Timestamp comment_time, String name){
+        articleMapper.addComment(comment_time, content, id, article_id, super_id, name);
+    }
+
+    @Override
+    public Page<CommentResponse> getComment(PageParam pageParam){
+        //get the comment and the subcomments
+        int pageNum = pageParam.getPageNum();
+        int pageSize = pageParam.getPageSize();
+        PageHelper.startPage(pageNum, pageSize);
+        List<Comment> commentList = articleMapper.getMainComment();
+        List<CommentResponse> commentResponseList = new ArrayList<>();
+        //add element to the List
+        for(Comment comment : commentList){
+            List<Comment> subComment = articleMapper.getSubComment(comment.getComment_id());
+            commentResponseList.add(new CommentResponse(comment, subComment));
+        }
+        return new Page<>(new PageInfo<>(commentResponseList));
     }
 }

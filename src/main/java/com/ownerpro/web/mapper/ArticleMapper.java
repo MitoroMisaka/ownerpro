@@ -1,13 +1,17 @@
 package com.ownerpro.web.mapper;
 
 import com.ownerpro.web.MyMapper;
+import com.ownerpro.web.controller.article.ArticleListResponse;
 import com.ownerpro.web.entity.Article;
+import com.ownerpro.web.entity.Comment;
+import com.ownerpro.web.entity.Reference;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * article  generated at 2022/4/29 by:rai
@@ -69,4 +73,58 @@ public interface ArticleMapper extends MyMapper<Article> {
 
     @Insert("INSERT INTO type (name) VALUES (#{name})")
     void insertType(@Param("name")String name);
+
+    @Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time, comment_num FROM article ")
+    List<ArticleListResponse> getArticleList();
+
+    @Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE article_id = #{article_id}")
+    ArticleListResponse getArticleById(@Param("article_id") Long article_id);
+
+    @Select("SELECT name FROM writer NATURAL JOIN article_writer WHERE article_id = #{article_id}")
+    List<String> getWriterByArticleId(@Param("article_id")Long article_id);
+
+    @Select("SELECT name FROM type NATURAL JOIN article_type WHERE article_id = #{article_id}")
+    List<String> getTypeByArticleId(@Param("article_id") Long article_id);
+
+    @Select("SELECT name FROM keyword NATURAL JOIN article_keyword WHERE article_id = #{article_id}")
+    List<String> getKeywordByArticleId(@Param("article_id")Long article_id);
+
+    @Select("SELECT name FROM area NATURAL JOIN article_area WHERE article_id = #{article_id}")
+    List<String> getAreaByArticleId(@Param("article_id")Long article_id);
+
+    @Select("SELECT name FROM reference NATURAL JOIN article_reference WHERE article_id = #{article_id}")
+    List<String> getReferenceByArticleId(@Param("article_id")Long article_id);
+
+    @Select("SELECT reference_id, name, url FROM reference")
+    List<Reference> getAllReferences();
+    //add note
+    @Insert("INSERT INTO note (article_id, content, publisher) VALUES (#{article_id}, #{content}, #{publisher})")
+    void addNote(@Param("article_id")Long article_id, @Param("content")String content, @Param("publisher")String publisher);
+
+    @Select("SELECT name FROM user WHERE username = #{username}")
+    String getNameByUsername(@Param("username")String username);
+
+    @Select("SELECT id FROM user WHERE username = #{username}")
+    Long getIdByUsername(@Param("username")String username);
+
+    @Insert("INSERT INTO comment (comment_time, content, id, likes, article_id, super_id, name) VALUES (#{comment_time}, #{content}, #{id}, 0, #{article_id}, #{super_id}, #{name})")
+    void addComment(@Param("comment_time")Timestamp comment_time, @Param("content")String content, @Param("id")Long id,
+                    @Param("article_id")Long article_id, @Param("super_id")Long super_id, @Param("name")String name);
+
+    @Select("SELECT * FROM comment WHERE super_id = 0")
+    List<Comment> getMainComment();
+
+    @Select("SELECT * FROM comment WHERE super_id = #{super_id}")
+    List<Comment> getSubComment(@Param("super_id")Long super_id);
+
+    /*@Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE magazine = #{magazine}")
+    List<ArticleListResponse> getArticleByMagazine(@Param("magazine") String magazine);
+
+    @Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE date = #{date}")
+    List<ArticleListResponse> getArticleByDate(@Param("date") String date);
+
+    @Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE title LIKE CONCAT('%',#{title},'%')")
+    List<ArticleListResponse> getArticleByTitle(@Param("title") String title);*/
+
+
 }

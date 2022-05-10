@@ -24,3 +24,9 @@ spring:
 
   jackson:
     time-zone: GMT+8
+
+xss:
+  enabled: true
+  excludes:
+  urlPatterns:
+    - /**

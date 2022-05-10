@@ -30,6 +30,9 @@ public interface UserMapper extends MyMapper<User> {
     @Select("SELECT * FROM user WHERE id=#{id}")
     User getUserById(Integer id);
 
+    @Select("SELECT id FROM user WHERE username=#{username}")
+    Integer getIdByUsername(@Param("username")String username);
+
     @Insert("INSERT INTO user(username,password,name) VALUES(#{username},#{password},#{name})")
     int insertUser(@Param("username")String username,@Param("password")String password, @Param("name")String name);
 
