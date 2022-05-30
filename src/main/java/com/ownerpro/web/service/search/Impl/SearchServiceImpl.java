@@ -15,8 +15,11 @@ import com.ownerpro.web.mapper.ArticleMapper;
 import com.ownerpro.web.mapper.SearchMapper;
 import com.ownerpro.web.mapper.SearchRecordMapper;
 import com.ownerpro.web.service.search.SearchService;
+import com.ownerpro.web.util.PasswordUtil;
 import com.ownerpro.web.util.TimeUtil;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -54,17 +57,19 @@ public class SearchServiceImpl implements SearchService {
             example.and(criteria);
         }
 
+
         UserDTO principle = (UserDTO) SecurityUtils.getSubject().getPrincipal();
-        String username = principle.getUsername();
-        Long id = articleMapper.getIdByUsername(username);
+        if(principle != null) {
+            String username = principle.getUsername();
+            Long id = articleMapper.getIdByUsername(username);
 
-        SearchRecord searchRecord = SearchRecord.builder()
-                .content(title)
-                .id(id)
-                .time(TimeUtil.getCurrentTimestamp())
-                .build();
-        searchRecordMapper.insert(searchRecord);
-
+            SearchRecord searchRecord = SearchRecord.builder()
+                    .content(title)
+                    .id(id)
+                    .time(TimeUtil.getCurrentTimestamp())
+                    .build();
+            searchRecordMapper.insert(searchRecord);
+        }
         PageHelper.startPage(pageNum, pageSize, orderBy);
         List<Article> articleList = articleMapper.selectByExample(example);
         Page page = new Page(new PageInfo(articleList));
@@ -86,51 +91,51 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public Object searchByLabel(String content, String label, Integer pageSize, Integer pageNum) {
+    public Object searchByLabel(String content, String label, Integer pageSize, Integer pageNum, String orderBy) {
         //divide into 4 search by the label of writer keyword type and area
         if(label.equals("writer")){
-            return searchByWriter(content, pageSize, pageNum);
+            return searchByWriter(content, pageSize, pageNum, orderBy);
         }
         else if(label.equals("keyword")){
-            return searchByKeyword(content, pageSize, pageNum);
+            return searchByKeyword(content, pageSize, pageNum, orderBy);
         }
         else if(label.equals("type")){
-            return searchByType(content, pageSize, pageNum);
+            return searchByType(content, pageSize, pageNum, orderBy);
         }
         else if(label.equals("area")){
-            return searchByArea(content, pageSize, pageNum);
+            return searchByArea(content, pageSize, pageNum, orderBy);
         }
         return Result.fail("label error");
     }
 
     //search by writer
     @Override
-    public Page<Article> searchByWriter(String content, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+    public Page<Article> searchByWriter(String content, Integer pageSize, Integer pageNum, String orderBy) {
+        PageHelper.startPage(pageNum, pageSize, orderBy);
         List<Article> articleList = searchMapper.searchByWriter(content);
         return new Page<>(pageNum, pageSize, new PageInfo(articleList).getTotal(), new PageInfo(articleList).getPages(), articleList);
     }
 
     //search by keyword
     @Override
-    public Page<Article> searchByKeyword(String content, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+    public Page<Article> searchByKeyword(String content, Integer pageSize, Integer pageNum, String orderBy) {
+        PageHelper.startPage(pageNum, pageSize, orderBy);
         List<Article> articleList = searchMapper.searchByKeyword(content);
         return new Page<>(pageNum, pageSize, new PageInfo(articleList).getTotal(), new PageInfo(articleList).getPages(), articleList);
     }
 
     //search by area
     @Override
-    public Page<Article> searchByArea(String content, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+    public Page<Article> searchByArea(String content, Integer pageSize, Integer pageNum, String orderBy) {
+        PageHelper.startPage(pageNum, pageSize, orderBy);
         List<Article> articleList = searchMapper.searchByArea(content);
         return new Page<>(pageNum, pageSize, new PageInfo(articleList).getTotal(), new PageInfo(articleList).getPages(), articleList);
     }
 
     //search by type
     @Override
-    public Page<Article> searchByType(String content, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+    public Page<Article> searchByType(String content, Integer pageSize, Integer pageNum, String orderBy) {
+        PageHelper.startPage(pageNum, pageSize, orderBy);
         List<Article> articleList = searchMapper.searchByType(content);
         return new Page<>(pageNum, pageSize, new PageInfo(articleList).getTotal(), new PageInfo(articleList).getPages(), articleList);
     }

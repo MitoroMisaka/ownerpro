@@ -10,7 +10,9 @@ import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import com.ownerpro.web.shiro.MyRealm;
 
@@ -58,6 +60,7 @@ public class ShiroConfig {
         hashMap.put("/account/signIn", "anon");
         hashMap.put("/account/signOut", "anon");
         hashMap.put("/account/signUp", "anon");
+        hashMap.put("/account/all", "roles[admin]");
         hashMap.put("/account/user/all", "roles[user]");
 
         //article
@@ -138,6 +141,7 @@ public class ShiroConfig {
      * 另外SessionDAO中可以使用Cache进行缓存，以提高性能；
      */
     @Bean
+    @ConfigurationProperties(prefix = "shiro.redis")
     RedisSessionDAO redisSessionDAO() {
         RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
         redisSessionDAO.setRedisManager(redisManager());
@@ -156,6 +160,7 @@ public class ShiroConfig {
      * 因为这些数据基本上很少去改变，放到缓存中后可以提高访问的性能
      */
     @Bean
+    @ConfigurationProperties(prefix = "shiro.cache")
     RedisCacheManager redisCacheManager() {
         RedisCacheManager redisCacheManager = new RedisCacheManager();
         redisCacheManager.setRedisManager(redisManager());

@@ -1,4 +1,4 @@
-package com.ownerpro.web.entity;
+package com.ownerpro.web.dto;
 
 
 import io.swagger.annotations.ApiModel;
@@ -23,4 +23,5 @@ public class NoteRequest implements Serializable
 
     @ApiModelProperty("笔记内容")
     private String content;
+
 }

@@ -25,6 +25,9 @@ spring:
   jackson:
     time-zone: GMT+8
 
+file:
+  save-path: D:/temp/files
+
 xss:
   enabled: true
   excludes:

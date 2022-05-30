@@ -28,6 +28,7 @@ public class Swagger2Config {
                 .build();
     }
 
+    //scan admin
     @Bean
     public Docket createAdminApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -39,6 +40,30 @@ public class Swagger2Config {
                 .build();
     }
 
+    //scan search
+    @Bean
+    public Docket createSearchApi(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("search")
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.search"))//设定扫描范围
+                .paths(PathSelectors.any())
+                .build();
+
+    }
+
+    //scan file
+    @Bean
+    public Docket createFileApi(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("file")
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.file"))//设定扫描范围
+                .paths(PathSelectors.any())
+                .build();
+    }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()

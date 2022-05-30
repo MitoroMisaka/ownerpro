@@ -9,7 +9,7 @@ public class UnAuthController {
 
     @RequestMapping(value = "/unauth")
     public Result unauth() {
-        return Result.fail("未登录");
+        return Result.fail("无权限访问");
     }
 
 }

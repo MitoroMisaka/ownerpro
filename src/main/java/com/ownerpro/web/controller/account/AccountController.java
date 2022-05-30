@@ -132,7 +132,7 @@ public class AccountController {
         return Result.success("可以注册");
     }
 
-    @RequiresRoles("online")
+    @RequiresRoles("admin")
     @GetMapping("/all")
     @ApiOperation("获取一个登录者的所有信息")
     public Result getMessage(){
@@ -146,4 +146,6 @@ public class AccountController {
             return Result.success("获取成功",new GetAdminResponse(admin,principal.getType()));
         }
     }
+
+
 }

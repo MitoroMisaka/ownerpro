@@ -2,7 +2,6 @@ package com.ownerpro.web.controller.search;
 
 import com.ownerpro.web.common.Result;
 import com.ownerpro.web.dto.UserDTO;
-import com.ownerpro.web.mapper.ArticleMapper;
 import com.ownerpro.web.mapper.UserMapper;
 import com.ownerpro.web.service.search.SearchService;
 import io.swagger.annotations.Api;
@@ -54,8 +53,8 @@ public class SearchController {
     @GetMapping("/by_label")
     @ApiOperation("根据标签搜索")
     public Result searchByLabel(@RequestParam("content")String content, @RequestParam("label")String label,
-                                @RequestParam("pageSize")Integer pageSize, @RequestParam("pageNum")Integer pageNum){
-        return Result.success("success", searchService.searchByLabel(content, label, pageSize, pageNum));
+                                @RequestParam("pageSize")Integer pageSize, @RequestParam("pageNum")Integer pageNum, @RequestParam("orderBy")String orderBy){
+        return Result.success("success", searchService.searchByLabel(content, label, pageSize, pageNum, orderBy));
     }
 
 }
