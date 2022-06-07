@@ -1,0 +1,35 @@
+server:
+  port: 8081
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+  mail:
+    enabled: true
+    host: smtp.126.com
+    port: 25
+    username: Liaojinchuan@126.com
+    password: RDPGBPXXGJAIGRIU
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://sh-cynosdbmysql-grp-9oc9in82.sql.tencentcdb.com:26625/thesis?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: Ljc2472319246
+
+  jackson:
+    time-zone: GMT+8
+
+file:
+  save-path: D:/temp/files
+
+xss:
+  enabled: true
+  excludes:
+  urlPatterns:
+    - /**

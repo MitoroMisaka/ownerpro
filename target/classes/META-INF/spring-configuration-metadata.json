@@ -1,0 +1,94 @@
+{
+  "groups": [
+    {
+      "name": "shiro.cache",
+      "type": "org.crazycake.shiro.RedisCacheManager",
+      "sourceType": "com.ownerpro.web.config.ShiroConfig",
+      "sourceMethod": "redisCacheManager()"
+    },
+    {
+      "name": "shiro.redis",
+      "type": "org.crazycake.shiro.RedisSessionDAO",
+      "sourceType": "com.ownerpro.web.config.ShiroConfig",
+      "sourceMethod": "redisSessionDAO()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "shiro.cache.expire",
+      "type": "java.lang.Integer",
+      "sourceType": "org.crazycake.shiro.RedisCacheManager"
+    },
+    {
+      "name": "shiro.cache.key-prefix",
+      "type": "java.lang.String",
+      "sourceType": "org.crazycake.shiro.RedisCacheManager"
+    },
+    {
+      "name": "shiro.cache.key-serializer",
+      "type": "org.crazycake.shiro.serializer.RedisSerializer",
+      "sourceType": "org.crazycake.shiro.RedisCacheManager"
+    },
+    {
+      "name": "shiro.cache.principal-id-field-name",
+      "type": "java.lang.String",
+      "sourceType": "org.crazycake.shiro.RedisCacheManager"
+    },
+    {
+      "name": "shiro.cache.redis-manager",
+      "type": "org.crazycake.shiro.IRedisManager",
+      "sourceType": "org.crazycake.shiro.RedisCacheManager"
+    },
+    {
+      "name": "shiro.cache.value-serializer",
+      "type": "org.crazycake.shiro.serializer.RedisSerializer",
+      "sourceType": "org.crazycake.shiro.RedisCacheManager"
+    },
+    {
+      "name": "shiro.redis.active-sessions",
+      "type": "java.util.Collection<org.apache.shiro.session.Session>",
+      "sourceType": "org.crazycake.shiro.RedisSessionDAO"
+    },
+    {
+      "name": "shiro.redis.expire",
+      "type": "java.lang.Integer",
+      "sourceType": "org.crazycake.shiro.RedisSessionDAO"
+    },
+    {
+      "name": "shiro.redis.key-prefix",
+      "type": "java.lang.String",
+      "sourceType": "org.crazycake.shiro.RedisSessionDAO"
+    },
+    {
+      "name": "shiro.redis.key-serializer",
+      "type": "org.crazycake.shiro.serializer.RedisSerializer",
+      "sourceType": "org.crazycake.shiro.RedisSessionDAO"
+    },
+    {
+      "name": "shiro.redis.redis-manager",
+      "type": "org.crazycake.shiro.IRedisManager",
+      "sourceType": "org.crazycake.shiro.RedisSessionDAO"
+    },
+    {
+      "name": "shiro.redis.session-id-generator",
+      "type": "org.apache.shiro.session.mgt.eis.SessionIdGenerator",
+      "sourceType": "org.crazycake.shiro.RedisSessionDAO"
+    },
+    {
+      "name": "shiro.redis.session-in-memory-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "org.crazycake.shiro.RedisSessionDAO"
+    },
+    {
+      "name": "shiro.redis.session-in-memory-timeout",
+      "type": "java.lang.Long",
+      "sourceType": "org.crazycake.shiro.RedisSessionDAO"
+    },
+    {
+      "name": "shiro.redis.value-serializer",
+      "type": "org.crazycake.shiro.serializer.RedisSerializer",
+      "sourceType": "org.crazycake.shiro.RedisSessionDAO"
+    }
+  ],
+  "hints": []
+}

@@ -4,8 +4,8 @@ package com.ownerpro.web.controller.article;
 import com.ownerpro.web.common.PageParam;
 import com.ownerpro.web.common.Result;
 import com.ownerpro.web.controller.comment.CommentRequest;
+import com.ownerpro.web.dto.NoteRequest;
 import com.ownerpro.web.dto.UserDTO;
-import com.ownerpro.web.entity.NoteRequest;
 import com.ownerpro.web.service.article.ArticleService;
 import com.ownerpro.web.util.SessionUtil;
 import io.swagger.annotations.*;
@@ -154,7 +154,7 @@ public class ArticleController {
 
     @PostMapping("/add_note")
     @ApiOperation(value = "添加笔记", notes = "添加笔记")
-    public Result addNote(@RequestBody  NoteRequest noteRequest){
+    public Result addNote(@RequestBody NoteRequest noteRequest){
         Long article_id = noteRequest.getArticle_id();
         String content = noteRequest.getContent();
         UserDTO principal = (UserDTO) SecurityUtils.getSubject().getPrincipal();

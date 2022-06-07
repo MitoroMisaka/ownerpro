@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="basic framework">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy-datasource.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/Move.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/MyMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/Test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/WebApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/common/CommonConstants.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/common/CommonErrorCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/common/CommonException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/common/EnumExceptionType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/common/GlobalExceptionHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/common/Page$PageBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/common/Page.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/common/PageParam$PageParamBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/common/PageParam.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/common/Result.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/config/CorsConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/config/JsonConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/config/ShiroConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/config/Swagger2Config.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/MsmController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/UnAuthController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/XssController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/account/AccountController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleListResponse$ArticleListResponseBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleListResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleRequest$ArticleRequestBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleResponse$ArticleResponseBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentRequest$CommentRequestBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentResponse$CommentResponseBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/file/FileController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/request/UpdateUserMessageRequest$UpdateUserMessageRequestBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/request/UpdateUserMessageRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/response/GetAdminResponse$GetAdminResponseBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/response/GetAdminResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/response/GetUserResponse$GetUserResponseBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/response/GetUserResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/search/SearchController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/search/SearchRequest$SearchRequestBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/search/SearchRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/SessionData$SessionDataBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/SessionData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/UserDTO$UserDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/UserDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Admin$AdminBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Admin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Area$AreaBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Area.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Article$ArticleBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Article.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/ArticleArea$ArticleAreaBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/ArticleArea.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/ArticleKeyword$ArticleKeywordBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/ArticleKeyword.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/ArticleReference$ArticleReferenceBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/ArticleReference.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/ArticleType$ArticleTypeBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/ArticleType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Comment$CommentBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Comment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Files$FilesBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Files.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Keyword$KeywordBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Keyword.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Note$NoteBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Note.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Reference$ReferenceBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Reference.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Rights$RightsBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Rights.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/SearchRecord$SearchRecordBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/SearchRecord.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Type$TypeBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Type.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/User$UserBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Write$WriteBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Write.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Writer$WriterBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Writer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/enums/GoodsType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/exception/RRException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/AdminMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/ArticleListMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/ArticleMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/FileMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/SearchMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/SearchRecordMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/BaseService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/MsmService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/account/AccountService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/account/impl/AccountServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/account/impl/MsmServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/ArticleService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/impl/ArticleServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/file/FileService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/file/Impl/FileServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/search/Impl/SearchServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/search/SearchService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/shiro/MyRealm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/util/AssertUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/util/DatesUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/util/DisTranUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/util/MailUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/util/PasswordUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/util/RedisUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/util/RedisUtilComplex.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/util/RegexUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/util/SessionUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/util/TimeUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/xss/XssFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/xss/XssHttpServletRequestWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/stell-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/stell-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/2021-12-27T13-18-40_935-jvmRun1.dump" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ownerpro.web.WebApplicationTests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.phoenix.logistics.LogisticsApplicationTests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.ownerpro.web.WebApplicationTests.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.phoenix.logistics.LogisticsApplicationTests.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/ownerpro/web/WebApplicationTests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/新建 Text Document.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/file/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/file/FileController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="OPTIONS">
+      <set>
+        <option value="REBASE" />
+      </set>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectId" id="24VkU2llbVbzOhIKblcGb1bTHtU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../图片/Owner-Pro/sex-edu-single" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Settings\ownerpro\src\main\java\com\ownerpro\web\service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ownerpro.web.util" />
+      <recent name="com.ownerpro.web.common" />
+      <recent name="com.ownerpro.web.dto" />
+      <recent name="com.ownerpro.web.service.account.impl" />
+      <recent name="com.ownerpro.web.service" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="stell" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ownerpro.web.WebApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="" />
+      <created>1643723157128</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1643723157128</updated>
+      <workItem from="1643723170560" duration="1924000" />
+      <workItem from="1643804212888" duration="1156000" />
+      <workItem from="1643853090086" duration="6970000" />
+      <workItem from="1644420001154" duration="1189000" />
+      <workItem from="1644421265626" duration="1781000" />
+      <workItem from="1644458578006" duration="1969000" />
+      <workItem from="1644840178006" duration="670000" />
+      <workItem from="1646467692209" duration="4261000" />
+      <workItem from="1646635569854" duration="4159000" />
+      <workItem from="1650634833857" duration="1977000" />
+      <workItem from="1650681521440" duration="2174000" />
+      <workItem from="1650683722079" duration="7489000" />
+      <workItem from="1650731572350" duration="364000" />
+      <workItem from="1651129357220" duration="727000" />
+      <workItem from="1651133750500" duration="595000" />
+      <workItem from="1651196659048" duration="12915000" />
+      <workItem from="1651284234146" duration="13164000" />
+      <workItem from="1651377567560" duration="16190000" />
+      <workItem from="1651456541246" duration="1065000" />
+      <workItem from="1651587919349" duration="1163000" />
+      <workItem from="1651673779563" duration="1189000" />
+      <workItem from="1651752474201" duration="147000" />
+      <workItem from="1651752663481" duration="7002000" />
+      <workItem from="1651808714065" duration="14290000" />
+      <workItem from="1652097626286" duration="11490000" />
+      <workItem from="1652147111163" duration="764000" />
+      <workItem from="1652701765314" duration="2524000" />
+      <workItem from="1652707303438" duration="4398000" />
+      <workItem from="1652791185147" duration="8768000" />
+      <workItem from="1652845275859" duration="495000" />
+      <workItem from="1653193734456" duration="380000" />
+      <workItem from="1653194146892" duration="1096000" />
+      <workItem from="1653220998907" duration="338000" />
+      <workItem from="1653221383588" duration="448000" />
+      <workItem from="1653489436596" duration="63000" />
+      <workItem from="1653489561157" duration="560000" />
+      <workItem from="1653892501949" duration="6099000" />
+      <workItem from="1653921546363" duration="2088000" />
+      <workItem from="1653964311177" duration="2767000" />
+      <workItem from="1654088344099" duration="126000" />
+      <workItem from="1654088496211" duration="1077000" />
+      <workItem from="1654089651663" duration="3699000" />
+      <workItem from="1654611263718" duration="4932000" />
+    </task>
+    <task id="LOCAL-00001" summary="学长的项目，作为初始的框架">
+      <created>1643724295752</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1643724295752</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Merge branch 'liaojinchuan' of https://gitee.com/li-yingda/owner-pro.test into lishuai">
+      <created>1643804472157</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1643804472157</updated>
+    </task>
+    <task id="LOCAL-00003" summary="完成基本删减和部分接口的实现">
+      <created>1643859009068</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1643859009068</updated>
+    </task>
+    <task id="LOCAL-00004" summary="完善team接口">
+      <created>1644422806718</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1644422806718</updated>
+    </task>
+    <task id="LOCAL-00005" summary="完成team接口">
+      <created>1644460341731</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1644460341732</updated>
+    </task>
+    <task id="LOCAL-00006" summary="修缮">
+      <created>1646637665239</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1646637665239</updated>
+    </task>
+    <task id="LOCAL-00007" summary="paper manager">
+      <created>1650731733641</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1650731733641</updated>
+    </task>
+    <task id="LOCAL-00008" summary="finish article insert">
+      <created>1651329385563</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1651329385563</updated>
+    </task>
+    <task id="LOCAL-00009" summary="basic interface">
+      <created>1652147235723</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652147235723</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add orderBy in label search">
+      <created>1653903619830</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1653903619830</updated>
+    </task>
+    <task id="LOCAL-00011" summary="basic framework">
+      <created>1654089935759</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1654089935759</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="学长的项目，作为初始的框架" />
+    <MESSAGE value="Merge branch 'liaojinchuan' of https://gitee.com/li-yingda/owner-pro.test into lishuai" />
+    <MESSAGE value="完成基本删减和部分接口的实现" />
+    <MESSAGE value="完善team接口" />
+    <MESSAGE value="完成team接口" />
+    <MESSAGE value="修缮" />
+    <MESSAGE value="paper manager" />
+    <MESSAGE value="finish article insert" />
+    <MESSAGE value="basic interface" />
+    <MESSAGE value="add orderBy in label search" />
+    <MESSAGE value="basic framework" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic framework" />
+  </component>
+</project>

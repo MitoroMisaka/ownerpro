@@ -3,19 +3,18 @@ package com.ownerpro.web.controller.file;
 import com.ownerpro.web.common.Result;
 import com.ownerpro.web.service.file.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
 
 import com.ownerpro.web.entity.Files;
 
@@ -71,6 +70,26 @@ public class FileController {
             }
 
         }
+    }
+
+    @GetMapping(value = "/get-file/{id}")
+    public ResponseEntity<FileSystemResource> getFile(@PathVariable("id") Long id) throws FileNotFoundException {
+        Files files = fileService.getFileById(id);
+        String filepath = files.getFilePath();
+        //convert "\" to "/"
+        filepath = filepath.replace("\\","/");
+        return export(filepath);
+    }
+
+    public ResponseEntity<FileSystemResource> export(String filepath) throws FileNotFoundException {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+        headers.add("Content-Disposition", "attachment; filename=" + "8964");
+        headers.add("Pragma", "no-cache");
+        headers.add("Expires", "0");
+        headers.add("Last-Modified", new Date().toString());
+        headers.add("ETag", String.valueOf(System.currentTimeMillis()));
+        return ResponseEntity.ok().headers(headers).contentType(MediaType.parseMediaType("application/octet-stream")).body(new FileSystemResource(filepath));
     }
 
 }
