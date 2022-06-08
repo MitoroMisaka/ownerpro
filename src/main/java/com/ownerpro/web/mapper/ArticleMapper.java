@@ -97,6 +97,8 @@ public interface ArticleMapper extends MyMapper<Article> {
 
     @Select("SELECT reference_id, name, url FROM reference")
     List<Reference> getAllReferences();
+
+
     //add note
     @Insert("INSERT INTO note (article_id, content, publisher) VALUES (#{article_id}, #{content}, #{publisher})")
     void addNote(@Param("article_id")Long article_id, @Param("content")String content, @Param("publisher")String publisher);
@@ -107,12 +109,14 @@ public interface ArticleMapper extends MyMapper<Article> {
     @Select("SELECT id FROM user WHERE username = #{username}")
     Long getIdByUsername(@Param("username")String username);
 
-    @Insert("INSERT INTO comment (comment_time, content, id, likes, article_id, super_id, name) VALUES (#{comment_time}, #{content}, #{id}, 0, #{article_id}, #{super_id}, #{name})")
-    void addComment(@Param("comment_time")Timestamp comment_time, @Param("content")String content, @Param("id")Long id,
-                    @Param("article_id")Long article_id, @Param("super_id")Long super_id, @Param("name")String name);
 
-    @Select("SELECT * FROM comment WHERE super_id = 0")
-    List<Comment> getMainComment();
+    //about the comment
+    @Insert("INSERT INTO comment (comment_time, content, id, likes, note_id, super_id, name) VALUES (#{comment_time}, #{content}, #{id}, 0, #{note_id}, #{super_id}, #{name})")
+    void addComment(@Param("comment_time")Timestamp comment_time, @Param("content")String content, @Param("id")Long id,
+                    @Param("note_id")Long note_id, @Param("super_id")Long super_id, @Param("name")String name);
+
+    @Select("SELECT * FROM comment WHERE super_id = 0 and note_id = #{id}")
+    List<Comment> getMainComment(@Param("id")Long id);
 
     @Select("SELECT * FROM comment WHERE super_id = #{super_id}")
     List<Comment> getSubComment(@Param("super_id")Long super_id);

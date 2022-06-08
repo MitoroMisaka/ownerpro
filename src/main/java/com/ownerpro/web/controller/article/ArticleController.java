@@ -6,11 +6,14 @@ import com.ownerpro.web.common.Result;
 import com.ownerpro.web.controller.comment.CommentRequest;
 import com.ownerpro.web.dto.NoteRequest;
 import com.ownerpro.web.dto.UserDTO;
+import com.ownerpro.web.mapper.ArticleMapper;
+import com.ownerpro.web.mapper.NoteMapper;
 import com.ownerpro.web.service.article.ArticleService;
 import com.ownerpro.web.util.SessionUtil;
 import io.swagger.annotations.*;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +39,9 @@ public class ArticleController {
 
     @Autowired
     SessionUtil sessionUtil;
+
+    @Autowired
+    NoteMapper noteMapper;
 
     @PostMapping("/addArticle")
     @ApiOperation(value = "添加文章", notes = "添加文章")
@@ -164,10 +170,16 @@ public class ArticleController {
         return Result.success("添加成功！");
     }
 
+    @PostMapping("/add_note1")
+    @ApiOperation(value = "添加笔记", notes = "添加笔记")
+    public int addNote1(@RequestBody Bean bean){
+        return noteMapper.add(bean);
+    }
+
     @PostMapping("/add_comment")
     @ApiOperation(value = "添加评论", notes = "添加评论")
     public Result addComment(@RequestBody CommentRequest commentRequest){
-        Long article_id = commentRequest.getArticle_id();
+        Long note_id = commentRequest.getNote_id();
         String content = commentRequest.getContent();
         Long super_id = commentRequest.getSuper_id();
         UserDTO principal = (UserDTO) SecurityUtils.getSubject().getPrincipal();
@@ -175,14 +187,14 @@ public class ArticleController {
         String name = articleService.getNameByUsername(principal.getUsername());
         //get the time now
         Timestamp time = new Timestamp(System.currentTimeMillis());
-        articleService.addComment(article_id, content, super_id, user_id, time, name);
+        articleService.addComment(note_id, content, super_id, user_id, time, name);
         return Result.success("添加成功！");
     }
 
-    @GetMapping("/get_comment")
+    @GetMapping("/get_comment/{id}")
     @ApiOperation(value = "获取评论", notes = "获取评论")
-    public Object getComment(@NotNull @RequestBody PageParam pageParam){
-        return articleService.getComment(pageParam);
+    public Object getComment(@NotNull @RequestBody PageParam pageParam, @PathVariable Long id){
+        return articleService.getComment(pageParam, id);
     }
 }
 

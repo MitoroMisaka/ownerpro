@@ -49,12 +49,10 @@ public class FileServiceImpl implements FileService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //create 2 Long type random number
-        long random1 = (long) (Math.random() * 1000000);
-        long random2 = (long) (Math.random() * 1000000);
         //将这些文件的信息写入到数据库中
         fileMapper.insertFile(newFile.getPath(),fileName, suffixName);
-        return Result.success("上传成功");
+        String url = "http://localhost:8081/"+fileName;
+        return Result.success("上传成功", url);
     }
 
     //根据id获取文件信息
@@ -74,6 +72,17 @@ public class FileServiceImpl implements FileService {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public Result deleteFile(Long id){
+        Files files = fileMapper.selectFileById(id);
+        File file=new File(files.getFilePath());
+        if (file.exists()){
+            file.delete();
+        }
+        fileMapper.deleteFile(id);
+        return Result.success("删除成功");
     }
 }
 

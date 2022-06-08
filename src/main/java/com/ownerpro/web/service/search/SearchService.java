@@ -10,13 +10,13 @@ import java.util.List;
 public interface SearchService {
     Page<Article> searchTitle(String title, Integer pageSize, Integer pageNum, String orderBy);
     List<String> getSearchRecord(Integer id);
-    Object searchByLabel(String content, String label, Integer pageSize, Integer pageNum, String orderBy);
+    Object searchByLabel(String content,String label_content, String label, Integer pageSize, Integer pageNum, String orderBy);
     //search by writer
-    Page<Article> searchByWriter(String content, Integer pageSize, Integer pageNum, String orderBy);
+    Page<Article> searchByWriter(String content,String label_content, Integer pageSize, Integer pageNum, String orderBy);
     //search by keyword
-    Page<Article> searchByKeyword(String content, Integer pageSize, Integer pageNum, String orderBy);
+    Page<Article> searchByKeyword(String content,String label_content, Integer pageSize, Integer pageNum, String orderBy);
     //search by type
-    Page<Article> searchByType(String content, Integer pageSize, Integer pageNum, String orderBy);
+    Page<Article> searchByType(String content,String label_content, Integer pageSize, Integer pageNum, String orderBy);
     //search by area
-    Page<Article> searchByArea(String content, Integer pageSize, Integer pageNum, String orderBy);
+    Page<Article> searchByArea(String content,String label_content, Integer pageSize, Integer pageNum, String orderBy);
 }

@@ -72,6 +72,11 @@ public class FileController {
         }
     }
 
+    @PostMapping("/delete/{id}")
+    public Result deleteFile(@PathVariable("id") Long id){
+        return fileService.deleteFile(id);
+    }
+
     @GetMapping(value = "/get-file/{id}")
     public ResponseEntity<FileSystemResource> getFile(@PathVariable("id") Long id) throws FileNotFoundException {
         Files files = fileService.getFileById(id);

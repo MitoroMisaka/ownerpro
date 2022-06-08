@@ -29,4 +29,6 @@ public interface FileService {
      * @return
      */
     InputStream getFileInputStream(Files files);
+
+    Result deleteFile(Long id);
 }

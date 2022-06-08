@@ -52,9 +52,9 @@ public class SearchController {
 
     @GetMapping("/by_label")
     @ApiOperation("根据标签搜索")
-    public Result searchByLabel(@RequestParam("content")String content, @RequestParam("label")String label,
+    public Result searchByLabel(@RequestParam("content")String content, @RequestParam("label_content")String[] label_content, @RequestParam("label")String label,
                                 @RequestParam("pageSize")Integer pageSize, @RequestParam("pageNum")Integer pageNum, @RequestParam("orderBy")String orderBy){
-        return Result.success("success", searchService.searchByLabel(content, label, pageSize, pageNum, orderBy));
+        return Result.success("success", searchService.searchByLabel(content,label_content[0], label, pageSize, pageNum, orderBy));
     }
 
 }

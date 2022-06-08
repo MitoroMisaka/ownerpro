@@ -231,17 +231,17 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void addComment(Long article_id, String content, Long super_id, Long id, Timestamp comment_time, String name){
-        articleMapper.addComment(comment_time, content, id, article_id, super_id, name);
+    public void addComment(Long note_id, String content, Long super_id, Long id, Timestamp comment_time, String name){
+        articleMapper.addComment(comment_time, content, id, note_id, super_id, name);
     }
 
     @Override
-    public Page<CommentResponse> getComment(PageParam pageParam){
+    public Page<CommentResponse> getComment(PageParam pageParam, Long id){
         //get the comment and the subcomments
         int pageNum = pageParam.getPageNum();
         int pageSize = pageParam.getPageSize();
         PageHelper.startPage(pageNum, pageSize);
-        List<Comment> commentList = articleMapper.getMainComment();
+        List<Comment> commentList = articleMapper.getMainComment(id);
         List<CommentResponse> commentResponseList = new ArrayList<>();
         //add element to the List
         for(Comment comment : commentList){

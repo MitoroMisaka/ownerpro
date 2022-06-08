@@ -16,7 +16,7 @@ public class CommentRequest {
     @ApiModelProperty("comment")
     private String content;
     @ApiModelProperty("article_id")
-    private Long article_id;
+    private Long note_id;
     @ApiModelProperty("super_id")
     private Long super_id;
 }

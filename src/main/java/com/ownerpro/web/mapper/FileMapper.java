@@ -13,4 +13,8 @@ public interface FileMapper {
 
     @Select("SELECT * FROM file WHERE file_id = #{id}")
     Files selectFileById(@Param("id")Long id);
+
+    //deleteFile
+    @Select("DELETE FROM file WHERE file_id = #{id}")
+    void deleteFile(@Param("id")Long id);
 }

@@ -70,7 +70,7 @@ public interface ArticleService {
 
     Long getIdByUsername(String username);
 
-    void addComment(Long article_id, String content, Long super_id, Long id, Timestamp comment_time, String name );
+    void addComment(Long note_id, String content, Long super_id, Long id, Timestamp comment_time, String name );
 
-    Page<CommentResponse> getComment(PageParam pageParam);
+    Page<CommentResponse> getComment(PageParam pageParam, Long id);
 }
