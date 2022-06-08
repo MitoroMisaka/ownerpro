@@ -1,5 +1,6 @@
 package com.ownerpro.web.service.account.impl;
 
+import com.ownerpro.web.common.Result;
 import com.ownerpro.web.entity.Admin;
 import com.ownerpro.web.entity.User;
 import com.ownerpro.web.mapper.AdminMapper;
@@ -67,5 +68,22 @@ public class AccountServiceImpl extends BaseService implements AccountService {
     @Override
     public Admin getAdmin(String username){
         return userMapper.getAdminByUsername(username);
+    }
+
+    @Override
+    public Result changeRole(Long id){
+        userMapper.updateRole(id);
+        return Result.success("修改成功");
+    }
+
+    @Override
+    public Result getPriority(String username){
+        //if username is in the user table return "用户" else return "管理员"
+        User user = userMapper.getUserByUsername(username);
+        if(user!=null){
+            return Result.success("用户");
+        }else{
+            return Result.success("管理员");
+        }
     }
 }

@@ -12,6 +12,7 @@ import com.ownerpro.web.service.article.ArticleService;
 import com.ownerpro.web.util.SessionUtil;
 import io.swagger.annotations.*;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.util.StringUtils;
@@ -43,6 +44,7 @@ public class ArticleController {
     @Autowired
     NoteMapper noteMapper;
 
+    @RequiresRoles("user")
     @PostMapping("/addArticle")
     @ApiOperation(value = "添加文章", notes = "添加文章")
     public Result addArticle(@ApiParam @RequestBody ArticleRequest articleRequest) throws ParseException {
@@ -158,6 +160,7 @@ public class ArticleController {
         return articleService.getAllReferences(pageParam);
     }
 
+    @RequiresRoles("user")
     @PostMapping("/add_note")
     @ApiOperation(value = "添加笔记", notes = "添加笔记")
     public Result addNote(@RequestBody NoteRequest noteRequest){
@@ -170,12 +173,14 @@ public class ArticleController {
         return Result.success("添加成功！");
     }
 
+    @RequiresRoles("user")
     @PostMapping("/add_note1")
     @ApiOperation(value = "添加笔记", notes = "添加笔记")
     public int addNote1(@RequestBody Bean bean){
         return noteMapper.add(bean);
     }
 
+    @RequiresRoles("user")
     @PostMapping("/add_comment")
     @ApiOperation(value = "添加评论", notes = "添加评论")
     public Result addComment(@RequestBody CommentRequest commentRequest){
@@ -191,6 +196,59 @@ public class ArticleController {
         return Result.success("添加成功！");
     }
 
+    @RequiresRoles("admin")
+    @PostMapping("/delete_article")
+    @ApiOperation(value = "删除文章", notes = "删除文章")
+    public Result deleteArticle(@RequestParam Long id){
+        return articleService.deleteArticle(id);
+    }
+
+    //delete comment by comment_id
+    @RequiresRoles("admin")
+    @PostMapping("/delete_comment")
+    @ApiOperation(value = "删除评论", notes = "删除评论")
+    public Result deleteComment(@RequestParam Long comment_id){
+        return articleService.deleteComment(comment_id);
+    }
+
+    //delete type by type_id
+    @RequiresRoles("admin")
+    @PostMapping("/delete_type")
+    @ApiOperation(value = "删除关联表中类型", notes = "删除类型")
+    public Result deleteType(@RequestParam Long type_id){
+        return articleService.deleteType(type_id);
+    }
+
+    //delete keyword by keyword_id
+    @RequiresRoles("admin")
+    @PostMapping("/delete_keyword")
+    @ApiOperation(value = "删除关联表中关键词", notes = "删除关键词")
+    public Result deleteKeyword(@RequestParam Long keyword_id){
+        return articleService.deleteKeyword(keyword_id);
+    }
+
+    @RequiresRoles("admin")
+    @PostMapping("/delete_reference")
+    @ApiOperation(value = "删除引用", notes = "删除引用")
+    public Result deleteReference(@RequestParam Long reference_id){
+        return articleService.deleteReference(reference_id);
+    }
+
+    @RequiresRoles("admin")
+    @PostMapping("/delete_note")
+    @ApiOperation(value = "删除笔记", notes = "删除笔记")
+    public Result deleteNote(@RequestParam Long note_id){
+        return articleService.deleteNote(note_id);
+    }
+
+    @RequiresRoles("admin")
+    @PostMapping("/delete_area")
+    @ApiOperation(value = "删除关联表中领域", notes = "删除领域")
+    public Result deleteArea(@RequestParam Long area_id){
+        return articleService.deleteArea(area_id);
+    }
+
+    @RequiresRoles("admin")
     @GetMapping("/get_comment/{id}")
     @ApiOperation(value = "获取评论", notes = "获取评论")
     public Object getComment(@NotNull @RequestBody PageParam pageParam, @PathVariable Long id){

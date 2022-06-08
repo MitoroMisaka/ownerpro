@@ -5,6 +5,7 @@ import com.ownerpro.web.controller.article.ArticleListResponse;
 import com.ownerpro.web.entity.Article;
 import com.ownerpro.web.entity.Comment;
 import com.ownerpro.web.entity.Reference;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -120,6 +121,59 @@ public interface ArticleMapper extends MyMapper<Article> {
 
     @Select("SELECT * FROM comment WHERE super_id = #{super_id}")
     List<Comment> getSubComment(@Param("super_id")Long super_id);
+
+    @Delete("DELETE FROM comment WHERE id = #{id}")
+    void deleteCommentById(@Param("id")Long id);
+
+    //delete type , keyword , note , reference and writer , area
+    @Delete("DELETE FROM article_type WHERE article_type_id = #{type_id}")
+    void deleteTypeById(@Param("type_id")Long type_id);
+
+    @Delete("DELETE FROM article_keyword WHERE article_keyword_id = #{keyword_id}")
+    void deleteKeywordById(@Param("keyword_id")Long keyword_id);
+
+    @Delete("DELETE FROM note WHERE note_id = #{note_id}")
+    void deleteNoteById(@Param("note_id")Long note_id);
+
+    @Delete("DELETE FROM article_reference WHERE reference_id = #{reference_id}")
+    void deleteReferenceById(@Param("reference_id")Long reference_id);
+
+    @Delete("DELETE FROM article_writer WHERE article_writer_id = #{writer_id}")
+    void deleteWriterById(@Param("writer_id")Long writer_id);
+
+    @Delete("DELETE FROM article_area WHERE article_area_id = #{area_id}")
+    void deleteAreaById(@Param("area_id")Long area_id);
+
+
+
+    //delete from article , article_keyword , article_type, article_area, article_writer where id = #{id}
+    @Delete("DELETE FROM article WHERE article_id = #{id}")
+    void deleteArticle(@Param("id")Long id);
+
+    @Delete("DELETE FROM article_keyword WHERE article_id = #{id}")
+    void deleteArticleKeyword(@Param("id")Long id);
+
+    @Delete("DELETE FROM article_type WHERE article_id = #{id}")
+    void deleteArticleType(@Param("id")Long id);
+
+    @Delete("DELETE FROM article_area WHERE article_id = #{id}")
+    void deleteArticleArea(@Param("id")Long id);
+
+    @Delete("DELETE FROM article_writer WHERE article_id = #{id}")
+    void deleteArticleWriter(@Param("id")Long id);
+
+    @Delete("DELETE FROM comment WHERE note_id = #{id}")
+    void deleteComment(@Param("id")Long id);
+
+    @Delete("DELETE FROM note WHERE article_id = #{id}")
+    void deleteNote(@Param("id")Long id);
+
+
+
+    @Delete("DELETE FROM article_reference WHERE article_id = #{id}")
+    void deleteArticleReference(@Param("id")Long id);
+
+
 
     /*@Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE magazine = #{magazine}")
     List<ArticleListResponse> getArticleByMagazine(@Param("magazine") String magazine);

@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ownerpro.web.common.Page;
 import com.ownerpro.web.common.PageParam;
+import com.ownerpro.web.common.Result;
 import com.ownerpro.web.controller.article.ArticleListResponse;
 import com.ownerpro.web.controller.article.ArticleResponse;
 import com.ownerpro.web.controller.comment.CommentResponse;
@@ -249,5 +250,99 @@ public class ArticleServiceImpl implements ArticleService {
             commentResponseList.add(new CommentResponse(comment, subComment));
         }
         return new Page<>(new PageInfo<>(commentResponseList));
+    }
+
+    //delete from article , article_keyword , article_type, article_area, article_writer , comment, note, reference where id = #{id}
+    @Override
+    public Result deleteArticle(Long id){
+        try {
+            articleMapper.deleteArticle(id);
+            articleMapper.deleteArticleKeyword(id);
+            articleMapper.deleteArticleType(id);
+            articleMapper.deleteArticleArea(id);
+            articleMapper.deleteArticleWriter(id);
+            articleMapper.deleteComment(id);
+            articleMapper.deleteNote(id);
+            articleMapper.deleteArticleReference(id);
+        }catch (Exception e){
+            return Result.fail("删除失败");
+        }
+        return Result.success("删除成功");
+    }
+
+    @Override
+    public Result deleteComment(Long id){
+        try {
+            articleMapper.deleteCommentById(id);
+        }catch (Exception e){
+            return Result.fail("删除失败");
+        }
+        return Result.success("删除成功");
+    }
+
+    //delete type by type_id
+    @Override
+    public Result deleteType(Long id){
+        try {
+            articleMapper.deleteTypeById(id);
+        }catch (Exception e){
+            return Result.fail("删除失败");
+        }
+        return Result.success("删除成功");
+    }
+
+    //delete area by area_id
+    @Override
+    public Result deleteArea(Long area_id){
+        try {
+            articleMapper.deleteAreaById(area_id);
+        }catch (Exception e){
+            return Result.fail("删除失败");
+        }
+        return Result.success("删除成功");
+    }
+
+    //delete writer by writer_id
+    @Override
+    public Result deleteWriter(Long writer_id){
+        try {
+            articleMapper.deleteWriterById(writer_id);
+        }catch (Exception e){
+            return Result.fail("删除失败");
+        }
+        return Result.success("删除成功");
+    }
+
+    //delete keyword by keyword_id
+    @Override
+    public Result deleteKeyword(Long keyword_id){
+        try {
+            articleMapper.deleteKeywordById(keyword_id);
+        }catch (Exception e){
+            return Result.fail("删除失败");
+        }
+        return Result.success("删除成功");
+    }
+
+    //delete reference by reference_id
+    @Override
+    public Result deleteReference(Long reference_id){
+        try {
+            articleMapper.deleteReferenceById(reference_id);
+        }catch (Exception e){
+            return Result.fail("删除失败");
+        }
+        return Result.success("删除成功");
+    }
+
+    //delete note by note_id
+    @Override
+    public Result deleteNote(Long note_id){
+        try {
+            articleMapper.deleteNoteById(note_id);
+        }catch (Exception e){
+            return Result.fail("删除失败");
+        }
+        return Result.success("删除成功");
     }
 }

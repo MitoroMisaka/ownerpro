@@ -3,6 +3,7 @@ package com.ownerpro.web.service.article;
 
 import com.ownerpro.web.common.Page;
 import com.ownerpro.web.common.PageParam;
+import com.ownerpro.web.common.Result;
 import com.ownerpro.web.controller.article.ArticleListResponse;
 import com.ownerpro.web.controller.article.ArticleResponse;
 import com.ownerpro.web.controller.comment.CommentResponse;
@@ -73,4 +74,26 @@ public interface ArticleService {
     void addComment(Long note_id, String content, Long super_id, Long id, Timestamp comment_time, String name );
 
     Page<CommentResponse> getComment(PageParam pageParam, Long id);
+
+    Result deleteArticle(Long article_id);
+
+    Result deleteComment(Long comment_id);
+
+    //delete type by type_id
+    Result deleteType(Long type_id);
+
+    //delete area by area_id
+    Result deleteArea(Long area_id);
+
+    //delete keyword by keyword_id
+    Result deleteKeyword(Long keyword_id);
+
+    //delete writer by writer_id
+    Result deleteWriter(Long writer_id);
+
+    //delete reference by reference_id
+    Result deleteReference(Long reference_id);
+
+    //delete note by note_id
+    Result deleteNote(Long note_id);
 }

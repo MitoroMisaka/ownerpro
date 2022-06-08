@@ -147,5 +147,22 @@ public class AccountController {
         }
     }
 
+    //降低权限
+    @RequiresRoles("admin")
+    @PostMapping("/changeRole/{id}")
+    @ApiOperation("降低权限")
+    public Result changeRole(@PathVariable("id")Long id){
+        return accountService.changeRole(id);
+    }
+
+    //see priorities
+    @RequiresRoles("admin")
+    @GetMapping("/priority/{username}")
+    @ApiOperation("获取用户的类别")
+    public Result getPriority(@PathVariable("username")String username){
+        return accountService.getPriority(username);
+    }
+
+
 
 }

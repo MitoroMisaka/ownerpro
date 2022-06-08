@@ -41,4 +41,8 @@ public interface UserMapper extends MyMapper<User> {
 
     @Select("SELECT * FROM admin WHERE username=#{username}")
     Admin getAdminByUsername(@Param("username")String username);
+
+    //set type 0 for user
+    @Update("UPDATE user SET type=0 WHERE id=#{id}")
+    void updateRole(@Param("id")Long id);
 }
