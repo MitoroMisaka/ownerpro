@@ -84,7 +84,7 @@ public class FileController {
     public ResponseEntity<FileSystemResource> export(String filepath) throws FileNotFoundException {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
-        headers.add("Content-Disposition", "attachment; filename=" + "8964");
+        headers.add("Content-Disposition", "attachment; filename=" + "test.txt");
         headers.add("Pragma", "no-cache");
         headers.add("Expires", "0");
         headers.add("Last-Modified", new Date().toString());

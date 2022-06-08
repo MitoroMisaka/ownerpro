@@ -3,6 +3,7 @@ server:
   tomcat:
     uri-encoding: UTF-8
 
+
 spring:
   http:
     encoding:
@@ -24,6 +25,18 @@ spring:
 
   jackson:
     time-zone: GMT+8
+
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/, file:${spring.servlet.multipart.location}
+
+  servlet:
+    multipart:
+      location: D:/temp/files/
+
+
+
+web:
+  upload-path: D:/temp/files
 
 file:
   save-path: D:/temp/files
