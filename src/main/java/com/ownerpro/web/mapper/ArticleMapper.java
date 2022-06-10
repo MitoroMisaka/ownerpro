@@ -178,6 +178,10 @@ public interface ArticleMapper extends MyMapper<Article> {
     @Select("SELECT * FROM note WHERE article_id = #{id}")
     List<Note> getNotes(@Param("id")Long id);
 
+    // get note by id
+    @Select("SELECT * FROM note WHERE note_id = #{id}")
+    Note getNoteById(@Param("id")Long id);
+
     /*@Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE magazine = #{magazine}")
     List<ArticleListResponse> getArticleByMagazine(@Param("magazine") String magazine);
 

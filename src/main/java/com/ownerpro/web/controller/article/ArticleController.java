@@ -181,6 +181,13 @@ public class ArticleController {
         return articleService.getNotes(article_id, pageNum, pageSize, orderBy);
     }
 
+    //get note by note_id
+    @GetMapping("/get_note_by_id")
+    @ApiOperation(value = "获取笔记", notes = "获取笔记")
+    public Object getNoteById(@NotNull @RequestParam(value = "note_id") Long note_id){
+        return articleService.getNoteById(note_id);
+    }
+
     @RequiresRoles("user")
     @PostMapping("/add_comment")
     @ApiOperation(value = "添加评论", notes = "添加评论")

@@ -99,4 +99,6 @@ public interface ArticleService {
     Result deleteNote(Long note_id);
 
     Page<Note> getNotes(Long article_id, int pageNum, int pageSize, String orderBy);
+
+    Note getNoteById(Long note_id);
 }

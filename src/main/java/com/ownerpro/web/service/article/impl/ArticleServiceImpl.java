@@ -353,4 +353,9 @@ public class ArticleServiceImpl implements ArticleService {
         List<Note> noteList = articleMapper.getNotes(article_id);
         return new Page<>(new PageInfo<>(noteList));
     }
+
+    @Override
+    public Note getNoteById(Long note_id){
+        return articleMapper.getNoteById(note_id);
+    }
 }
