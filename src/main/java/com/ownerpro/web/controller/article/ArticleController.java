@@ -169,7 +169,9 @@ public class ArticleController {
         UserDTO principal = (UserDTO) SecurityUtils.getSubject().getPrincipal();
         String username = principal.getUsername();
         String publisher = articleService.getNameByUsername(username);
-        articleService.addNote(article_id, content, publisher);
+        //get time now
+        Timestamp date = new Timestamp(System.currentTimeMillis());
+        articleService.addNote(article_id, content, publisher, date);
         return Result.success("添加成功！");
     }
 

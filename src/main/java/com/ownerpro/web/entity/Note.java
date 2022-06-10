@@ -30,4 +30,7 @@ public class Note implements Serializable
 
     @ApiModelProperty("发布者")
     private String publisher;
+
+    @ApiModelProperty("发布时间")
+    private String publish_time;
 }

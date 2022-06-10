@@ -66,7 +66,7 @@ public interface ArticleService {
 
     Page<Reference> getAllReferences(PageParam pageParam);
     //About the note
-    void addNote(Long article_id, String content, String publisher);
+    void addNote(Long article_id, String content, String publisher, Timestamp publish_time);
 
     String getNameByUsername(String username);
 

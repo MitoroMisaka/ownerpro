@@ -102,8 +102,8 @@ public interface ArticleMapper extends MyMapper<Article> {
 
 
     //add note
-    @Insert("INSERT INTO note (article_id, content, publisher) VALUES (#{article_id}, #{content}, #{publisher})")
-    void addNote(@Param("article_id")Long article_id, @Param("content")String content, @Param("publisher")String publisher);
+    @Insert("INSERT INTO note (article_id, content, publisher, publish_time) VALUES (#{article_id}, #{content}, #{publisher}, #{publish_time})")
+    void addNote(@Param("article_id")Long article_id, @Param("content")String content, @Param("publisher")String publisher, @Param("publish_time")Timestamp publish_time);
 
     @Select("SELECT name FROM user WHERE username = #{username}")
     String getNameByUsername(@Param("username")String username);

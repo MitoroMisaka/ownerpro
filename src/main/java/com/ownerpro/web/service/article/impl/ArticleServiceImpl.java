@@ -218,8 +218,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
     //About the notes
     @Override
-    public void addNote(Long article_id, String content, String publisher){
-        articleMapper.addNote(article_id, content , publisher);
+    public void addNote(Long article_id, String content, String publisher, Timestamp publish_time){
+        articleMapper.addNote(article_id, content , publisher, publish_time);
     }
 
     @Override
