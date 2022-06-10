@@ -51,8 +51,12 @@ public class FileServiceImpl implements FileService {
         }
         //将这些文件的信息写入到数据库中
         fileMapper.insertFile(newFile.getPath(),fileName, suffixName);
-        String url = "http://localhost:8081/"+fileName;
-        return Result.success("上传成功", url);
+        //path 减去前面14个字符，因为文件的路径是：
+        //D:/IdeaProjects/ownerpro/src/main/resources/static/upload/
+        //所以要减去14个字符
+
+        String url = "http://localhost:8081/"+newFile.getPath().substring(14);
+        return Result.success(url);
     }
 
     //根据id获取文件信息

@@ -9,6 +9,7 @@ import com.ownerpro.web.controller.article.ArticleListResponse;
 import com.ownerpro.web.controller.article.ArticleResponse;
 import com.ownerpro.web.controller.comment.CommentResponse;
 import com.ownerpro.web.entity.Comment;
+import com.ownerpro.web.entity.Note;
 import com.ownerpro.web.entity.Reference;
 import com.ownerpro.web.mapper.ArticleMapper;
 import com.ownerpro.web.service.article.ArticleService;
@@ -344,5 +345,12 @@ public class ArticleServiceImpl implements ArticleService {
             return Result.fail("删除失败");
         }
         return Result.success("删除成功");
+    }
+
+    @Override
+    public Page<Note> getNotes(Long article_id, int pageNum, int pageSize, String orderBy){
+        PageHelper.startPage(pageNum, pageSize, orderBy);
+        List<Note> noteList = articleMapper.getNotes(article_id);
+        return new Page<>(new PageInfo<>(noteList));
     }
 }

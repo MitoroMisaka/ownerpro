@@ -173,11 +173,12 @@ public class ArticleController {
         return Result.success("添加成功！");
     }
 
-    @RequiresRoles("user")
-    @PostMapping("/add_note1")
-    @ApiOperation(value = "添加笔记", notes = "添加笔记")
-    public int addNote1(@RequestBody Bean bean){
-        return noteMapper.add(bean);
+    //get note by article_id
+    @GetMapping("/get_note")
+    @ApiOperation(value = "获取笔记", notes = "获取笔记")
+    public Object getNote(@NotNull @RequestParam(value = "article_id") Long article_id, @RequestParam(value = "pageSize") Integer pageSize,
+                          @RequestParam(value = "pageNum") Integer pageNum, @RequestParam(value = "orderBy") String orderBy){
+        return articleService.getNotes(article_id, pageNum, pageSize, orderBy);
     }
 
     @RequiresRoles("user")

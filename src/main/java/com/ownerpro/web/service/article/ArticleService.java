@@ -8,6 +8,7 @@ import com.ownerpro.web.controller.article.ArticleListResponse;
 import com.ownerpro.web.controller.article.ArticleResponse;
 import com.ownerpro.web.controller.comment.CommentResponse;
 import com.ownerpro.web.entity.Comment;
+import com.ownerpro.web.entity.Note;
 import com.ownerpro.web.entity.Reference;
 
 
@@ -96,4 +97,6 @@ public interface ArticleService {
 
     //delete note by note_id
     Result deleteNote(Long note_id);
+
+    Page<Note> getNotes(Long article_id, int pageNum, int pageSize, String orderBy);
 }

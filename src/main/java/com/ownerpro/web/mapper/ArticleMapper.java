@@ -4,6 +4,7 @@ import com.ownerpro.web.MyMapper;
 import com.ownerpro.web.controller.article.ArticleListResponse;
 import com.ownerpro.web.entity.Article;
 import com.ownerpro.web.entity.Comment;
+import com.ownerpro.web.entity.Note;
 import com.ownerpro.web.entity.Reference;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -173,7 +174,9 @@ public interface ArticleMapper extends MyMapper<Article> {
     @Delete("DELETE FROM article_reference WHERE article_id = #{id}")
     void deleteArticleReference(@Param("id")Long id);
 
-
+    //get notes
+    @Select("SELECT * FROM note WHERE article_id = #{id}")
+    List<Note> getNotes(@Param("id")Long id);
 
     /*@Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE magazine = #{magazine}")
     List<ArticleListResponse> getArticleByMagazine(@Param("magazine") String magazine);
