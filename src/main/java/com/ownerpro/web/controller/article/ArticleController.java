@@ -55,75 +55,69 @@ public class ArticleController {
         String date = articleRequest.getDate();
         String url = articleRequest.getUrl();
         String abstract_content = articleRequest.getAbstract_content();
-        if(StringUtils.isEmpty(title) ||  StringUtils.isEmpty(magazine) ||
-                StringUtils.isEmpty(date) || StringUtils.isEmpty(url) || StringUtils.isEmpty(abstract_content)){
+        if (StringUtils.isEmpty(title) || StringUtils.isEmpty(magazine) ||
+                StringUtils.isEmpty(date) || StringUtils.isEmpty(url) || StringUtils.isEmpty(abstract_content)) {
             return Result.fail("标题，作者，发布会议，日期，文献链接，主要内容不能为空");
         }
         DateFormat df = new SimpleDateFormat("dd-MM-yy");
-        //convert date to timestamp
-        /*try {
-            Timestamp date1 = new Timestamp(df.parse(date).getTime());
-        } catch (ParseException e) {
-            return Result.fail("日期格式错误");
-        }*/
         Timestamp date1 = new Timestamp(df.parse(date).getTime());
         Timestamp date2 = new Timestamp(System.currentTimeMillis());
-        try{
+        try {
             //add article
             articleService.insertArticle(title, magazine, date1, url, abstract_content, date2);
-        }catch (Exception e){
+        } catch (Exception e) {
             return Result.fail("添加文章失败");
         }
         Long article_id = articleService.selectIDByTitle(title);
         //add article_writer
         List<String> writer = ArticleRequest.class.cast(articleRequest).getWriter();
-        for(Iterator<String> it = writer.iterator(); it.hasNext();){
+        for (Iterator<String> it = writer.iterator(); it.hasNext(); ) {
             //if writer is not exist, add it
             String name = it.next();
-            if(!articleService.isWriterExists(name)){
+            if (!articleService.isWriterExists(name)) {
                 articleService.insertWriter(name);
             }
             Long writer_id = articleService.selectWriterIDByName(name);
-            if(!articleService.isArticleWriterExists(article_id, writer_id)) {
+            if (!articleService.isArticleWriterExists(article_id, writer_id)) {
                 articleService.insertArticleWriter(article_id, writer_id);
             }
         }
         //add article_area
         List<String> area = ArticleRequest.class.cast(articleRequest).getArea();
-        for(Iterator<String> it = area.iterator(); it.hasNext();){
+        for (Iterator<String> it = area.iterator(); it.hasNext(); ) {
             //if area is not exist, add it
             String name = it.next();
-            if(!articleService.isAreaExists(name)){
+            if (!articleService.isAreaExists(name)) {
                 articleService.insertArea(name);
             }
             Long area_id = articleService.selectAreaIDByName(name);
-            if(!articleService.isArticleAreaExists(article_id, area_id)) {
+            if (!articleService.isArticleAreaExists(article_id, area_id)) {
                 articleService.insertArticleArea(article_id, area_id);
             }
         }
         //add article_keyword
         List<String> keyword = ArticleRequest.class.cast(articleRequest).getKeyword();
-        for(Iterator<String> it = keyword.iterator(); it.hasNext();){
+        for (Iterator<String> it = keyword.iterator(); it.hasNext(); ) {
             //if keyword is not exist, add it
             String name = it.next();
-            if(!articleService.isKeywordExists(name)){
+            if (!articleService.isKeywordExists(name)) {
                 articleService.insertKeyword(name);
             }
             Long keyword_id = articleService.selectKeywordIDByWord(name);
-            if(!articleService.isArticleKeywordExists(article_id, keyword_id)) {
+            if (!articleService.isArticleKeywordExists(article_id, keyword_id)) {
                 articleService.insertArticleKeyword(article_id, keyword_id);
             }
         }
         //add article_type
         List<String> type = ArticleRequest.class.cast(articleRequest).getType();
-        for(Iterator<String> it = type.iterator(); it.hasNext();){
+        for (Iterator<String> it = type.iterator(); it.hasNext(); ) {
             //if type is not exist, add it
             String name = it.next();
-            if(!articleService.isTypeExists(name)){
+            if (!articleService.isTypeExists(name)) {
                 articleService.insertType(name);
             }
             Long type_id = articleService.selectTypeIDByName(name);
-            if(!articleService.isArticleTypeExists(article_id, type_id)) {
+            if (!articleService.isArticleTypeExists(article_id, type_id)) {
                 articleService.insertArticleType(article_id, type_id);
             }
         }
@@ -147,33 +141,33 @@ public class ArticleController {
     @GetMapping("/get_article_info")
     @ApiOperation(value = "获取文章信息", notes = "获取文章信息")
     @ApiModelProperty()
-    public ArticleResponse getArticleInfo(@Validated @NotNull Long article_id){
+    public ArticleResponse getArticleInfo(@Validated @NotNull Long article_id) {
         try {
-        return articleService.selectArticleById(article_id);
-        }catch (Exception e){
+            return articleService.selectArticleById(article_id);
+        } catch (Exception e) {
             return null;
         }
     }
 
     @PostMapping("/add_reference")
     @ApiOperation(value = "添加文章引用", notes = "添加文章引用")
-    public Result addReference(@NotNull @RequestBody ReferenceRequest referenceRequest){
+    public Result addReference(@NotNull @RequestBody ReferenceRequest referenceRequest) {
         Long article_id = referenceRequest.getArticle_id();
         Long reference_id = referenceRequest.getReference_id();
         String note = referenceRequest.getNote();
-        return  articleService.insertReference(article_id, reference_id, note);
+        return articleService.insertReference(article_id, reference_id, note);
     }
 
     @GetMapping("/get_all_reference")
     @ApiOperation(value = "获取所有引用", notes = "获取所有引用")
-    public Object getAllReference(@NotNull @RequestBody PageParam pageParam){
+    public Object getAllReference(@NotNull @RequestBody PageParam pageParam) {
         return articleService.getAllReferences(pageParam);
     }
 
     @RequiresRoles("user")
     @PostMapping("/add_note")
     @ApiOperation(value = "添加笔记", notes = "添加笔记")
-    public Result addNote(@RequestBody NoteRequest noteRequest){
+    public Result addNote(@RequestBody NoteRequest noteRequest) {
         Long article_id = noteRequest.getArticle_id();
         String content = noteRequest.getContent();
         UserDTO principal = (UserDTO) SecurityUtils.getSubject().getPrincipal();
@@ -189,21 +183,21 @@ public class ArticleController {
     @GetMapping("/get_note")
     @ApiOperation(value = "获取笔记", notes = "获取笔记")
     public Object getNote(@NotNull @RequestParam(value = "article_id") Long article_id, @RequestParam(value = "pageSize") Integer pageSize,
-                          @RequestParam(value = "pageNum") Integer pageNum, @RequestParam(value = "orderBy") String orderBy){
+                          @RequestParam(value = "pageNum") Integer pageNum, @RequestParam(value = "orderBy") String orderBy) {
         return articleService.getNotes(article_id, pageNum, pageSize, orderBy);
     }
 
     //get note by note_id
     @GetMapping("/get_note_by_id")
     @ApiOperation(value = "获取笔记", notes = "获取笔记")
-    public Object getNoteById(@NotNull @RequestParam(value = "note_id") Long note_id){
+    public Object getNoteById(@NotNull @RequestParam(value = "note_id") Long note_id) {
         return articleService.getNoteById(note_id);
     }
 
     @RequiresRoles("user")
     @PostMapping("/add_comment")
     @ApiOperation(value = "添加评论", notes = "添加评论")
-    public Result addComment(@RequestBody CommentRequest commentRequest){
+    public Result addComment(@RequestBody CommentRequest commentRequest) {
         Long note_id = commentRequest.getNote_id();
         String content = commentRequest.getContent();
         Long super_id = commentRequest.getSuper_id();
@@ -219,7 +213,7 @@ public class ArticleController {
     @RequiresRoles("admin")
     @PostMapping("/delete_article")
     @ApiOperation(value = "删除文章", notes = "删除文章")
-    public Result deleteArticle(@RequestParam Long id){
+    public Result deleteArticle(@RequestParam Long id) {
         return articleService.deleteArticle(id);
     }
 
@@ -227,7 +221,7 @@ public class ArticleController {
     @RequiresRoles("admin")
     @PostMapping("/delete_comment")
     @ApiOperation(value = "删除评论", notes = "删除评论")
-    public Result deleteComment(@RequestParam Long comment_id){
+    public Result deleteComment(@RequestParam Long comment_id) {
         return articleService.deleteComment(comment_id);
     }
 
@@ -235,7 +229,7 @@ public class ArticleController {
     @RequiresRoles("admin")
     @PostMapping("/delete_type")
     @ApiOperation(value = "删除关联表中类型", notes = "删除类型")
-    public Result deleteType(@RequestParam Long type_id){
+    public Result deleteType(@RequestParam Long type_id) {
         return articleService.deleteType(type_id);
     }
 
@@ -243,35 +237,35 @@ public class ArticleController {
     @RequiresRoles("admin")
     @PostMapping("/delete_keyword")
     @ApiOperation(value = "删除关联表中关键词", notes = "删除关键词")
-    public Result deleteKeyword(@RequestParam Long keyword_id){
+    public Result deleteKeyword(@RequestParam Long keyword_id) {
         return articleService.deleteKeyword(keyword_id);
     }
 
     @RequiresRoles("admin")
     @PostMapping("/delete_reference")
     @ApiOperation(value = "删除引用", notes = "删除引用")
-    public Result deleteReference(@RequestParam Long reference_id){
+    public Result deleteReference(@RequestParam Long reference_id) {
         return articleService.deleteReference(reference_id);
     }
 
     @RequiresRoles("admin")
     @PostMapping("/delete_note")
     @ApiOperation(value = "删除笔记", notes = "删除笔记")
-    public Result deleteNote(@RequestParam Long note_id){
+    public Result deleteNote(@RequestParam Long note_id) {
         return articleService.deleteNote(note_id);
     }
 
     @RequiresRoles("admin")
     @PostMapping("/delete_area")
     @ApiOperation(value = "删除关联表中领域", notes = "删除领域")
-    public Result deleteArea(@RequestParam Long area_id){
+    public Result deleteArea(@RequestParam Long area_id) {
         return articleService.deleteArea(area_id);
     }
 
     @GetMapping("/get_comment")
     @ApiOperation(value = "获取评论", notes = "获取评论")
-    public Object getComment(@RequestParam("pageNum") int pageNum,@RequestParam("pageSize") int pageSize,
-                             @RequestParam("orderBy")String orderBy,  @RequestParam("id") Long id){
+    public Object getComment(@RequestParam("pageNum") int pageNum, @RequestParam("pageSize") int pageSize,
+                             @RequestParam("orderBy") String orderBy, @RequestParam("id") Long id) {
         return articleService.getComment(pageNum, pageSize, orderBy, id);
     }
 
@@ -279,7 +273,7 @@ public class ArticleController {
     @RequiresRoles("user")
     @PostMapping("/like_note")
     @ApiOperation(value = "点赞笔记", notes = "点赞笔记")
-    public Result likeNote(@RequestParam Long note_id){
+    public Result likeNote(@RequestParam Long note_id) {
         return articleService.likeNote(note_id);
     }
 
@@ -287,10 +281,85 @@ public class ArticleController {
     @RequiresRoles("user")
     @PostMapping("/like_comment")
     @ApiOperation(value = "点赞评论", notes = "点赞评论")
-    public Result likeComment(@RequestParam Long comment_id){
+    public Result likeComment(@RequestParam Long comment_id) {
         return articleService.likeComment(comment_id);
     }
 
     //update area type keyword writer and reference
+    @RequiresRoles("user")
+    @PostMapping("/update_article")
+    @ApiOperation(value = "更新文章", notes = "更新文章")
+    public Result updateArticle(@RequestBody ArticleRequest articleRequest) throws ParseException {
+        String title = articleRequest.getTitle();
+        String magazine = articleRequest.getMagazine();
+        String date = articleRequest.getDate();
+        String url = articleRequest.getUrl();
+        String abstract_content = articleRequest.getAbstract_content();
+        if (StringUtils.isEmpty(title) || StringUtils.isEmpty(magazine) ||
+                StringUtils.isEmpty(date) || StringUtils.isEmpty(url) || StringUtils.isEmpty(abstract_content)) {
+            return Result.fail("标题，作者，发布会议，日期，文献链接，主要内容不能为空");
+        }
+        DateFormat df = new SimpleDateFormat("dd-MM-yy");
+        Timestamp date1 = new Timestamp(df.parse(date).getTime());
+        Timestamp date2 = new Timestamp(System.currentTimeMillis());
+        Long article_id = articleService.selectIDByTitle(title);
+        // update article
+        articleService.updateArticle(title, magazine, date1, url, abstract_content, date2);
+        // update area
+        List<String> area = ArticleRequest.class.cast(articleRequest).getArea();
+        for (Iterator<String> it = area.iterator(); it.hasNext(); ) {
+            //if area is not exist, add it
+            String name = it.next();
+            if (!articleService.isAreaExists(name)) {
+                articleService.insertArea(name);
+            }
+            Long area_id = articleService.selectAreaIDByName(name);
+            if (!articleService.isArticleAreaExists(article_id, area_id)) {
+                articleService.updateArticleArea(article_id, area_id);
+            }
+        }
+        // update type
+        List<String> type = ArticleRequest.class.cast(articleRequest).getType();
+        for (Iterator<String> it = type.iterator(); it.hasNext(); ) {
+            //if type is not exist, add it
+            String name = it.next();
+            if (!articleService.isTypeExists(name)) {
+                articleService.insertType(name);
+            }
+            Long type_id = articleService.selectTypeIDByName(name);
+            if (!articleService.isArticleTypeExists(article_id, type_id)) {
+                articleService.updateArticleType(article_id, type_id);
+            }
+        }
+        // update keyword
+        List<String> keyword = ArticleRequest.class.cast(articleRequest).getKeyword();
+        for (Iterator<String> it = keyword.iterator(); it.hasNext(); ) {
+            //if keyword is not exist, add it
+            String name = it.next();
+            if (!articleService.isKeywordExists(name)) {
+                articleService.insertKeyword(name);
+            }
+            Long keyword_id = articleService.selectKeywordIDByWord(name);
+            if (!articleService.isArticleKeywordExists(article_id, keyword_id)) {
+                articleService.updateArticleKeyword(article_id, keyword_id);
+            }
+        }
+        // update writer
+        List<String> writer = ArticleRequest.class.cast(articleRequest).getWriter();
+        for (Iterator<String> it = writer.iterator(); it.hasNext(); ) {
+            //if writer is not exist, add it
+            String name = it.next();
+            if (!articleService.isWriterExists(name)) {
+                articleService.insertWriter(name);
+            }
+            Long writer_id = articleService.selectWriterIDByName(name);
+            if (!articleService.isArticleWriterExists(article_id, writer_id)) {
+                articleService.updateArticleWriter(article_id, writer_id);
+            }
+        }
+        return Result.success("更新成功");
+
+    }
+
 }
 

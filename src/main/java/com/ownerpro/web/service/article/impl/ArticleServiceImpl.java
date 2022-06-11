@@ -381,4 +381,32 @@ public class ArticleServiceImpl implements ArticleService {
         articleMapper.insertReference(article_id, reference_id, note);
         return Result.success("添加成功");
     }
+
+    //update
+    @Override
+    public void updateArticle( String title, String magazine,  Timestamp date, String url,String abstract_content, Timestamp upload_time){
+        articleMapper.updateArticle(title, magazine, date, url, abstract_content, upload_time);
+    }
+
+    @Override
+    public void updateArticleKeyword(Long article_id, Long keyword_id){
+        articleMapper.updateArticleKeyword(article_id, keyword_id);
+    }
+
+    @Override
+    public void updateArticleType(Long article_id, Long type_id){
+        articleMapper.updateArticleType(article_id, type_id);
+    }
+
+    @Override
+    public void updateArticleArea(Long article_id, Long area_id){
+        articleMapper.updateArticleArea(article_id, area_id);
+    }
+
+    @Override
+    public void updateArticleWriter(Long article_id, Long writer_id){
+        articleMapper.updateArticleWriter(article_id, writer_id);
+    }
+
+
 }

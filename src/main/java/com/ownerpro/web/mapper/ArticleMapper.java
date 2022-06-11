@@ -189,6 +189,28 @@ public interface ArticleMapper extends MyMapper<Article> {
     @Update("UPDATE comment SET likes = likes + 1 WHERE comment_id = #{id}")
     void likeComment(@Param("id")Long id);
 
+    //update article with title, magazine, date, url, abstract_content, upload_time
+    @Update("UPDATE article SET title = #{title}, magazine = #{magazine}, date = #{date}, url = #{url}, abstract_content = #{abstract_content}, upload_time = #{upload_time} WHERE article_id = #{id}")
+    void updateArticle( @Param("title")String title, @Param("magazine")String magazine, @Param("date")Timestamp date, @Param("url")String url, @Param("abstract_content")String abstract_content, @Param("upload_time")Timestamp upload_time);
+
+    //update article_keyword
+    @Update("UPDATE article_keyword SET keyword_id = #{keyword_id} WHERE article_id = #{article_id}")
+    void updateArticleKeyword(@Param("article_id")Long article_id, @Param("keyword_id")Long keyword_id);
+
+    //update article_type
+    @Update("UPDATE article_type SET type_id = #{type_id} WHERE article_id = #{article_id}")
+    void updateArticleType(@Param("article_id")Long article_id, @Param("type_id")Long type_id);
+
+    //update article_area
+    @Update("UPDATE article_area SET area_id = #{area_id} WHERE article_id = #{article_id}")
+    void updateArticleArea(@Param("article_id")Long article_id, @Param("area_id")Long area_id);
+
+    //update article_writer
+    @Update("UPDATE article_writer SET writer_id = #{writer_id} WHERE article_id = #{article_id}")
+    void updateArticleWriter(@Param("article_id")Long article_id, @Param("writer_id")Long writer_id);
+
+
+
     /*@Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE magazine = #{magazine}")
     List<ArticleListResponse> getArticleByMagazine(@Param("magazine") String magazine);
 
