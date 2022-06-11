@@ -258,11 +258,31 @@ public class ArticleController {
         return articleService.deleteArea(area_id);
     }
 
-    @RequiresRoles("admin")
-    @GetMapping("/get_comment/{id}")
+    @GetMapping("/get_comment")
     @ApiOperation(value = "获取评论", notes = "获取评论")
-    public Object getComment(@NotNull @RequestBody PageParam pageParam, @PathVariable Long id){
-        return articleService.getComment(pageParam, id);
+    public Object getComment(@RequestParam("pageNum") int pageNum,@RequestParam("pageSize") int pageSize,
+                             @RequestParam("orderBy")String orderBy,  @RequestParam("id") Long id){
+        return articleService.getComment(pageNum, pageSize, orderBy, id);
     }
+
+    //like a note
+    @RequiresRoles("user")
+    @PostMapping("/like_note")
+    @ApiOperation(value = "点赞笔记", notes = "点赞笔记")
+    public Result likeNote(@RequestParam Long note_id){
+        articleService.likeNote(note_id);
+        return Result.success("点赞成功！");
+    }
+
+    //like a comment
+    @RequiresRoles("user")
+    @PostMapping("/like_comment")
+    @ApiOperation(value = "点赞评论", notes = "点赞评论")
+    public Result likeComment(@RequestParam Long comment_id){
+        articleService.likeComment(comment_id);
+        return Result.success("点赞成功！");
+    }
+
+    //update area type keyword writer and reference
 }
 

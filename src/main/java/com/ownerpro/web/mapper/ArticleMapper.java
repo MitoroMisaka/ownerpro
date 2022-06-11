@@ -6,10 +6,7 @@ import com.ownerpro.web.entity.Article;
 import com.ownerpro.web.entity.Comment;
 import com.ownerpro.web.entity.Note;
 import com.ownerpro.web.entity.Reference;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
@@ -181,6 +178,13 @@ public interface ArticleMapper extends MyMapper<Article> {
     // get note by id
     @Select("SELECT * FROM note WHERE note_id = #{id}")
     Note getNoteById(@Param("id")Long id);
+
+    //like a note and comment
+    @Update("UPDATE note SET likes = likes + 1 WHERE note_id = #{id}")
+    void likeNote(@Param("id")Long id);
+
+    @Update("UPDATE comment SET likes = likes + 1 WHERE comment_id = #{id}")
+    void likeComment(@Param("id")Long id);
 
     /*@Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE magazine = #{magazine}")
     List<ArticleListResponse> getArticleByMagazine(@Param("magazine") String magazine);

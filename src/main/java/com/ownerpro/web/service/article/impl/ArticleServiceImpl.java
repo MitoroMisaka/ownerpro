@@ -238,11 +238,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Page<CommentResponse> getComment(PageParam pageParam, Long id){
-        //get the comment and the subcomments
-        int pageNum = pageParam.getPageNum();
-        int pageSize = pageParam.getPageSize();
-        PageHelper.startPage(pageNum, pageSize);
+    public Page<CommentResponse> getComment(int pageNum, int pageSize, String orderBy, Long id){
+        PageHelper.startPage(pageNum, pageSize, orderBy);
         List<Comment> commentList = articleMapper.getMainComment(id);
         List<CommentResponse> commentResponseList = new ArrayList<>();
         //add element to the List
@@ -357,5 +354,25 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Note getNoteById(Long note_id){
         return articleMapper.getNoteById(note_id);
+    }
+
+    @Override
+    public Result likeNote(Long note_id){
+        try {
+            articleMapper.likeNote(note_id);
+        }catch (Exception e){
+            return Result.fail("点赞失败");
+        }
+        return Result.success("点赞成功");
+    }
+
+    @Override
+    public Result likeComment(Long comment_id){
+        try {
+            articleMapper.likeComment(comment_id);
+        }catch (Exception e){
+            return Result.fail("点赞失败");
+        }
+        return Result.success("点赞成功");
     }
 }

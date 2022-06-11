@@ -74,7 +74,7 @@ public interface ArticleService {
 
     void addComment(Long note_id, String content, Long super_id, Long id, Timestamp comment_time, String name );
 
-    Page<CommentResponse> getComment(PageParam pageParam, Long id);
+    Page<CommentResponse> getComment(int pageNum, int pageSize, String orderBy, Long id);
 
     Result deleteArticle(Long article_id);
 
@@ -101,4 +101,8 @@ public interface ArticleService {
     Page<Note> getNotes(Long article_id, int pageNum, int pageSize, String orderBy);
 
     Note getNoteById(Long note_id);
+
+    Result likeNote(Long note_id);
+
+    Result likeComment(Long comment_id);
 }
