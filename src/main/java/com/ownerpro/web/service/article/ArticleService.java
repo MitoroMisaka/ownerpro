@@ -105,4 +105,6 @@ public interface ArticleService {
     Result likeNote(Long note_id);
 
     Result likeComment(Long comment_id);
+
+    Result insertReference(Long article_id, Long reference_id, String note);
 }

@@ -97,6 +97,9 @@ public interface ArticleMapper extends MyMapper<Article> {
     @Select("SELECT reference_id, name, url FROM reference")
     List<Reference> getAllReferences();
 
+    @Insert("INSERT INTO article_reference (article_id, reference_id, note) VALUES (#{article_id}, #{reference_id}, #{note})")
+    void insertReference(@Param("article_id")Long article_id, @Param("reference_id")Long reference_id, @Param("note")String note);
+
 
     //add note
     @Insert("INSERT INTO note (article_id, content, publisher, publish_time) VALUES (#{article_id}, #{content}, #{publisher}, #{publish_time})")

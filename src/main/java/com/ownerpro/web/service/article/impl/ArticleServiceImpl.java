@@ -375,4 +375,10 @@ public class ArticleServiceImpl implements ArticleService {
         }
         return Result.success("点赞成功");
     }
+
+    @Override
+    public Result insertReference(Long article_id, Long reference_id, String note){
+        articleMapper.insertReference(article_id, reference_id, note);
+        return Result.success("添加成功");
+    }
 }

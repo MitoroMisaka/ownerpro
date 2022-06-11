@@ -5,6 +5,7 @@ import com.ownerpro.web.common.PageParam;
 import com.ownerpro.web.common.Result;
 import com.ownerpro.web.controller.comment.CommentRequest;
 import com.ownerpro.web.dto.NoteRequest;
+import com.ownerpro.web.dto.ReferenceRequest;
 import com.ownerpro.web.dto.UserDTO;
 import com.ownerpro.web.mapper.ArticleMapper;
 import com.ownerpro.web.mapper.NoteMapper;
@@ -154,6 +155,15 @@ public class ArticleController {
         }
     }
 
+    @PostMapping("/add_reference")
+    @ApiOperation(value = "添加文章引用", notes = "添加文章引用")
+    public Result addReference(@NotNull @RequestBody ReferenceRequest referenceRequest){
+        Long article_id = referenceRequest.getArticle_id();
+        Long reference_id = referenceRequest.getReference_id();
+        String note = referenceRequest.getNote();
+        return  articleService.insertReference(article_id, reference_id, note);
+    }
+
     @GetMapping("/get_all_reference")
     @ApiOperation(value = "获取所有引用", notes = "获取所有引用")
     public Object getAllReference(@NotNull @RequestBody PageParam pageParam){
@@ -270,8 +280,7 @@ public class ArticleController {
     @PostMapping("/like_note")
     @ApiOperation(value = "点赞笔记", notes = "点赞笔记")
     public Result likeNote(@RequestParam Long note_id){
-        articleService.likeNote(note_id);
-        return Result.success("点赞成功！");
+        return articleService.likeNote(note_id);
     }
 
     //like a comment
@@ -279,8 +288,7 @@ public class ArticleController {
     @PostMapping("/like_comment")
     @ApiOperation(value = "点赞评论", notes = "点赞评论")
     public Result likeComment(@RequestParam Long comment_id){
-        articleService.likeComment(comment_id);
-        return Result.success("点赞成功！");
+        return articleService.likeComment(comment_id);
     }
 
     //update area type keyword writer and reference
