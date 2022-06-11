@@ -40,6 +40,9 @@ public class ArticleController {
     ArticleService articleService;
 
     @Autowired
+    ArticleMapper articleMapper;
+
+    @Autowired
     SessionUtil sessionUtil;
 
     @Autowired
@@ -285,11 +288,11 @@ public class ArticleController {
         return articleService.likeComment(comment_id);
     }
 
-    //update area type keyword writer and reference
-    @RequiresRoles("user")
+    //update article
     @PostMapping("/update_article")
     @ApiOperation(value = "更新文章", notes = "更新文章")
-    public Result updateArticle(@RequestBody ArticleRequest articleRequest) throws ParseException {
+    public Result updateArticle(@RequestBody ArticleUpdateRequest articleRequest) throws ParseException {
+        articleService.deleteMainArticle(articleRequest.getArticle_id());
         String title = articleRequest.getTitle();
         String magazine = articleRequest.getMagazine();
         String date = articleRequest.getDate();
@@ -302,64 +305,152 @@ public class ArticleController {
         DateFormat df = new SimpleDateFormat("dd-MM-yy");
         Timestamp date1 = new Timestamp(df.parse(date).getTime());
         Timestamp date2 = new Timestamp(System.currentTimeMillis());
-        Long article_id = articleService.selectIDByTitle(title);
-        // update article
-        articleService.updateArticle(title, magazine, date1, url, abstract_content, date2);
-        // update area
-        List<String> area = ArticleRequest.class.cast(articleRequest).getArea();
-        for (Iterator<String> it = area.iterator(); it.hasNext(); ) {
-            //if area is not exist, add it
-            String name = it.next();
-            if (!articleService.isAreaExists(name)) {
-                articleService.insertArea(name);
-            }
-            Long area_id = articleService.selectAreaIDByName(name);
-            if (!articleService.isArticleAreaExists(article_id, area_id)) {
-                articleService.updateArticleArea(article_id, area_id);
-            }
+        try {
+            //add article
+            articleService.insertArticle(title, magazine, date1, url, abstract_content, date2);
+        } catch (Exception e) {
+            return Result.fail("添加文章失败");
         }
-        // update type
-        List<String> type = ArticleRequest.class.cast(articleRequest).getType();
-        for (Iterator<String> it = type.iterator(); it.hasNext(); ) {
-            //if type is not exist, add it
-            String name = it.next();
-            if (!articleService.isTypeExists(name)) {
-                articleService.insertType(name);
-            }
-            Long type_id = articleService.selectTypeIDByName(name);
-            if (!articleService.isArticleTypeExists(article_id, type_id)) {
-                articleService.updateArticleType(article_id, type_id);
-            }
-        }
-        // update keyword
-        List<String> keyword = ArticleRequest.class.cast(articleRequest).getKeyword();
-        for (Iterator<String> it = keyword.iterator(); it.hasNext(); ) {
-            //if keyword is not exist, add it
-            String name = it.next();
-            if (!articleService.isKeywordExists(name)) {
-                articleService.insertKeyword(name);
-            }
-            Long keyword_id = articleService.selectKeywordIDByWord(name);
-            if (!articleService.isArticleKeywordExists(article_id, keyword_id)) {
-                articleService.updateArticleKeyword(article_id, keyword_id);
-            }
-        }
-        // update writer
-        List<String> writer = ArticleRequest.class.cast(articleRequest).getWriter();
-        for (Iterator<String> it = writer.iterator(); it.hasNext(); ) {
+        Long article_id = articleRequest.getArticle_id();
+        //add article_writer
+        List<String> writer = articleRequest.getWriter();
+        for (String name : writer) {
             //if writer is not exist, add it
-            String name = it.next();
             if (!articleService.isWriterExists(name)) {
                 articleService.insertWriter(name);
             }
             Long writer_id = articleService.selectWriterIDByName(name);
             if (!articleService.isArticleWriterExists(article_id, writer_id)) {
-                articleService.updateArticleWriter(article_id, writer_id);
+                articleService.insertArticleWriter(article_id, writer_id);
             }
         }
-        return Result.success("更新成功");
-
+        //add article_area
+        List<String> area = articleRequest.getArea();
+        for (String name : area) {
+            //if area is not exist, add it
+            if (!articleService.isAreaExists(name)) {
+                articleService.insertArea(name);
+            }
+            Long area_id = articleService.selectAreaIDByName(name);
+            if (!articleService.isArticleAreaExists(article_id, area_id)) {
+                articleService.insertArticleArea(article_id, area_id);
+            }
+        }
+        //add article_keyword
+        List<String> keyword = articleRequest.getKeyword();
+        for (String name : keyword) {
+            //if keyword is not exist, add it
+            if (!articleService.isKeywordExists(name)) {
+                articleService.insertKeyword(name);
+            }
+            Long keyword_id = articleService.selectKeywordIDByWord(name);
+            if (!articleService.isArticleKeywordExists(article_id, keyword_id)) {
+                articleService.insertArticleKeyword(article_id, keyword_id);
+            }
+        }
+        //add article_type
+        List<String> type =  articleRequest.getType();
+        for (String name : type) {
+            //if type is not exist, add it
+            if (!articleService.isTypeExists(name)) {
+                articleService.insertType(name);
+            }
+            Long type_id = articleService.selectTypeIDByName(name);
+            if (!articleService.isArticleTypeExists(article_id, type_id)) {
+                articleService.insertArticleType(article_id, type_id);
+            }
+        }
+        articleMapper.updateIdByTitle(articleRequest.getArticle_id(), title);
+        return Result.success("添加成功！");
     }
+
+    //update area type keyword writer and reference
+//    @PostMapping("/update_article")
+//    @ApiOperation(value = "更新文章", notes = "更新文章")
+//    public Result updateArticle(@RequestBody ArticleUpdateRequest articleUpdateRequest) throws ParseException {
+//        Long id = articleUpdateRequest.getArticle_id();
+//        String title = articleUpdateRequest.getTitle();
+//        String magazine = articleUpdateRequest.getMagazine();
+//        String date = articleUpdateRequest.getDate();
+//        String url = articleUpdateRequest.getUrl();
+//        String abstract_content = articleUpdateRequest.getAbstract_content();
+//        if (StringUtils.isEmpty(title) || StringUtils.isEmpty(magazine) ||
+//                StringUtils.isEmpty(date) || StringUtils.isEmpty(url) || StringUtils.isEmpty(abstract_content)) {
+//            return Result.fail("标题，作者，发布会议，日期，文献链接，主要内容不能为空");
+//        }
+//        DateFormat df = new SimpleDateFormat("dd-MM-yy");
+//        Timestamp date1 = new Timestamp(df.parse(date).getTime());
+//        Timestamp date2 = new Timestamp(System.currentTimeMillis());
+//        Long article_id = articleService.selectIDByTitle(title);
+//        // update article
+//        articleService.updateArticle(article_id,title, magazine, date1, url, abstract_content, date2);
+//        // update area
+//        List<Long> article_area_id = articleMapper.getArticleAreaId(article_id);
+//        int article_area_count = 0;
+//        List<String> area = ArticleUpdateRequest.class.cast(articleUpdateRequest).getArea();
+//        for (Iterator<String> it = area.iterator(); it.hasNext(); ) {
+//            //get the next Long in article_area_id
+//            Long article_area_id1 = article_area_id.get(article_area_count);
+//            article_area_count++;
+//            //if area is not exist, add it
+//            String name = it.next();
+//            if (!articleService.isAreaExists(name)) {
+//                articleService.insertArea(name);
+//            }
+//            Long area_id = articleService.selectAreaIDByName(name);
+//            articleService.updateArticleArea(article_id, area_id, article_area_id1);
+//        }
+//        // update type
+//        List<Long> article_type_id = articleMapper.getArticleTypeId(article_id);
+//        int article_type_count = 0;
+//        List<String> type = ArticleUpdateRequest.class.cast(articleUpdateRequest).getType();
+//        for (Iterator<String> it = type.iterator(); it.hasNext(); ) {
+//            //get the next Long in article_type_id
+//            Long article_type_id1 = article_type_id.get(article_type_count);
+//            article_type_count++;
+//            //if type is not exist, add it
+//            String name = it.next();
+//            if (!articleService.isTypeExists(name)) {
+//                articleService.insertType(name);
+//            }
+//            Long type_id = articleService.selectTypeIDByName(name);
+//            articleService.updateArticleType(article_id, type_id, article_type_id1);
+//        }
+//        // update keyword
+//        List<Long> article_keyword_id = articleMapper.getArticleKeywordId(article_id);
+//        int article_keyword_count = 0;
+//        List<String> keyword = ArticleUpdateRequest.class.cast(articleUpdateRequest).getKeyword();
+//        for (Iterator<String> it = keyword.iterator(); it.hasNext(); ) {
+//            //get the next Long in article_keyword_id
+//            Long article_keyword_id1 = article_keyword_id.get(article_keyword_count);
+//            article_keyword_count++;
+//            //if keyword is not exist, add it
+//            String name = it.next();
+//            if (!articleService.isKeywordExists(name)) {
+//                articleService.insertKeyword(name);
+//            }
+//            Long keyword_id = articleService.selectKeywordIDByWord(name);
+//            articleService.updateArticleKeyword(article_id, keyword_id, article_keyword_id1);
+//        }
+//        // update writer
+//        List<Long> article_writer_id = articleMapper.getArticleWriterId(article_id);
+//        int article_writer_count = 0;
+//        List<String> writer = ArticleUpdateRequest.class.cast(articleUpdateRequest).getWriter();
+//        for (Iterator<String> it = writer.iterator(); it.hasNext(); ) {
+//            //get the next Long in article_writer_id
+//            Long article_writer_id1 = article_writer_id.get(article_writer_count);
+//            article_writer_count++;
+//            //if writer is not exist, add it
+//            String name = it.next();
+//            if (!articleService.isWriterExists(name)) {
+//                articleService.insertWriter(name);
+//            }
+//            Long writer_id = articleService.selectWriterIDByName(name);
+//            articleService.updateArticleWriter(article_id, writer_id, article_writer_id1);
+//        }
+//        return Result.success("更新成功");
+//
+//    }
 
 }
 

@@ -190,24 +190,44 @@ public interface ArticleMapper extends MyMapper<Article> {
     void likeComment(@Param("id")Long id);
 
     //update article with title, magazine, date, url, abstract_content, upload_time
-    @Update("UPDATE article SET title = #{title}, magazine = #{magazine}, date = #{date}, url = #{url}, abstract_content = #{abstract_content}, upload_time = #{upload_time} WHERE article_id = #{id}")
-    void updateArticle( @Param("title")String title, @Param("magazine")String magazine, @Param("date")Timestamp date, @Param("url")String url, @Param("abstract_content")String abstract_content, @Param("upload_time")Timestamp upload_time);
+    @Update("UPDATE article SET title = #{title}, magazine = #{magazine}, date = #{date}, url = #{url}, abstract_content = #{abstract_content}, upload_time = #{upload_time} WHERE article_id = #{article_id}")
+    void updateArticle(@Param("article_id")Long article_id, @Param("title")String title, @Param("magazine")String magazine, @Param("date")Timestamp date, @Param("url")String url, @Param("abstract_content")String abstract_content, @Param("upload_time")Timestamp upload_time);
 
     //update article_keyword
-    @Update("UPDATE article_keyword SET keyword_id = #{keyword_id} WHERE article_id = #{article_id}")
-    void updateArticleKeyword(@Param("article_id")Long article_id, @Param("keyword_id")Long keyword_id);
+    @Update("UPDATE article_keyword SET article_id = #{article_id}, keyword_id = #{keyword_id} WHERE article_keyword_id = #{article_keyword_id}")
+    void updateArticleKeyword(@Param("article_id")Long article_id, @Param("keyword_id")Long keyword_id, @Param("article_keyword_id")Long article_keyword_id);
 
     //update article_type
-    @Update("UPDATE article_type SET type_id = #{type_id} WHERE article_id = #{article_id}")
-    void updateArticleType(@Param("article_id")Long article_id, @Param("type_id")Long type_id);
+    @Update("UPDATE article_type SET article_id = #{article_id}, type_id = #{type_id} WHERE article_type_id = #{article_type_id}")
+    void updateArticleType(@Param("article_id")Long article_id, @Param("type_id")Long type_id, @Param("article_type_id")Long article_type_id);
 
     //update article_area
-    @Update("UPDATE article_area SET area_id = #{area_id} WHERE article_id = #{article_id}")
-    void updateArticleArea(@Param("article_id")Long article_id, @Param("area_id")Long area_id);
+    @Update("UPDATE article_area SET article_id = #{article_id}, area_id = #{area_id} WHERE article_area_id = #{article_area_id}")
+    void updateArticleArea(@Param("article_id")Long article_id, @Param("area_id")Long area_id, @Param("article_area_id")Long article_area_id);
 
     //update article_writer
-    @Update("UPDATE article_writer SET writer_id = #{writer_id} WHERE article_id = #{article_id}")
-    void updateArticleWriter(@Param("article_id")Long article_id, @Param("writer_id")Long writer_id);
+    @Update("UPDATE article_writer SET article_id = #{article_id}, writer_id = #{writer_id} WHERE article_writer_id = #{article_writer_id}")
+    void updateArticleWriter(@Param("article_id")Long article_id, @Param("writer_id")Long writer_id, @Param("article_writer_id")Long article_writer_id);
+
+    //get article_area_id by article_id
+    @Select("SELECT article_area_id FROM article_area WHERE article_id = #{article_id}")
+    List<Long> getArticleAreaId(@Param("article_id")Long article_id);
+
+    //get article_writer_id by article_id
+    @Select("SELECT article_writer_id FROM article_writer WHERE article_id = #{article_id}")
+    List<Long> getArticleWriterId(@Param("article_id")Long article_id);
+
+    //get article_keyword_id by article_id
+    @Select("SELECT article_keyword_id FROM article_keyword WHERE article_id = #{article_id}")
+    List<Long> getArticleKeywordId(@Param("article_id")Long article_id);
+
+    //get article_type_id by article_id
+    @Select("SELECT article_type_id FROM article_type WHERE article_id = #{article_id}")
+    List<Long> getArticleTypeId(@Param("article_id")Long article_id);
+
+    //update article_id by title
+    @Update("UPDATE article SET article_id = #{article_id} WHERE title = #{title}")
+    void updateIdByTitle(@Param("article_id")Long article_id, @Param("title")String title);
 
 
 

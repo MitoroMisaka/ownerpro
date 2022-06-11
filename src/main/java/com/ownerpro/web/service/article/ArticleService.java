@@ -78,6 +78,8 @@ public interface ArticleService {
 
     Result deleteArticle(Long article_id);
 
+    Result deleteMainArticle(Long article_id);
+
     Result deleteComment(Long comment_id);
 
     //delete type by type_id
@@ -110,9 +112,9 @@ public interface ArticleService {
 
     //update
     //update article
-    void updateArticle( String title, String magazine,  Timestamp date, String url,String abstract_content, Timestamp upload_time);
-    void updateArticleWriter(Long article_id, Long writer_id);
-    void updateArticleArea(Long area_id, Long article_id);
-    void updateArticleKeyword(Long Keyword_id, Long article_id);
-    void updateArticleType(Long type_id, Long article_id);
+    void updateArticle(Long article_id, String title, String magazine,  Timestamp date, String url,String abstract_content, Timestamp upload_time);
+    void updateArticleWriter(Long article_id, Long writer_id, Long article_writer_id);
+    void updateArticleArea(Long area_id, Long article_id, Long article_area_id);
+    void updateArticleKeyword(Long Keyword_id, Long article_id, Long article_keyword_id);
+    void updateArticleType(Long type_id, Long article_id, Long article_type_id);
 }

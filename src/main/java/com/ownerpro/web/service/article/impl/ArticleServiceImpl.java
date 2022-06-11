@@ -269,6 +269,20 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    public Result deleteMainArticle(Long article_id){
+        try {
+            articleMapper.deleteArticle(article_id);
+            articleMapper.deleteArticleKeyword(article_id);
+            articleMapper.deleteArticleType(article_id);
+            articleMapper.deleteArticleArea(article_id);
+            articleMapper.deleteArticleWriter(article_id);
+        }catch (Exception e){
+            return Result.fail("删除失败");
+        }
+        return Result.success("删除成功");
+    }
+
+    @Override
     public Result deleteComment(Long id){
         try {
             articleMapper.deleteCommentById(id);
@@ -384,28 +398,28 @@ public class ArticleServiceImpl implements ArticleService {
 
     //update
     @Override
-    public void updateArticle( String title, String magazine,  Timestamp date, String url,String abstract_content, Timestamp upload_time){
-        articleMapper.updateArticle(title, magazine, date, url, abstract_content, upload_time);
+    public void updateArticle(Long article_id, String title, String magazine,  Timestamp date, String url,String abstract_content, Timestamp upload_time){
+        articleMapper.updateArticle(article_id,title, magazine, date, url, abstract_content, upload_time);
     }
 
     @Override
-    public void updateArticleKeyword(Long article_id, Long keyword_id){
-        articleMapper.updateArticleKeyword(article_id, keyword_id);
+    public void updateArticleKeyword(Long article_id, Long keyword_id, Long article_keyword_id){
+        articleMapper.updateArticleKeyword(article_id, keyword_id, article_keyword_id);
     }
 
     @Override
-    public void updateArticleType(Long article_id, Long type_id){
-        articleMapper.updateArticleType(article_id, type_id);
+    public void updateArticleType(Long article_id, Long type_id, Long article_type_id){
+        articleMapper.updateArticleType(article_id, type_id, article_type_id);
     }
 
     @Override
-    public void updateArticleArea(Long article_id, Long area_id){
-        articleMapper.updateArticleArea(article_id, area_id);
+    public void updateArticleArea(Long article_id, Long area_id, Long article_area_id){
+        articleMapper.updateArticleArea(article_id, area_id, article_area_id);
     }
 
     @Override
-    public void updateArticleWriter(Long article_id, Long writer_id){
-        articleMapper.updateArticleWriter(article_id, writer_id);
+    public void updateArticleWriter(Long article_id, Long writer_id, Long article_writer_id){
+        articleMapper.updateArticleWriter(article_id, writer_id, article_writer_id);
     }
 
 
