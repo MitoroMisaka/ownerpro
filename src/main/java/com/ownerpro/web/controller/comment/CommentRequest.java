@@ -15,8 +15,10 @@ import lombok.NoArgsConstructor;
 public class CommentRequest {
     @ApiModelProperty("comment")
     private String content;
-    @ApiModelProperty("article_id")
+    @ApiModelProperty("note_id")
     private Long note_id;
     @ApiModelProperty("super_id")
     private Long super_id;
+    @ApiModelProperty("to_user")
+    private String to_user;
 }

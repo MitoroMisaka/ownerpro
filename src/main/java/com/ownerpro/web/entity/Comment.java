@@ -25,8 +25,8 @@ public class Comment implements Serializable
     @ApiModelProperty("用户id")
     private Long id;
 
-    @ApiModelProperty("论文id")
-    private Long article_id;
+    @ApiModelProperty("笔记id")
+    private Long note_id;
 
     @ApiModelProperty("评论时间")
     private String comment_time;
@@ -42,4 +42,7 @@ public class Comment implements Serializable
 
     @ApiModelProperty("姓名")
     private String name;
+
+    @ApiModelProperty("to_user")
+    private String to_user;
 }

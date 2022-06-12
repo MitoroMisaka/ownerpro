@@ -113,9 +113,9 @@ public interface ArticleMapper extends MyMapper<Article> {
 
 
     //about the comment
-    @Insert("INSERT INTO comment (comment_time, content, id, likes, note_id, super_id, name) VALUES (#{comment_time}, #{content}, #{id}, 0, #{note_id}, #{super_id}, #{name})")
+    @Insert("INSERT INTO comment (comment_time, content, id, likes, note_id, super_id, name, to_user) VALUES (#{comment_time}, #{content}, #{id}, 0, #{note_id}, #{super_id}, #{name}, #{to_user})")
     void addComment(@Param("comment_time")Timestamp comment_time, @Param("content")String content, @Param("id")Long id,
-                    @Param("note_id")Long note_id, @Param("super_id")Long super_id, @Param("name")String name);
+                    @Param("note_id")Long note_id, @Param("super_id")Long super_id, @Param("name")String name, @Param("to_user")String to_user);
 
     @Select("SELECT * FROM comment WHERE super_id = 0 and note_id = #{id}")
     List<Comment> getMainComment(@Param("id")Long id);

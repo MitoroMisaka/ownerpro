@@ -95,7 +95,7 @@ public class ArticleController {
             }
             Long area_id = articleService.selectAreaIDByName(name);
             if (!articleService.isArticleAreaExists(article_id, area_id)) {
-                articleService.insertArticleArea(article_id, area_id);
+                articleService.insertArticleArea(area_id, article_id);
             }
         }
         //add article_keyword
@@ -108,7 +108,7 @@ public class ArticleController {
             }
             Long keyword_id = articleService.selectKeywordIDByWord(name);
             if (!articleService.isArticleKeywordExists(article_id, keyword_id)) {
-                articleService.insertArticleKeyword(article_id, keyword_id);
+                articleService.insertArticleKeyword(keyword_id, article_id);
             }
         }
         //add article_type
@@ -121,7 +121,7 @@ public class ArticleController {
             }
             Long type_id = articleService.selectTypeIDByName(name);
             if (!articleService.isArticleTypeExists(article_id, type_id)) {
-                articleService.insertArticleType(article_id, type_id);
+                articleService.insertArticleType(type_id, article_id);
             }
         }
         return Result.success("添加成功！");
@@ -204,12 +204,13 @@ public class ArticleController {
         Long note_id = commentRequest.getNote_id();
         String content = commentRequest.getContent();
         Long super_id = commentRequest.getSuper_id();
+        String to_user = commentRequest.getTo_user();
         UserDTO principal = (UserDTO) SecurityUtils.getSubject().getPrincipal();
         Long user_id = articleService.getIdByUsername(principal.getUsername());
         String name = articleService.getNameByUsername(principal.getUsername());
         //get the time now
         Timestamp time = new Timestamp(System.currentTimeMillis());
-        articleService.addComment(note_id, content, super_id, user_id, time, name);
+        articleService.addComment(note_id, content, super_id, user_id, time, name, to_user);
         return Result.success("添加成功！");
     }
 
@@ -268,8 +269,8 @@ public class ArticleController {
     @GetMapping("/get_comment")
     @ApiOperation(value = "获取评论", notes = "获取评论")
     public Object getComment(@RequestParam("pageNum") int pageNum, @RequestParam("pageSize") int pageSize,
-                             @RequestParam("orderBy") String orderBy, @RequestParam("id") Long id) {
-        return articleService.getComment(pageNum, pageSize, orderBy, id);
+                             @RequestParam("orderBy") String orderBy, @RequestParam("note_id") Long note_id) {
+        return articleService.getComment(pageNum, pageSize, orderBy, note_id);
     }
 
     //like a note
@@ -312,6 +313,7 @@ public class ArticleController {
             return Result.fail("添加文章失败");
         }
         Long article_id = articleRequest.getArticle_id();
+        System.out.println(article_id);
         //add article_writer
         List<String> writer = articleRequest.getWriter();
         for (String name : writer) {
@@ -326,6 +328,8 @@ public class ArticleController {
         }
         //add article_area
         List<String> area = articleRequest.getArea();
+        //print area
+        System.out.println(area);
         for (String name : area) {
             //if area is not exist, add it
             if (!articleService.isAreaExists(name)) {
@@ -333,11 +337,12 @@ public class ArticleController {
             }
             Long area_id = articleService.selectAreaIDByName(name);
             if (!articleService.isArticleAreaExists(article_id, area_id)) {
-                articleService.insertArticleArea(article_id, area_id);
+                articleService.insertArticleArea(area_id, article_id);
             }
         }
         //add article_keyword
         List<String> keyword = articleRequest.getKeyword();
+        System.out.println(keyword);
         for (String name : keyword) {
             //if keyword is not exist, add it
             if (!articleService.isKeywordExists(name)) {
@@ -345,11 +350,12 @@ public class ArticleController {
             }
             Long keyword_id = articleService.selectKeywordIDByWord(name);
             if (!articleService.isArticleKeywordExists(article_id, keyword_id)) {
-                articleService.insertArticleKeyword(article_id, keyword_id);
+                articleService.insertArticleKeyword(keyword_id, article_id);
             }
         }
         //add article_type
         List<String> type =  articleRequest.getType();
+        System.out.println(type);
         for (String name : type) {
             //if type is not exist, add it
             if (!articleService.isTypeExists(name)) {
@@ -357,7 +363,7 @@ public class ArticleController {
             }
             Long type_id = articleService.selectTypeIDByName(name);
             if (!articleService.isArticleTypeExists(article_id, type_id)) {
-                articleService.insertArticleType(article_id, type_id);
+                articleService.insertArticleType(type_id, article_id);
             }
         }
         articleMapper.updateIdByTitle(articleRequest.getArticle_id(), title);

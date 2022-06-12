@@ -48,7 +48,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void insertArticleKeyword(Long keyword_id, Long article_id){
-        articleMapper.insertArticleKeyword(article_id, keyword_id);
+        articleMapper.insertArticleKeyword(keyword_id, article_id);
     }
 
     @Override
@@ -233,8 +233,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void addComment(Long note_id, String content, Long super_id, Long id, Timestamp comment_time, String name){
-        articleMapper.addComment(comment_time, content, id, note_id, super_id, name);
+    public void addComment(Long note_id, String content, Long super_id, Long id, Timestamp comment_time, String name, String to_user){
+        articleMapper.addComment(comment_time, content, id, note_id, super_id, name, to_user);
     }
 
     @Override
