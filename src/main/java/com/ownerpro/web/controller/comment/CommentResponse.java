@@ -41,7 +41,7 @@ public class CommentResponse {
     private Long super_id;
 
     @ApiModelProperty("姓名")
-    private UserComment name;
+    private UserComment user;
 
     @ApiModelProperty("to_user")
     private UserComment to_user;
@@ -59,7 +59,7 @@ public class CommentResponse {
         this.content = comment.getContent();
         this.likes = comment.getLikes();
         this.super_id = comment.getSuper_id();
-        this.name = comment.getName();
+        this.user = comment.getName();
         this.to_user = comment.getTo_user();
         this.sub_comment = sub_comment;
     }

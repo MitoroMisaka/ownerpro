@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update change comment response structure">
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentResponse$CommentResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentResponse$CommentResponseBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/comment/CommentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/comment/CommentResponse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +170,7 @@
       <workItem from="1654865788785" duration="4495000" />
       <workItem from="1654937629392" duration="13881000" />
       <workItem from="1655013807724" duration="2358000" />
-      <workItem from="1655019529225" duration="3895000" />
+      <workItem from="1655019529225" duration="4666000" />
     </task>
     <task id="LOCAL-00001" summary="学长的项目，作为初始的框架">
       <created>1643724295752</created>
@@ -431,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655023431969</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="update change comment response structure">
+      <created>1655023594300</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1655023594300</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
