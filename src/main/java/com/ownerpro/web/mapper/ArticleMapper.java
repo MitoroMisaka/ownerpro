@@ -2,6 +2,8 @@ package com.ownerpro.web.mapper;
 
 import com.ownerpro.web.MyMapper;
 import com.ownerpro.web.controller.article.ArticleListResponse;
+import com.ownerpro.web.controller.comment.CommentMain;
+import com.ownerpro.web.dto.UserComment;
 import com.ownerpro.web.entity.Article;
 import com.ownerpro.web.entity.Comment;
 import com.ownerpro.web.entity.Note;
@@ -117,11 +119,13 @@ public interface ArticleMapper extends MyMapper<Article> {
     void addComment(@Param("comment_time")Timestamp comment_time, @Param("content")String content, @Param("id")Long id,
                     @Param("note_id")Long note_id, @Param("super_id")Long super_id, @Param("name")String name, @Param("to_user")String to_user);
 
-    @Select("SELECT * FROM comment WHERE super_id = 0 and note_id = #{id}")
+    //select from comment join user on user.name = comment.name
+    @Select("SELECT * FROM comment NATURAL JOIN user WHERE super_id = 0 and note_id = #{id}")
     List<Comment> getMainComment(@Param("id")Long id);
 
-    @Select("SELECT * FROM comment WHERE super_id = #{super_id}")
-    List<Comment> getSubComment(@Param("super_id")Long super_id);
+
+    @Select("SELECT * FROM comment NATURAL JOIN user WHERE super_id = #{super_id}")
+    List<CommentMain> getSubComment(@Param("super_id")Long super_id);
 
     @Delete("DELETE FROM comment WHERE id = #{id}")
     void deleteCommentById(@Param("id")Long id);
@@ -229,7 +233,17 @@ public interface ArticleMapper extends MyMapper<Article> {
     @Update("UPDATE article SET article_id = #{article_id} WHERE title = #{title}")
     void updateIdByTitle(@Param("article_id")Long article_id, @Param("title")String title);
 
+    //get comment_id by note_id and super_id = 0
+    @Select("SELECT comment_id FROM comment WHERE note_id = #{note_id} AND super_id = 0")
+    List<Long> getCommentId(@Param("note_id")Long note_id);
 
+    //get all attributes from comment by comment_id
+    @Select("SELECT * FROM comment WHERE comment_id = #{comment_id}")
+    CommentMain getCommentMain(@Param("comment_id")Long comment_id);
+
+    //get id name avatar from user by name
+    @Select("SELECT id, name, avatar FROM user WHERE name = #{name}")
+    UserComment getUserComment(@Param("name")String name);
 
     /*@Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE magazine = #{magazine}")
     List<ArticleListResponse> getArticleByMagazine(@Param("magazine") String magazine);

@@ -7,7 +7,9 @@ import com.ownerpro.web.common.PageParam;
 import com.ownerpro.web.common.Result;
 import com.ownerpro.web.controller.article.ArticleListResponse;
 import com.ownerpro.web.controller.article.ArticleResponse;
+import com.ownerpro.web.controller.comment.CommentMain;
 import com.ownerpro.web.controller.comment.CommentResponse;
+import com.ownerpro.web.dto.UserComment;
 import com.ownerpro.web.entity.Comment;
 import com.ownerpro.web.entity.Note;
 import com.ownerpro.web.entity.Reference;
@@ -237,15 +239,71 @@ public class ArticleServiceImpl implements ArticleService {
         articleMapper.addComment(comment_time, content, id, note_id, super_id, name, to_user);
     }
 
+//    @Override
+//    public Page<CommentResponse> getComment(int pageNum, int pageSize, String orderBy, Long id){
+//        PageHelper.startPage(pageNum, pageSize, orderBy);
+//        List<Comment> commentList = articleMapper.getMainComment(id);
+//        List<CommentResponse> commentResponseList = new ArrayList<>();
+//        //add element to the List
+//        for(Comment comment : commentList){
+//            List<Comment> subComment = articleMapper.getSubComment(comment.getComment_id());
+//            commentResponseList.add(new CommentResponse(comment, subComment));
+//        }
+//        return new Page<>(new PageInfo<>(commentResponseList));
+//    }
+
     @Override
     public Page<CommentResponse> getComment(int pageNum, int pageSize, String orderBy, Long id){
         PageHelper.startPage(pageNum, pageSize, orderBy);
-        List<Comment> commentList = articleMapper.getMainComment(id);
+        //get all the comment_id where note id is note id
+        List<Long> comment_id = articleMapper.getCommentId(id);
+        //get CommentMain by comment_id
+        //print the comment_id
+        System.out.println(comment_id);
+        List<CommentMain> commentMainList = new ArrayList<>();
+        for(Long comment_id_temp : comment_id){
+            CommentMain commentMain = articleMapper.getCommentMain(comment_id_temp);
+            commentMainList.add(commentMain);
+        }
+        //print the commentMainList
+        System.out.println(commentMainList);
+        //get UserComment by name and to_user in CommentMain
+        List<UserComment> userCommentList = new ArrayList<>();
+        List<UserComment> to_userCommentList = new ArrayList<>();
+        for(CommentMain commentMain : commentMainList){
+            UserComment userComment = articleMapper.getUserComment(commentMain.getName());
+            UserComment to_userComment = articleMapper.getUserComment(commentMain.getTo_user());
+            userCommentList.add(userComment);
+            to_userCommentList.add(to_userComment);
+        }
+        //print the userCommentList and to_userCommentList
+        System.out.println(userCommentList);
+        System.out.println(to_userCommentList);
+        //merge commentMain userComment to_userComment to Comment
+        List<Comment> commentList = new ArrayList<>();
+        for(int i = 0; i < commentMainList.size(); i++){
+            Comment comment = new Comment(commentMainList.get(i), userCommentList.get(i), to_userCommentList.get(i));
+            commentList.add(comment);
+        }
+        //print the commentList
+        System.out.println(commentList);
+        //new a array of CommentResponse
         List<CommentResponse> commentResponseList = new ArrayList<>();
-        //add element to the List
         for(Comment comment : commentList){
-            List<Comment> subComment = articleMapper.getSubComment(comment.getComment_id());
-            commentResponseList.add(new CommentResponse(comment, subComment));
+            //get all the CommentMain where their super_id = comment_id in comment
+            List<CommentMain> subCommentMainList = articleMapper.getSubComment(comment.getComment_id());
+            //for each subCommentMain, get UserComment by name and to_user and merge to Comment
+            List<Comment> subCommentList = new ArrayList<>();
+            for(CommentMain subCommentMain : subCommentMainList){
+                UserComment userComment = articleMapper.getUserComment(subCommentMain.getName());
+                UserComment to_userComment = articleMapper.getUserComment(subCommentMain.getTo_user());
+                Comment subComment = new Comment(subCommentMain, userComment, to_userComment);
+                subCommentList.add(subComment);
+            }
+            //merge comment and subComment to CommentResponse
+            CommentResponse commentResponse = new CommentResponse(comment, subCommentList);
+            //add to the array
+            commentResponseList.add(commentResponse);
         }
         return new Page<>(new PageInfo<>(commentResponseList));
     }
