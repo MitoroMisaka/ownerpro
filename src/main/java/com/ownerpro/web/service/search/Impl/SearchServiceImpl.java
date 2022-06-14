@@ -10,10 +10,8 @@ import com.ownerpro.web.controller.article.ArticleListResponse;
 import com.ownerpro.web.dto.UserDTO;
 import com.ownerpro.web.entity.Article;
 import com.ownerpro.web.entity.SearchRecord;
-import com.ownerpro.web.mapper.ArticleListMapper;
-import com.ownerpro.web.mapper.ArticleMapper;
-import com.ownerpro.web.mapper.SearchMapper;
-import com.ownerpro.web.mapper.SearchRecordMapper;
+import com.ownerpro.web.entity.User;
+import com.ownerpro.web.mapper.*;
 import com.ownerpro.web.service.search.SearchService;
 import com.ownerpro.web.util.PasswordUtil;
 import com.ownerpro.web.util.TimeUtil;
@@ -42,6 +40,12 @@ public class SearchServiceImpl implements SearchService {
 
     @Autowired
     SearchRecordMapper searchRecordMapper;
+
+    @Autowired
+    UserDTOMapper userDTOMapper;
+
+    @Autowired
+    UserMapper userMapper;
 
     @Override
     public Page<Article> searchTitle(String title, Integer pageSize, Integer pageNum, String orderBy) {
@@ -138,5 +142,17 @@ public class SearchServiceImpl implements SearchService {
         PageHelper.startPage(pageNum, pageSize, orderBy);
         List<Article> articleList = searchMapper.searchByType(content, label_content);
         return new Page<>(pageNum, pageSize, new PageInfo(articleList).getTotal(), new PageInfo(articleList).getPages(), articleList);
+    }
+
+    @Override
+    public Page<User> searchUser(String content, Integer pageSize, Integer pageNum, String orderBy) {
+        Example example = new Example(User.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.orLike("username", "%" + content + "%");
+        criteria.orLike("name", "%" + content + "%");
+        example.and(criteria);
+        PageHelper.startPage(pageNum, pageSize, orderBy);
+        List<User> userList = userMapper.selectByExample(example);
+        return new Page<>(pageNum, pageSize, new PageInfo(userList).getTotal(), new PageInfo(userList).getPages(), userList);
     }
 }

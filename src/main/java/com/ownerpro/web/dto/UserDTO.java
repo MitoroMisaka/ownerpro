@@ -16,16 +16,18 @@ import java.io.Serializable;
 public class UserDTO implements Serializable {
 
     private Long id;
+
+    private String name;
     private String username;
     private int type;//0为普通用户，1为管理员
 
-    private int select;
+    private Integer select_set;
 
-    private int update;
+    private Integer update_set;
 
-    private int delete;
+    private Integer delete_set;
 
-    private int insert;
+    private Integer insert_set;
 
     public UserDTO(User user){
         id = user.getId();

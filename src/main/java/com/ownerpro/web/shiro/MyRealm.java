@@ -49,10 +49,10 @@ public class MyRealm extends AuthorizingRealm {
         }
 
         // get comment update insert and delete permission
-        int selete = userDTO.getSelect();
-        int update = userDTO.getUpdate();
-        int delete = userDTO.getDelete();
-        int insert = userDTO.getInsert();
+        int selete = userDTO.getSelect_set();
+        int update = userDTO.getUpdate_set();
+        int delete = userDTO.getDelete_set();
+        int insert = userDTO.getInsert_set();
 
         if(selete == 1){
             info.addRole("select");
@@ -66,6 +66,7 @@ public class MyRealm extends AuthorizingRealm {
         if(insert == 1){
             info.addRole("insert");
         }
+        System.out.println(info.getRoles());
 
         return info;
     }

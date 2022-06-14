@@ -34,6 +34,16 @@ public class User implements Serializable
     @ApiModelProperty("SessionID")
     private String sessionId;
 
+    private String avatar;
+
     @ApiModelProperty("类型")
     private String type;
+
+    private Integer select_set;
+
+    private Integer update_set;
+
+    private Integer delete_set;
+
+    private Integer insert_set;
 }

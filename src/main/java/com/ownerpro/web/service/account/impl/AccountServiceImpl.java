@@ -82,10 +82,10 @@ public class AccountServiceImpl extends BaseService implements AccountService {
     public Result changeRole(PriorityRequest request){
         //get id select update insert and delete
         Long id = request.getId();
-        int select = request.getSelect();
-        int update = request.getUpdate();
-        int delete = request.getDelete();
-        int insert = request.getInsert();
+        int select = request.getSelect_set();
+        int update = request.getUpdate_set();
+        int delete = request.getDelete_set();
+        int insert = request.getInsert_set();
         userMapper.updateRole(id, select, update, delete, insert);
         return Result.success("修改成功");
     }

@@ -57,4 +57,12 @@ public class SearchController {
         return Result.success("success", searchService.searchByLabel(content,label_content[0], label, pageSize, pageNum, orderBy));
     }
 
+    //user
+    @GetMapping("/user")
+    @ApiOperation("根据用户名搜索")
+    public Result searchByUser(@RequestParam("content")String content, @RequestParam("pageSize")Integer pageSize,
+                                             @RequestParam("pageNum")Integer pageNum, @RequestParam("orderBy")String orderBy) {
+        return Result.success("success", searchService.searchUser(content, pageSize, pageNum, orderBy));
+    }
+
 }
