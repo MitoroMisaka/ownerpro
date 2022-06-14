@@ -19,6 +19,14 @@ public class UserDTO implements Serializable {
     private String username;
     private int type;//0为普通用户，1为管理员
 
+    private int select;
+
+    private int update;
+
+    private int delete;
+
+    private int insert;
+
     public UserDTO(User user){
         id = user.getId();
         username = user.getUsername();

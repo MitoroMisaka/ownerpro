@@ -163,7 +163,9 @@ public class ArticleController {
 
     @GetMapping("/get_all_reference")
     @ApiOperation(value = "获取所有引用", notes = "获取所有引用")
-    public Object getAllReference(@NotNull @RequestBody PageParam pageParam) {
+    public Object getAllReference(@RequestParam Integer pageSize, @RequestParam Integer pageNum, @RequestParam String orderBy) {
+        //add pageNum pageSize and orderBy to PageParam
+        PageParam pageParam = new PageParam(pageNum, pageSize, orderBy);
         return articleService.getAllReferences(pageParam);
     }
 
@@ -204,7 +206,7 @@ public class ArticleController {
         Long note_id = commentRequest.getNote_id();
         String content = commentRequest.getContent();
         Long super_id = commentRequest.getSuper_id();
-        String to_user = commentRequest.getTo_user();
+        Long to_user = commentRequest.getTo_user();
         UserDTO principal = (UserDTO) SecurityUtils.getSubject().getPrincipal();
         Long user_id = articleService.getIdByUsername(principal.getUsername());
         String name = articleService.getNameByUsername(principal.getUsername());

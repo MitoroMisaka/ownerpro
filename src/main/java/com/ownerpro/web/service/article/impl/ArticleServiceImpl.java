@@ -206,6 +206,7 @@ public class ArticleServiceImpl implements ArticleService {
         List<String> area = articleMapper.getAreaByArticleId(article_id);
         List<String> type = articleMapper.getTypeByArticleId(article_id);
         List<String> reference = articleMapper.getReferenceByArticleId(article_id);
+        System.out.println(reference);
         return new ArticleResponse(articleListResponse.getArticle_id(), articleListResponse.getTitle(), articleListResponse.getMagazine(), articleListResponse.getDate(),
                 articleListResponse.getAbstract_content(), articleListResponse.getUrl(),articleListResponse.getUpload_time(), Writer, keyword, area, type, reference);
     }
@@ -235,7 +236,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void addComment(Long note_id, String content, Long super_id, Long id, Timestamp comment_time, String name, String to_user){
+    public void addComment(Long note_id, String content, Long super_id, Long id, Timestamp comment_time, String name, Long to_user){
         articleMapper.addComment(comment_time, content, id, note_id, super_id, name, to_user);
     }
 
@@ -271,7 +272,7 @@ public class ArticleServiceImpl implements ArticleService {
         List<UserComment> userCommentList = new ArrayList<>();
         List<UserComment> to_userCommentList = new ArrayList<>();
         for(CommentMain commentMain : commentMainList){
-            UserComment userComment = articleMapper.getUserComment(commentMain.getName());
+            UserComment userComment = articleMapper.getUserComment(commentMain.getId());
             UserComment to_userComment = articleMapper.getUserComment(commentMain.getTo_user());
             userCommentList.add(userComment);
             to_userCommentList.add(to_userComment);
@@ -295,7 +296,7 @@ public class ArticleServiceImpl implements ArticleService {
             //for each subCommentMain, get UserComment by name and to_user and merge to Comment
             List<Comment> subCommentList = new ArrayList<>();
             for(CommentMain subCommentMain : subCommentMainList){
-                UserComment userComment = articleMapper.getUserComment(subCommentMain.getName());
+                UserComment userComment = articleMapper.getUserComment(subCommentMain.getId());
                 UserComment to_userComment = articleMapper.getUserComment(subCommentMain.getTo_user());
                 Comment subComment = new Comment(subCommentMain, userComment, to_userComment);
                 subCommentList.add(subComment);

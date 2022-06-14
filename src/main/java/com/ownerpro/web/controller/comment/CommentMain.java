@@ -40,5 +40,5 @@ public class CommentMain {
     private String name;
 
     @ApiModelProperty("to_user")
-    private String to_user;
+    private Long to_user;
 }

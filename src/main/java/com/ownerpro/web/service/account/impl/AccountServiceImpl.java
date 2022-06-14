@@ -1,6 +1,11 @@
 package com.ownerpro.web.service.account.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.ownerpro.web.common.Page;
 import com.ownerpro.web.common.Result;
+import com.ownerpro.web.controller.account.PriorityRequest;
+import com.ownerpro.web.dto.UserDTO;
 import com.ownerpro.web.entity.Admin;
 import com.ownerpro.web.entity.User;
 import com.ownerpro.web.mapper.AdminMapper;
@@ -10,9 +15,12 @@ import com.ownerpro.web.service.account.AccountService;
 import com.ownerpro.web.common.EnumExceptionType;
 import com.ownerpro.web.exception.RRException;
 import com.ownerpro.web.util.PasswordUtil;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -71,8 +79,14 @@ public class AccountServiceImpl extends BaseService implements AccountService {
     }
 
     @Override
-    public Result changeRole(Long id){
-        userMapper.updateRole(id);
+    public Result changeRole(PriorityRequest request){
+        //get id select update insert and delete
+        Long id = request.getId();
+        int select = request.getSelect();
+        int update = request.getUpdate();
+        int delete = request.getDelete();
+        int insert = request.getInsert();
+        userMapper.updateRole(id, select, update, delete, insert);
         return Result.success("修改成功");
     }
 
@@ -85,5 +99,13 @@ public class AccountServiceImpl extends BaseService implements AccountService {
         }else{
             return Result.success("管理员");
         }
+    }
+
+    @Override
+    public Page<UserDTO> getAllUsers(int pageNum, int pageSize, String orderBy){
+        PageHelper.startPage(pageNum, pageSize, orderBy);
+        //get all users and page it
+        List<UserDTO> users = userMapper.getAllUsers();
+        return new Page<>(new PageInfo<>(users));
     }
 }

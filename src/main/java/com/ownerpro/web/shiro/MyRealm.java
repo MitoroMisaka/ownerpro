@@ -48,6 +48,25 @@ public class MyRealm extends AuthorizingRealm {
             info.addRole("online");
         }
 
+        // get comment update insert and delete permission
+        int selete = userDTO.getSelect();
+        int update = userDTO.getUpdate();
+        int delete = userDTO.getDelete();
+        int insert = userDTO.getInsert();
+
+        if(selete == 1){
+            info.addRole("select");
+        }
+        if(update == 1){
+            info.addRole("update");
+        }
+        if(delete == 1){
+            info.addRole("delete");
+        }
+        if(insert == 1){
+            info.addRole("insert");
+        }
+
         return info;
     }
 

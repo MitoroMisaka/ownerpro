@@ -93,7 +93,8 @@ public interface ArticleMapper extends MyMapper<Article> {
     @Select("SELECT name FROM area NATURAL JOIN article_area WHERE article_id = #{article_id}")
     List<String> getAreaByArticleId(@Param("article_id")Long article_id);
 
-    @Select("SELECT name FROM reference NATURAL JOIN article_reference WHERE article_id = #{article_id}")
+    //select concat name and note from reference natural join article_reference where article_id = #{article_id}
+    @Select("SELECT CONCAT(note,': ',name) FROM reference JOIN article_reference ON reference.reference_id = article_reference.reference_id WHERE article_id =#{article_id}")
     List<String> getReferenceByArticleId(@Param("article_id")Long article_id);
 
     @Select("SELECT reference_id, name, url FROM reference")
@@ -117,7 +118,7 @@ public interface ArticleMapper extends MyMapper<Article> {
     //about the comment
     @Insert("INSERT INTO comment (comment_time, content, id, likes, note_id, super_id, name, to_user) VALUES (#{comment_time}, #{content}, #{id}, 0, #{note_id}, #{super_id}, #{name}, #{to_user})")
     void addComment(@Param("comment_time")Timestamp comment_time, @Param("content")String content, @Param("id")Long id,
-                    @Param("note_id")Long note_id, @Param("super_id")Long super_id, @Param("name")String name, @Param("to_user")String to_user);
+                    @Param("note_id")Long note_id, @Param("super_id")Long super_id, @Param("name")String name, @Param("to_user")Long to_user);
 
     //select from comment join user on user.name = comment.name
     @Select("SELECT * FROM comment NATURAL JOIN user WHERE super_id = 0 and note_id = #{id}")
@@ -242,8 +243,8 @@ public interface ArticleMapper extends MyMapper<Article> {
     CommentMain getCommentMain(@Param("comment_id")Long comment_id);
 
     //get id name avatar from user by name
-    @Select("SELECT id, name, avatar FROM user WHERE name = #{name}")
-    UserComment getUserComment(@Param("name")String name);
+    @Select("SELECT id, name, avatar FROM user WHERE id = #{name}")
+    UserComment getUserComment(@Param("name")Long name);
 
     /*@Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE magazine = #{magazine}")
     List<ArticleListResponse> getArticleByMagazine(@Param("magazine") String magazine);

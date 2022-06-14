@@ -1,6 +1,7 @@
 package com.ownerpro.web.mapper;
 
 import com.ownerpro.web.MyMapper;
+import com.ownerpro.web.dto.UserDTO;
 import com.ownerpro.web.entity.Admin;
 import com.ownerpro.web.entity.User;
 import org.apache.ibatis.annotations.Insert;
@@ -8,6 +9,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * user  generated at 2019-11-30 18:52:33 by: undestiny
@@ -42,7 +45,10 @@ public interface UserMapper extends MyMapper<User> {
     @Select("SELECT * FROM admin WHERE username=#{username}")
     Admin getAdminByUsername(@Param("username")String username);
 
-    //set type 0 for user
-    @Update("UPDATE user SET type=0 WHERE id=#{id}")
-    void updateRole(@Param("id")Long id);
+    //set select update insert and delete
+    @Update("UPDATE user SET select=#{select},update=#{update},delete=#{delete},insert=#{insert} WHERE id = #{id}")
+    void updateRole(@Param("id")Long id, @Param("type")Integer select, @Param("type")Integer update, @Param("type")Integer delete, @Param("type")Integer insert);
+
+    @Select("SELECT * FROM user")
+    List<UserDTO> getAllUsers();
 }

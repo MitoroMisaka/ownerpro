@@ -149,10 +149,10 @@ public class AccountController {
 
     //降低权限
     @RequiresRoles("admin")
-    @PostMapping("/changeRole/{id}")
+    @PostMapping("/changeRole")
     @ApiOperation("降低权限")
-    public Result changeRole(@PathVariable("id")Long id){
-        return accountService.changeRole(id);
+    public Result changeRole(@RequestBody PriorityRequest request){
+        return accountService.changeRole(request);
     }
 
     //see priorities
@@ -162,6 +162,15 @@ public class AccountController {
     public Result getPriority(@PathVariable("username")String username){
         return accountService.getPriority(username);
     }
+
+    //get all users
+    @RequiresRoles("admin")
+    @GetMapping("/allUsers")
+    @ApiOperation("获取所有用户")
+    public Object getAllUsers(@RequestParam int pageNum, @RequestParam int pageSize, @RequestParam String orderBy){
+        return accountService.getAllUsers(pageNum, pageSize, orderBy);
+    }
+
 
 
 

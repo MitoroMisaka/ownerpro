@@ -20,5 +20,5 @@ public class CommentRequest {
     @ApiModelProperty("super_id")
     private Long super_id;
     @ApiModelProperty("to_user")
-    private String to_user;
+    private Long to_user;
 }
