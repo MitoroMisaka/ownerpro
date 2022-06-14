@@ -46,8 +46,8 @@ public interface UserMapper extends MyMapper<User> {
     Admin getAdminByUsername(@Param("username")String username);
 
     //set select update insert and delete
-    @Update("UPDATE user SET select=#{select},update=#{update},delete=#{delete},insert=#{insert} WHERE id = #{id}")
-    void updateRole(@Param("id")Long id, @Param("type")Integer select, @Param("type")Integer update, @Param("type")Integer delete, @Param("type")Integer insert);
+    @Update("UPDATE user SET select_set=#{select},update_set=#{update},delete_set=#{delete},insert_set=#{insert} WHERE id = #{id}")
+    void updateRole(@Param("id")Long id, @Param("select")Integer select, @Param("update")Integer update, @Param("delete")Integer delete, @Param("insert")Integer insert);
 
     @Select("SELECT * FROM user")
     List<UserDTO> getAllUsers();

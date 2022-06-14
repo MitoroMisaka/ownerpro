@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update search user">
+    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update account all">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/config/ShiroConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/account/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/dto/UserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/account/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/account/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/UserDTO$UserDTOBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/UserDTO$UserDTOBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/UserDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/User$UserBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/shiro/MyRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/shiro/MyRealm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/shiro/MyRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/shiro/MyRealm.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,14 +166,8 @@
       <workItem from="1655114206882" duration="105000" />
       <workItem from="1655114331152" duration="1018000" />
       <workItem from="1655115856983" duration="1428000" />
-      <workItem from="1655191541124" duration="8582000" />
-    </task>
-    <task id="LOCAL-00002" summary="Merge branch 'liaojinchuan' of https://gitee.com/li-yingda/owner-pro.test into lishuai">
-      <created>1643804472157</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1643804472157</updated>
+      <workItem from="1655191541124" duration="8664000" />
+      <workItem from="1655250180472" duration="488000" />
     </task>
     <task id="LOCAL-00003" summary="完成基本删减和部分接口的实现">
       <created>1643859009068</created>
@@ -519,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655201552624</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="update account all">
+      <created>1655221835114</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1655221835114</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +530,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="完成基本删减和部分接口的实现" />
     <MESSAGE value="完善team接口" />
     <MESSAGE value="完成team接口" />
     <MESSAGE value="修缮" />
@@ -562,7 +554,8 @@
     <MESSAGE value="update change comment structure" />
     <MESSAGE value="update reference structure and fix comment bug" />
     <MESSAGE value="update search user" />
-    <option name="LAST_COMMIT_MESSAGE" value="update search user" />
+    <MESSAGE value="update account all" />
+    <option name="LAST_COMMIT_MESSAGE" value="update account all" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

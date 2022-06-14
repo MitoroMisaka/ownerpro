@@ -40,31 +40,38 @@ public class MyRealm extends AuthorizingRealm {
         if(type == 1){
             info.addRole("admin");
             info.addRole("online");
+            info.addRole("user");
+            info.addRole("insert");
+            info.addRole("update");
+            info.addRole("delete");
+            info.addRole("select");
         }
 
         //普通用户
-        if(type == 0){
+        if(type == 0) {
             info.addRole("user");
             info.addRole("online");
-        }
 
-        // get comment update insert and delete permission
-        int selete = userDTO.getSelect_set();
-        int update = userDTO.getUpdate_set();
-        int delete = userDTO.getDelete_set();
-        int insert = userDTO.getInsert_set();
 
-        if(selete == 1){
-            info.addRole("select");
-        }
-        if(update == 1){
-            info.addRole("update");
-        }
-        if(delete == 1){
-            info.addRole("delete");
-        }
-        if(insert == 1){
-            info.addRole("insert");
+            // get comment update insert and delete permission
+            int select = userDTO.getSelect_set();
+            int update = userDTO.getUpdate_set();
+            int delete = userDTO.getDelete_set();
+            int insert = userDTO.getInsert_set();
+
+            if (select == 1) {
+                info.addRole("select");
+            }
+            if (update == 1) {
+                info.addRole("update");
+            }
+            if (delete == 1) {
+                info.addRole("delete");
+            }
+            if (insert == 1) {
+                info.addRole("insert");
+            }
+
         }
         System.out.println(info.getRoles());
 
