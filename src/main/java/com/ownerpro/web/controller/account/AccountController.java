@@ -132,7 +132,6 @@ public class AccountController {
         return Result.success("可以注册");
     }
 
-    @RequiresRoles("admin")
     @GetMapping("/all")
     @ApiOperation("获取一个登录者的所有信息")
     public Result getMessage(){

@@ -27,7 +27,7 @@ public interface UserMapper extends MyMapper<User> {
     @Select("SELECT password FROM user WHERE username=#{username}")
     String getPasswordByUsername(@Param("username")String username);
 
-    @Select("SELECT id,name,username,password FROM user WHERE username=#{username}")
+    @Select("SELECT * FROM user WHERE username=#{username}")
     User getUserByUsername(String username);
 
     @Select("SELECT * FROM user WHERE id=#{id}")

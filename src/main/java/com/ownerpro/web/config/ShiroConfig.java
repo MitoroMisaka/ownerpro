@@ -60,7 +60,7 @@ public class ShiroConfig {
         hashMap.put("/account/signIn", "anon");
         hashMap.put("/account/signOut", "anon");
         hashMap.put("/account/signUp", "anon");
-        hashMap.put("/account/all", "roles[admin]");
+        hashMap.put("/account/all", "anon");
         hashMap.put("/account/user/all", "roles[user]");
 
         //article

@@ -4,29 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update reference structure and fix comment bug">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/UserDTOMapper.java" afterDir="false" />
+    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update search user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/account/PriorityRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/account/PriorityRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/search/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/search/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/config/ShiroConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/account/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/account/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/account/impl/AccountServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/Impl/SearchServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/Impl/SearchServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/SearchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/shiro/MyRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/shiro/MyRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/account/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/account/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentRequest$CommentRequestBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentRequest$CommentRequestBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/comment/CommentRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/search/SearchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/search/SearchController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/UserDTO$UserDTOBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/UserDTO$UserDTOBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/dto/UserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/User$UserBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/account/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/account/AccountService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/account/impl/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/account/impl/AccountServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/ArticleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/ArticleService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/search/Impl/SearchServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/search/Impl/SearchServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/search/SearchService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/search/SearchService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/shiro/MyRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/shiro/MyRealm.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -185,14 +174,7 @@
       <workItem from="1655114206882" duration="105000" />
       <workItem from="1655114331152" duration="1018000" />
       <workItem from="1655115856983" duration="1428000" />
-      <workItem from="1655191541124" duration="7036000" />
-    </task>
-    <task id="LOCAL-00001" summary="学长的项目，作为初始的框架">
-      <created>1643724295752</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1643724295752</updated>
+      <workItem from="1655191541124" duration="8582000" />
     </task>
     <task id="LOCAL-00002" summary="Merge branch 'liaojinchuan' of https://gitee.com/li-yingda/owner-pro.test into lishuai">
       <created>1643804472157</created>
@@ -502,7 +484,42 @@
       <option name="project" value="LOCAL" />
       <updated>1655196132376</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="update search user">
+      <created>1655201343702</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1655201343702</updated>
+    </task>
+    <task id="LOCAL-00047" summary="update search user">
+      <created>1655201409531</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1655201409531</updated>
+    </task>
+    <task id="LOCAL-00048" summary="update search user">
+      <created>1655201442078</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1655201442078</updated>
+    </task>
+    <task id="LOCAL-00049" summary="update search user">
+      <created>1655201479868</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1655201479868</updated>
+    </task>
+    <task id="LOCAL-00050" summary="update search user">
+      <created>1655201552623</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1655201552624</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge branch 'liaojinchuan' of https://gitee.com/li-yingda/owner-pro.test into lishuai" />
     <MESSAGE value="完成基本删减和部分接口的实现" />
     <MESSAGE value="完善team接口" />
     <MESSAGE value="完成team接口" />
@@ -545,7 +561,8 @@
     <MESSAGE value="update change comment response structure" />
     <MESSAGE value="update change comment structure" />
     <MESSAGE value="update reference structure and fix comment bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="update reference structure and fix comment bug" />
+    <MESSAGE value="update search user" />
+    <option name="LAST_COMMIT_MESSAGE" value="update search user" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -33,12 +33,18 @@ public class UserDTO implements Serializable {
         id = user.getId();
         username = user.getUsername();
         type = 0;
+        select_set = user.getSelect_set();
+        update_set = user.getUpdate_set();
+        delete_set = user.getDelete_set();
+        insert_set = user.getInsert_set();
+
     }
 
     public UserDTO(Admin admin){
         id = admin.getId();
         username = admin.getUsername();
         type = 1;
+
     }
 
 }
