@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update account all">
+    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update changeRole">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/account/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/shiro/MyRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/shiro/MyRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/account/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/account/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/account/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/account/impl/AccountServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,14 +168,7 @@
       <workItem from="1655114331152" duration="1018000" />
       <workItem from="1655115856983" duration="1428000" />
       <workItem from="1655191541124" duration="8664000" />
-      <workItem from="1655250180472" duration="488000" />
-    </task>
-    <task id="LOCAL-00003" summary="完成基本删减和部分接口的实现">
-      <created>1643859009068</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1643859009068</updated>
+      <workItem from="1655250180472" duration="2824000" />
     </task>
     <task id="LOCAL-00004" summary="完善team接口">
       <created>1644422806718</created>
@@ -512,7 +506,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655221835114</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="update changeRole">
+      <created>1655250751794</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1655250751794</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="完善team接口" />
     <MESSAGE value="完成team接口" />
     <MESSAGE value="修缮" />
     <MESSAGE value="paper manager" />
@@ -555,7 +555,8 @@
     <MESSAGE value="update reference structure and fix comment bug" />
     <MESSAGE value="update search user" />
     <MESSAGE value="update account all" />
-    <option name="LAST_COMMIT_MESSAGE" value="update account all" />
+    <MESSAGE value="update changeRole" />
+    <option name="LAST_COMMIT_MESSAGE" value="update changeRole" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

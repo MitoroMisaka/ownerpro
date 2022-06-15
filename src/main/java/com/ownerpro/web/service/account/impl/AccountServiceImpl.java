@@ -108,4 +108,10 @@ public class AccountServiceImpl extends BaseService implements AccountService {
         List<UserDTO> users = userMapper.getAllUsers();
         return new Page<>(new PageInfo<>(users));
     }
+
+    @Override
+    public Result deleteUser(Long id){
+        userMapper.deleteUser(id);
+        return Result.success("删除成功");
+    }
 }

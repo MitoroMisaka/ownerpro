@@ -28,4 +28,6 @@ public interface AccountService {
     Result getPriority(String username);
 
     Page<UserDTO> getAllUsers(int pageNum, int pageSize, String orderBy);
+
+    Result deleteUser(Long id);
 }

@@ -51,4 +51,8 @@ public interface UserMapper extends MyMapper<User> {
 
     @Select("SELECT * FROM user")
     List<UserDTO> getAllUsers();
+
+    //delete User by id
+    @Update("DELETE FROM user WHERE id = #{id}")
+    void deleteUser(@Param("id")Long id);
 }

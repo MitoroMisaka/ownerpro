@@ -170,6 +170,13 @@ public class AccountController {
         return accountService.getAllUsers(pageNum, pageSize, orderBy);
     }
 
+    @RequiresRoles("admin")
+    @GetMapping("/deleteUser")
+    @ApiOperation("删除用户")
+    public Result deleteUser(@RequestParam Long id){
+        return accountService.deleteUser(id);
+    }
+
 
 
 
