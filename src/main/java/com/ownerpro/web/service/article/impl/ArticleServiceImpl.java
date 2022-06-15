@@ -212,12 +212,9 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Page<Reference> getAllReferences(PageParam pageParam){
-        int pageNum = pageParam.getPageNum();
-        int pageSize = pageParam.getPageSize();
-        PageHelper.startPage(pageNum, pageSize);
+    public List<Reference> getAllReferences(){
         List<Reference> referenceList = articleMapper.getAllReferences();
-        return new Page<>(new PageInfo<>(referenceList));
+        return referenceList;
     }
     //About the notes
     @Override

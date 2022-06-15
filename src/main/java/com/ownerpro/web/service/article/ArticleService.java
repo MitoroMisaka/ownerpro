@@ -14,6 +14,7 @@ import com.ownerpro.web.entity.Reference;
 
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.List;
 
 public interface ArticleService {
     void insertArticle(String title, String magazine,  Timestamp date, String url,String abstract_content, Timestamp upload_time);
@@ -64,7 +65,7 @@ public interface ArticleService {
 
     ArticleResponse selectArticleById(Long article_id);
 
-    Page<Reference> getAllReferences(PageParam pageParam);
+    List<Reference> getAllReferences();
     //About the note
     void addNote(Long article_id, String content, String publisher, Timestamp publish_time);
 

@@ -163,10 +163,8 @@ public class ArticleController {
 
     @GetMapping("/get_all_reference")
     @ApiOperation(value = "获取所有引用", notes = "获取所有引用")
-    public Object getAllReference(@RequestParam Integer pageSize, @RequestParam Integer pageNum, @RequestParam String orderBy) {
-        //add pageNum pageSize and orderBy to PageParam
-        PageParam pageParam = new PageParam(pageNum, pageSize, orderBy);
-        return articleService.getAllReferences(pageParam);
+    public Object getAllReference() {
+        return articleService.getAllReferences();
     }
 
     @RequiresRoles("user")
