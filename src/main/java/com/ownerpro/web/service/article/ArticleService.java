@@ -111,6 +111,8 @@ public interface ArticleService {
 
     Result insertReference(Long article_id, Long reference_id, String note);
 
+    Result updateNote(Long note_id , Long atricle_id, String content);
+
     //update
     //update article
     void updateArticle(Long article_id, String title, String magazine,  Timestamp date, String url,String abstract_content, Timestamp upload_time);

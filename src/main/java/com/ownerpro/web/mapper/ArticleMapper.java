@@ -246,6 +246,10 @@ public interface ArticleMapper extends MyMapper<Article> {
     @Select("SELECT id, name, avatar FROM user WHERE id = #{name}")
     UserComment getUserComment(@Param("name")Long name);
 
+    //update note by note_id
+    @Update("UPDATE note SET content = #{content} ,article_id = #{article_id} WHERE note_id = #{note_id}")
+    void updateNote(@Param("note_id")Long note_id,@Param("article_id")Long article_id, @Param("content")String content);
+
     /*@Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE magazine = #{magazine}")
     List<ArticleListResponse> getArticleByMagazine(@Param("magazine") String magazine);
 

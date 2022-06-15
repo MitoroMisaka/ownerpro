@@ -474,5 +474,15 @@ public class ArticleServiceImpl implements ArticleService {
         articleMapper.updateArticleWriter(article_id, writer_id, article_writer_id);
     }
 
+    @Override
+    public Result updateNote(Long note_id , Long article_id, String content) {
+        try {
+            articleMapper.updateNote(note_id, article_id, content);
+        } catch (Exception e) {
+            return Result.fail("更新失败");
+        }
+        return Result.success("更新成功");
+    }
+
 
 }

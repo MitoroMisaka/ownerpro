@@ -5,6 +5,7 @@ import com.ownerpro.web.common.PageParam;
 import com.ownerpro.web.common.Result;
 import com.ownerpro.web.controller.comment.CommentRequest;
 import com.ownerpro.web.dto.NoteRequest;
+import com.ownerpro.web.dto.NoteUpdateRequest;
 import com.ownerpro.web.dto.ReferenceRequest;
 import com.ownerpro.web.dto.UserDTO;
 import com.ownerpro.web.mapper.ArticleMapper;
@@ -180,6 +181,16 @@ public class ArticleController {
         Timestamp date = new Timestamp(System.currentTimeMillis());
         articleService.addNote(article_id, content, publisher, date);
         return Result.success("添加成功！");
+    }
+
+    @PostMapping("/update_note")
+    @ApiOperation(value = "更新笔记", notes = "更新笔记")
+    public Result updateNote(@RequestBody NoteUpdateRequest noteRequest) {
+        Long note_id = noteRequest.getNote_id();
+        Long article_id = noteRequest.getArticle_id();
+        String content = noteRequest.getContent();
+        articleService.updateNote(note_id, article_id, content);
+        return Result.success("更新成功！");
     }
 
     //get note by article_id
