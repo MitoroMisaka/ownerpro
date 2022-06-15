@@ -247,8 +247,8 @@ public interface ArticleMapper extends MyMapper<Article> {
     UserComment getUserComment(@Param("name")Long name);
 
     //update note by note_id
-    @Update("UPDATE note SET content = #{content} ,article_id = #{article_id} WHERE note_id = #{note_id}")
-    void updateNote(@Param("note_id")Long note_id,@Param("article_id")Long article_id, @Param("content")String content);
+    @Update("UPDATE note SET content = #{content} ,article_id = #{article_id}, publish_time = #{time} WHERE note_id = #{note_id}")
+    void updateNote(@Param("note_id")Long note_id,@Param("article_id")Long article_id, @Param("content")String content, @Param("time")Timestamp time);
 
     /*@Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE magazine = #{magazine}")
     List<ArticleListResponse> getArticleByMagazine(@Param("magazine") String magazine);

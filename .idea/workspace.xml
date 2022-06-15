@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update reference interface">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/dto/NoteUpdateRequest.java" afterDir="false" />
+    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update update note interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/ArticleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/ArticleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/article/ArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/article/ArticleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/article/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/article/impl/ArticleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/ArticleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/ArticleService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,14 +168,7 @@
       <workItem from="1655115856983" duration="1428000" />
       <workItem from="1655191541124" duration="8664000" />
       <workItem from="1655250180472" duration="3004000" />
-      <workItem from="1655269118841" duration="10974000" />
-    </task>
-    <task id="LOCAL-00017" summary="update README.md">
-      <created>1654684133677</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1654684133677</updated>
+      <workItem from="1655269118841" duration="11321000" />
     </task>
     <task id="LOCAL-00018" summary="update StatisticsController&#10;add some priority control">
       <created>1654697357901</created>
@@ -515,7 +506,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655290423984</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="update update note interface">
+      <created>1655292869039</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1655292869039</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="finish article insert" />
     <MESSAGE value="basic interface" />
     <MESSAGE value="add orderBy in label search" />
     <MESSAGE value="basic framework" />
@@ -558,7 +555,8 @@
     <MESSAGE value="add delete User interface" />
     <MESSAGE value="add delete note interface" />
     <MESSAGE value="update reference interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="update reference interface" />
+    <MESSAGE value="update update note interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="update update note interface" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

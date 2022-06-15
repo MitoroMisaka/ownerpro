@@ -476,8 +476,10 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Result updateNote(Long note_id , Long article_id, String content) {
+        //get the time now
+        Timestamp time = new Timestamp(System.currentTimeMillis());
         try {
-            articleMapper.updateNote(note_id, article_id, content);
+            articleMapper.updateNote(note_id, article_id, content, time);
         } catch (Exception e) {
             return Result.fail("更新失败");
         }
