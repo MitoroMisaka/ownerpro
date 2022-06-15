@@ -149,7 +149,7 @@ public class AccountController {
     //降低权限
     @RequiresRoles("admin")
     @PostMapping("/changeRole")
-    @ApiOperation("降低权限")
+    @ApiOperation("修改权限")
     public Result changeRole(@RequestBody PriorityRequest request){
         return accountService.changeRole(request);
     }

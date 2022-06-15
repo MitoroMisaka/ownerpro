@@ -52,7 +52,6 @@ public class MyRealm extends AuthorizingRealm {
             info.addRole("user");
             info.addRole("online");
 
-
             // get comment update insert and delete permission
             int select = userDTO.getSelect_set();
             int update = userDTO.getUpdate_set();

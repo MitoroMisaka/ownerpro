@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PageParam {
     @ApiModelProperty("每页显示数量 (不小于0)")
-    private Integer pageSize = 2;
+    private Integer pageSize = 10;
 
     @ApiModelProperty("页数 (不小于0)")
     private Integer pageNum = 0;

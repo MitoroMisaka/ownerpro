@@ -291,7 +291,6 @@ public class ArticleController {
         return articleService.likeComment(comment_id);
     }
 
-    //update article
     @PostMapping("/update_article")
     @ApiOperation(value = "更新文章", notes = "更新文章")
     public Result updateArticle(@RequestBody ArticleUpdateRequest articleRequest) throws ParseException {

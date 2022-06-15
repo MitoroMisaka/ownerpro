@@ -409,11 +409,7 @@ public class ArticleServiceImpl implements ArticleService {
     //delete note by note_id
     @Override
     public Result deleteNote(Long note_id){
-        try {
-            articleMapper.deleteNoteById(note_id);
-        }catch (Exception e){
-            return Result.fail("删除失败");
-        }
+        articleMapper.deleteNoteById(note_id);
         return Result.success("删除成功");
     }
 

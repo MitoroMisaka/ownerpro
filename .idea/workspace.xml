@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update changeRole">
+    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="add delete User interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/common/PageParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/common/PageParam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/account/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/account/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/account/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/account/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/account/impl/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/shiro/MyRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/shiro/MyRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/account/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/account/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/account/impl/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/account/impl/AccountServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,77 +172,8 @@
       <workItem from="1655114331152" duration="1018000" />
       <workItem from="1655115856983" duration="1428000" />
       <workItem from="1655191541124" duration="8664000" />
-      <workItem from="1655250180472" duration="2824000" />
-    </task>
-    <task id="LOCAL-00004" summary="完善team接口">
-      <created>1644422806718</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1644422806718</updated>
-    </task>
-    <task id="LOCAL-00005" summary="完成team接口">
-      <created>1644460341731</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1644460341732</updated>
-    </task>
-    <task id="LOCAL-00006" summary="修缮">
-      <created>1646637665239</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1646637665239</updated>
-    </task>
-    <task id="LOCAL-00007" summary="paper manager">
-      <created>1650731733641</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1650731733641</updated>
-    </task>
-    <task id="LOCAL-00008" summary="finish article insert">
-      <created>1651329385563</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1651329385563</updated>
-    </task>
-    <task id="LOCAL-00009" summary="basic interface">
-      <created>1652147235723</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1652147235723</updated>
-    </task>
-    <task id="LOCAL-00010" summary="add orderBy in label search">
-      <created>1653903619830</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1653903619830</updated>
-    </task>
-    <task id="LOCAL-00011" summary="basic framework">
-      <created>1654089935759</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1654089935759</updated>
-    </task>
-    <task id="LOCAL-00012" summary="file export">
-      <created>1654616809585</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1654616809585</updated>
-    </task>
-    <task id="LOCAL-00013" summary="file export">
-      <created>1654617003433</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1654617003433</updated>
+      <workItem from="1655250180472" duration="3004000" />
+      <workItem from="1655269118841" duration="7373000" />
     </task>
     <task id="LOCAL-00014" summary="file yingshe">
       <created>1654673938807</created>
@@ -513,7 +448,77 @@
       <option name="project" value="LOCAL" />
       <updated>1655250751794</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="add delete User interface">
+      <created>1655268916810</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1655268916810</updated>
+    </task>
+    <task id="LOCAL-00054" summary="add delete User interface">
+      <created>1655268944691</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1655268944691</updated>
+    </task>
+    <task id="LOCAL-00055" summary="add delete User interface">
+      <created>1655268993892</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1655268993892</updated>
+    </task>
+    <task id="LOCAL-00056" summary="add delete User interface">
+      <created>1655269030212</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1655269030212</updated>
+    </task>
+    <task id="LOCAL-00057" summary="add delete User interface">
+      <created>1655269134566</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1655269134566</updated>
+    </task>
+    <task id="LOCAL-00058" summary="add delete User interface">
+      <created>1655269189384</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1655269189384</updated>
+    </task>
+    <task id="LOCAL-00059" summary="add delete User interface">
+      <created>1655269195772</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1655269195772</updated>
+    </task>
+    <task id="LOCAL-00060" summary="add delete User interface">
+      <created>1655269236621</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1655269236621</updated>
+    </task>
+    <task id="LOCAL-00061" summary="add delete User interface">
+      <created>1655269282905</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1655269282905</updated>
+    </task>
+    <task id="LOCAL-00062" summary="add delete User interface">
+      <created>1655269357611</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1655269357611</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="完成team接口" />
     <MESSAGE value="修缮" />
     <MESSAGE value="paper manager" />
     <MESSAGE value="finish article insert" />
@@ -556,7 +560,8 @@
     <MESSAGE value="update search user" />
     <MESSAGE value="update account all" />
     <MESSAGE value="update changeRole" />
-    <option name="LAST_COMMIT_MESSAGE" value="update changeRole" />
+    <MESSAGE value="add delete User interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="add delete User interface" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
