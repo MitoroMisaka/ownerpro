@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update update note interface">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/area/AreaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/area/AreaResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/AreaMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/area/AreaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/area/Impl/AreaServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/ArticleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/ArticleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/article/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/article/impl/ArticleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/ArticleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/ArticleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/entity/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/entity/Area.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -168,14 +172,8 @@
       <workItem from="1655115856983" duration="1428000" />
       <workItem from="1655191541124" duration="8664000" />
       <workItem from="1655250180472" duration="3004000" />
-      <workItem from="1655269118841" duration="11321000" />
-    </task>
-    <task id="LOCAL-00018" summary="update StatisticsController&#10;add some priority control">
-      <created>1654697357901</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1654697357901</updated>
+      <workItem from="1655269118841" duration="13181000" />
+      <workItem from="1655390630293" duration="3385000" />
     </task>
     <task id="LOCAL-00019" summary="get note interface">
       <created>1654868396793</created>
@@ -513,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655292869039</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="update update note interface">
+      <created>1655293171845</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1655293171845</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

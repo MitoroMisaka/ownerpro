@@ -25,4 +25,6 @@ public class Area implements Serializable
     @ApiModelProperty("领域名")
     private String area_name;
 
+    @ApiModelProperty("领域父id")
+    private Long super_id;
 }
