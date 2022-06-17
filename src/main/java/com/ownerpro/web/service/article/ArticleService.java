@@ -61,7 +61,7 @@ public interface ArticleService {
 
     Boolean isArticleKeywordExists(Long article_id, Long keyword_id);
 
-    Page<ArticleListResponse> getAllArticles(Integer pageNum, Integer pageSize, String order);
+    Page<ArticleResponse> getAllArticles(Integer pageNum, Integer pageSize, String order);
 
     ArticleResponse selectArticleById(Long article_id);
 

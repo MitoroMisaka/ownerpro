@@ -14,6 +14,7 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @ApiModel("ArticleResponse")
 public class ArticleResponse implements Serializable
@@ -54,18 +55,19 @@ public class ArticleResponse implements Serializable
     @ApiModelProperty("参考文献数组")
     private List<String> reference;
 
-    public ArticleResponse(Long article_id, String title, String magazine, String date, String abstract_content, String url, String upload_time, List<String> writer, List<String> type, List<String> area, List<String> keyword, List<String> reference) {
-        this.article_id = article_id;
-        this.title = title;
-        this.magazine = magazine;
-        this.date = date;
-        this.abstract_content = abstract_content;
-        this.url = url;
-        this.upload_time = upload_time;
+
+
+    public ArticleResponse(ArticleListResponse articleListResponse, List<String> writer,  List<String> type, List<String> area, List<String> keyword, List<String> reference){
+        this.article_id = articleListResponse.getArticle_id();
+        this.abstract_content = articleListResponse.getAbstract_content();
+        this.title = articleListResponse.getTitle();
+        this.magazine = articleListResponse.getMagazine();
+        this.date = articleListResponse.getDate();
+        this.url = articleListResponse.getUrl();
+        this.upload_time = articleListResponse.getUpload_time();
         this.writer = writer;
         this.type = type;
         this.area = area;
         this.keyword = keyword;
-        this.reference = reference;
     }
 }

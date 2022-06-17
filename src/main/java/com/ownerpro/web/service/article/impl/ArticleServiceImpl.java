@@ -190,11 +190,20 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Page<ArticleListResponse> getAllArticles(Integer pageNum, Integer pageSize, String order){
-        //use startpage to page
+    public Page<ArticleResponse> getAllArticles(Integer pageNum, Integer pageSize, String order){
+        List<ArticleResponse> finalArticlesList = new ArrayList<>();
         PageHelper.startPage(pageNum, pageSize, order);
         List<ArticleListResponse> articleListResponseList =  articleMapper.getArticleList();
-        return new Page<>(new PageInfo<>(articleListResponseList));
+        for(ArticleListResponse articleListResponse : articleListResponseList){
+            Long article_id = articleListResponse.getArticle_id();
+            List<String> Writer = articleMapper.getWriterByArticleId(article_id);
+            List<String> keyword = articleMapper.getKeywordByArticleId(article_id);
+            List<String> area = articleMapper.getAreaByArticleId(article_id);
+            List<String> type = articleMapper.getTypeByArticleId(article_id);
+            List<String> reference = articleMapper.getReferenceByArticleId(article_id);
+            finalArticlesList.add(new ArticleResponse(articleListResponse, Writer, keyword, area, type, reference));
+        }
+        return new Page<>(new PageInfo<>(finalArticlesList));
     }
 
     @Override
