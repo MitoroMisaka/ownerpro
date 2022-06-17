@@ -1,6 +1,7 @@
 package com.ownerpro.web.service.area.Impl;
 
 import com.github.pagehelper.PageHelper;
+import com.ownerpro.web.common.Result;
 import com.ownerpro.web.controller.area.AreaResponse;
 import com.ownerpro.web.entity.Area;
 import com.ownerpro.web.mapper.AreaMapper;
@@ -48,5 +49,17 @@ public class AreaServiceImpl implements AreaService {
             }
         }
         return  childAreas;
+    }
+
+    @Override
+    public Result addArea(String area, String parent_area) {
+        Long super_id = 0L;
+        if(parent_area != null){
+            super_id = areaMapper.getAreaId(parent_area);
+            if(super_id  == null)
+                super_id = 0L;
+        }
+        areaMapper.insertArea(area, super_id);
+        return Result.success("添加成功");
     }
 }

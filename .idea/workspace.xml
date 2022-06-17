@@ -4,12 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update article response interface">
+    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update search response interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/entity/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/entity/Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/Impl/SearchServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/Impl/SearchServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/SearchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/area/AreaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/area/AreaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/AreaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/AreaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/area/AreaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/area/AreaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/area/Impl/AreaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/area/Impl/AreaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/area/AreaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/area/AreaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleResponse$ArticleResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleResponse$ArticleResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Article$ArticleBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Article$ArticleBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Article.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/AreaMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/mapper/AreaMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/area/Impl/AreaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/area/Impl/AreaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/search/Impl/SearchServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/search/Impl/SearchServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/search/SearchService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/search/SearchService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,14 +184,9 @@
       <workItem from="1655445533020" duration="2950000" />
       <workItem from="1655452726477" duration="144000" />
       <workItem from="1655456675939" duration="346000" />
-      <workItem from="1655457453613" duration="323000" />
-    </task>
-    <task id="LOCAL-00041" summary="update change comment structure">
-      <created>1655116268730</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1655116268730</updated>
+      <workItem from="1655457453613" duration="1813000" />
+      <workItem from="1655479844334" duration="105000" />
+      <workItem from="1655479967958" duration="814000" />
     </task>
     <task id="LOCAL-00042" summary="update change comment structure">
       <created>1655116309473</created>
@@ -520,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655457009891</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="update search response interface">
+      <created>1655457963115</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1655457963116</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,7 +549,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="file yingshe" />
     <MESSAGE value="update label search &#10;comment and file upload" />
     <MESSAGE value="update README.md" />
     <MESSAGE value="update StatisticsController&#10;add some priority control" />
@@ -563,7 +573,8 @@
     <MESSAGE value="update admin info interface" />
     <MESSAGE value="update statistics interface" />
     <MESSAGE value="update article response interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="update article response interface" />
+    <MESSAGE value="update search response interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="update search response interface" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
