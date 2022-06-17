@@ -7,6 +7,7 @@ import com.ownerpro.web.common.Page;
 import com.ownerpro.web.common.PageParam;
 import com.ownerpro.web.common.Result;
 import com.ownerpro.web.controller.article.ArticleListResponse;
+import com.ownerpro.web.controller.article.ArticleResponse;
 import com.ownerpro.web.dto.UserDTO;
 import com.ownerpro.web.entity.Article;
 import com.ownerpro.web.entity.SearchRecord;
@@ -48,7 +49,7 @@ public class SearchServiceImpl implements SearchService {
     UserMapper userMapper;
 
     @Override
-    public Page<Article> searchTitle(String title, Integer pageSize, Integer pageNum, String orderBy) {
+    public Page<ArticleResponse> searchTitle(String title, Integer pageSize, Integer pageNum, String orderBy) {
         Example example = new Example(Article.class);
         //example.selectProperties("title","magazine","abstract_content");
 
@@ -78,13 +79,15 @@ public class SearchServiceImpl implements SearchService {
         List<Article> articleList = articleMapper.selectByExample(example);
         Page page = new Page(new PageInfo(articleList));
 
-        ArrayList<Article> articleArrayList = new ArrayList<>();
+        ArrayList<ArticleResponse> articleArrayList = new ArrayList<>();
         for (Article article : articleList) {
-            //add article_id title magazine date abstract_content url upload_time and comment_num
-            articleArrayList.add(new Article(article.getArticle_id(), article.getTitle(),
-                    article.getMagazine(), article.getDate(),
-                    article.getAbstract_content(), article.getUrl(),
-                    article.getUpload_time(), article.getComment_num()));
+            Long article_id = article.getArticle_id();
+            List<String> Writer = articleMapper.getWriterByArticleId(article_id);
+            List<String> keyword = articleMapper.getKeywordByArticleId(article_id);
+            List<String> area = articleMapper.getAreaByArticleId(article_id);
+            List<String> type = articleMapper.getTypeByArticleId(article_id);
+            List<String> reference = articleMapper.getReferenceByArticleId(article_id);
+            articleArrayList.add(new ArticleResponse(article, Writer, keyword, area, type, reference));
         }
         return new Page<>(pageNum, pageSize, page.getTotal(), page.getPages(), articleArrayList);
     }

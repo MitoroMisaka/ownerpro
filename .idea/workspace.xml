@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update article response interface">
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/ArticleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/ArticleService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/impl/ArticleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/impl/ArticleServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/entity/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/entity/Article.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/Impl/SearchServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/Impl/SearchServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/search/SearchService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,27 +174,8 @@
       <workItem from="1655442944419" duration="2536000" />
       <workItem from="1655445533020" duration="2950000" />
       <workItem from="1655452726477" duration="144000" />
-    </task>
-    <task id="LOCAL-00038" summary="update change comment response structure">
-      <created>1655023594300</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1655023594300</updated>
-    </task>
-    <task id="LOCAL-00039" summary="update change comment response structure">
-      <created>1655025236547</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1655025236547</updated>
-    </task>
-    <task id="LOCAL-00040" summary="update change comment structure">
-      <created>1655116189823</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1655116189823</updated>
+      <workItem from="1655456675939" duration="346000" />
+      <workItem from="1655457453613" duration="323000" />
     </task>
     <task id="LOCAL-00041" summary="update change comment structure">
       <created>1655116268730</created>
@@ -515,7 +499,28 @@
       <option name="project" value="LOCAL" />
       <updated>1655452861493</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="update article response interface">
+      <created>1655456695668</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1655456695669</updated>
+    </task>
+    <task id="LOCAL-00088" summary="update article response interface">
+      <created>1655456736292</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1655456736292</updated>
+    </task>
+    <task id="LOCAL-00089" summary="update article response interface">
+      <created>1655457009891</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1655457009891</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

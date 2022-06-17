@@ -1,6 +1,7 @@
 package com.ownerpro.web.controller.article;
 
 
+import com.ownerpro.web.entity.Article;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -69,5 +70,20 @@ public class ArticleResponse implements Serializable
         this.type = type;
         this.area = area;
         this.keyword = keyword;
+    }
+
+    public ArticleResponse(Article article, List<String> writer, List<String> type, List<String> area, List<String> keyword, List<String> reference){
+        this.article_id = article.getArticle_id();
+        this.abstract_content = article.getAbstract_content();
+        this.title = article.getTitle();
+        this.magazine = article.getMagazine();
+        this.date = article.getDate();
+        this.url = article.getUrl();
+        this.upload_time = article.getUpload_time();
+        this.writer = writer;
+        this.type = type;
+        this.area = area;
+        this.keyword = keyword;
+        this.reference = reference;
     }
 }
