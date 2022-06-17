@@ -21,7 +21,7 @@ public class StatisticsController {
 
     //count the number of label search results
     @GetMapping("/by_label")
-    @ApiOperation("根据标签统计")
+    @ApiOperation("根据标签统计 标签可为 type keyword writer area")
     public Result searchByLabel( @RequestParam("label")String label){
         //label can be type area keyword and writer
         return statisticsService.countByLabel(label);

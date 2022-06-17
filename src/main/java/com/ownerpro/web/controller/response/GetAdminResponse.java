@@ -30,7 +30,7 @@ public class GetAdminResponse implements Serializable {
     private String password;
 
     @ApiModelProperty("类别")
-    private Integer type;
+    private String type;
 
     private String avatar;
 
@@ -38,7 +38,10 @@ public class GetAdminResponse implements Serializable {
         this.id = admin.getId();
         this.username = admin.getUsername();
         this.password = admin.getPassword();
-        this.type = type;
+        if(type == 0)
+            this.type = "用户";
+        else
+            this.type = "管理员";
         this.avatar = admin.getAvatar();
         this.name = admin.getName();
     }

@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update admin info interface">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/statistics/StatisticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/statistics/StatisticsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/StatisticsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/StatisticsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/response/GetAdminResponse$GetAdminResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/response/GetAdminResponse$GetAdminResponseBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/response/GetAdminResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/response/GetAdminResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Admin$AdminBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Admin$AdminBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/entity/Admin.class" afterDir="false" />
-    </list>
+    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update statistics interface" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,91 +165,8 @@
       <workItem from="1655250180472" duration="3004000" />
       <workItem from="1655269118841" duration="13181000" />
       <workItem from="1655390630293" duration="3723000" />
-      <workItem from="1655442944419" duration="2081000" />
-    </task>
-    <task id="LOCAL-00022" summary="get note interface 2">
-      <created>1654868785379</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1654868785379</updated>
-    </task>
-    <task id="LOCAL-00023" summary="get note interface 2">
-      <created>1654868832182</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1654868832182</updated>
-    </task>
-    <task id="LOCAL-00024" summary="get note interface 2">
-      <created>1654868868276</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1654868868276</updated>
-    </task>
-    <task id="LOCAL-00025" summary="add publish_time to note">
-      <created>1654870942440</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1654870942440</updated>
-    </task>
-    <task id="LOCAL-00026" summary="fix get_comment bugs">
-      <created>1654938822519</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1654938822519</updated>
-    </task>
-    <task id="LOCAL-00027" summary="add like interface">
-      <created>1654940545332</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1654940545332</updated>
-    </task>
-    <task id="LOCAL-00028" summary="add update interface">
-      <created>1654944849087</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1654944849087</updated>
-    </task>
-    <task id="LOCAL-00029" summary="add update interface">
-      <created>1654944888178</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1654944888178</updated>
-    </task>
-    <task id="LOCAL-00030" summary="add update interface">
-      <created>1654952709265</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1654952709265</updated>
-    </task>
-    <task id="LOCAL-00031" summary="update comment get interface">
-      <created>1655015159139</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1655015159139</updated>
-    </task>
-    <task id="LOCAL-00032" summary="update change comment response structure">
-      <created>1655022713376</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1655022713376</updated>
-    </task>
-    <task id="LOCAL-00033" summary="update change comment response structure">
-      <created>1655023216452</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1655023216452</updated>
+      <workItem from="1655442944419" duration="2536000" />
+      <workItem from="1655445533020" duration="333000" />
     </task>
     <task id="LOCAL-00034" summary="update change comment response structure">
       <created>1655023251030</created>
@@ -518,7 +427,91 @@
       <option name="project" value="LOCAL" />
       <updated>1655444643077</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="update statistics interface">
+      <created>1655445055553</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445055553</updated>
+    </task>
+    <task id="LOCAL-00072" summary="update statistics interface">
+      <created>1655445081781</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445081781</updated>
+    </task>
+    <task id="LOCAL-00073" summary="update statistics interface">
+      <created>1655445130206</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445130206</updated>
+    </task>
+    <task id="LOCAL-00074" summary="update statistics interface">
+      <created>1655445210002</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445210002</updated>
+    </task>
+    <task id="LOCAL-00075" summary="update statistics interface">
+      <created>1655445260492</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445260492</updated>
+    </task>
+    <task id="LOCAL-00076" summary="update statistics interface">
+      <created>1655445300660</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445300660</updated>
+    </task>
+    <task id="LOCAL-00077" summary="update statistics interface">
+      <created>1655445362163</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445362163</updated>
+    </task>
+    <task id="LOCAL-00078" summary="update statistics interface">
+      <created>1655445541201</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445541201</updated>
+    </task>
+    <task id="LOCAL-00079" summary="update statistics interface">
+      <created>1655445592450</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445592450</updated>
+    </task>
+    <task id="LOCAL-00080" summary="update statistics interface">
+      <created>1655445650049</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445650049</updated>
+    </task>
+    <task id="LOCAL-00081" summary="update statistics interface">
+      <created>1655445676366</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445676366</updated>
+    </task>
+    <task id="LOCAL-00082" summary="update statistics interface">
+      <created>1655445758039</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1655445758039</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,7 +529,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="basic framework" />
     <MESSAGE value="file export" />
     <MESSAGE value="file yingshe" />
     <MESSAGE value="update label search &#10;comment and file upload" />
@@ -561,7 +553,8 @@
     <MESSAGE value="update update note interface" />
     <MESSAGE value="update get area interface" />
     <MESSAGE value="update admin info interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="update admin info interface" />
+    <MESSAGE value="update statistics interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="update statistics interface" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
