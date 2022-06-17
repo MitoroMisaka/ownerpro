@@ -23,6 +23,7 @@ public class StatisticsController {
     @GetMapping("/by_label")
     @ApiOperation("根据标签统计")
     public Result searchByLabel( @RequestParam("label")String label){
+        //label can be type area keyword and writer
         return statisticsService.countByLabel(label);
     }
 }
