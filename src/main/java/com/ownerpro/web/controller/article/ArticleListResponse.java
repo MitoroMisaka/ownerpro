@@ -28,7 +28,7 @@ public class ArticleListResponse implements Serializable
     private String magazine;
 
     @ApiModelProperty("刊会时间")
-    private Timestamp date;
+    private String date;
 
     @ApiModelProperty("主要内容")
     private String abstract_content;
@@ -37,7 +37,7 @@ public class ArticleListResponse implements Serializable
     private String url;
 
     @ApiModelProperty("上传时间")
-    private Timestamp upload_time;
+    private String upload_time;
 
     @ApiModelProperty("评论数")
     private Integer comment_num;

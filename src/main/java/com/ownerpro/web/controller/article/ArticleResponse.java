@@ -28,7 +28,7 @@ public class ArticleResponse implements Serializable
     private String magazine;
 
     @ApiModelProperty("刊会时间")
-    private Timestamp date;
+    private String date;
 
     @ApiModelProperty("主要内容")
     private String abstract_content;
@@ -37,7 +37,7 @@ public class ArticleResponse implements Serializable
     private String url;
 
     @ApiModelProperty("上传时间")
-    private Timestamp upload_time;
+    private String upload_time;
 
     @ApiModelProperty("作者数组")
     private List<String> writer;
@@ -54,7 +54,7 @@ public class ArticleResponse implements Serializable
     @ApiModelProperty("参考文献数组")
     private List<String> reference;
 
-    public ArticleResponse(Long article_id, String title, String magazine, Timestamp date, String abstract_content, String url, Timestamp upload_time, List<String> writer, List<String> type, List<String> area, List<String> keyword, List<String> reference) {
+    public ArticleResponse(Long article_id, String title, String magazine, String date, String abstract_content, String url, String upload_time, List<String> writer, List<String> type, List<String> area, List<String> keyword, List<String> reference) {
         this.article_id = article_id;
         this.title = title;
         this.magazine = magazine;
