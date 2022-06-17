@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update article response interface">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/article/ArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/article/ArticleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/article/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/service/article/impl/ArticleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleListResponse$ArticleListResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleListResponse$ArticleListResponseBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleListResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleListResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleResponse$ArticleResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleResponse$ArticleResponseBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/article/ArticleResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/ArticleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/ArticleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/impl/ArticleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/service/article/impl/ArticleServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,13 +170,7 @@
       <workItem from="1655390630293" duration="3723000" />
       <workItem from="1655442944419" duration="2536000" />
       <workItem from="1655445533020" duration="2950000" />
-    </task>
-    <task id="LOCAL-00037" summary="update change comment response structure">
-      <created>1655023431969</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1655023431969</updated>
+      <workItem from="1655452726477" duration="144000" />
     </task>
     <task id="LOCAL-00038" summary="update change comment response structure">
       <created>1655023594300</created>
@@ -520,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655451690181</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="update article response interface">
+      <created>1655452861492</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1655452861493</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
