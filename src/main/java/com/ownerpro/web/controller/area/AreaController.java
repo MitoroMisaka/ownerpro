@@ -24,7 +24,7 @@ public class AreaController {
 
     @PostMapping("/add")
     @ApiOperation("添加领域 如果没有父节点 那么parent_area为空")
-    public Result addArea(@RequestParam String area, String parent_area){
+    public Result addArea(@RequestParam String area, @RequestParam String parent_area){
         return areaService.addArea(area, parent_area);
     }
 }
