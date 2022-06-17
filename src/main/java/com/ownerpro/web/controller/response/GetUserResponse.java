@@ -30,13 +30,32 @@ public class GetUserResponse implements Serializable {
     private String password;
 
     @ApiModelProperty("类别")
-    private Integer type;
+    private String  type;
+
+    private String avatar;
+
+    private Integer select;
+
+    private Integer update;
+
+    private Integer delete;
+
+    private Integer insert;
+
 
     public GetUserResponse(User user, Integer type){
         this.id = user.getId();
         this.name = user.getName();
         this.username = user.getUsername();
         this.password = user.getPassword();
-        this.type = type;
+        this.select = user.getSelect_set();
+        this.update = user.getUpdate_set();
+        this.delete = user.getDelete_set();
+        this.insert = user.getInsert_set();
+        this.avatar = user.getAvatar();
+        if(type == 0)
+            this.type = "用户";
+        else if(type == 1)
+            this.type = "管理员";
     }
 }
