@@ -22,7 +22,7 @@ public class StatisticsController {
     //count the number of label search results
     @GetMapping("/by_label")
     @ApiOperation("根据标签统计")
-    public Result searchByLabel(@RequestParam("content")String content,  @RequestParam("label")String label){
-        return statisticsService.countByLabel(content, label);
+    public Result searchByLabel( @RequestParam("label")String label){
+        return statisticsService.countByLabel(label);
     }
 }

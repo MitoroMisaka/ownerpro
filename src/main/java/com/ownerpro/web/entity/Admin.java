@@ -26,4 +26,8 @@ public class Admin implements Serializable {
 
     @ApiModelProperty("密码")
     private String password;
+
+    private String avatar;
+
+    private String name;
 }

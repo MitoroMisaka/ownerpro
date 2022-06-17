@@ -21,6 +21,8 @@ public class GetAdminResponse implements Serializable {
     @ApiModelProperty("用户id")
     private Long id;
 
+    private String name;
+
     @ApiModelProperty("用户名")
     private String username;
 
@@ -30,10 +32,14 @@ public class GetAdminResponse implements Serializable {
     @ApiModelProperty("类别")
     private Integer type;
 
+    private String avatar;
+
     public GetAdminResponse(Admin admin, Integer type){
         this.id = admin.getId();
         this.username = admin.getUsername();
         this.password = admin.getPassword();
         this.type = type;
+        this.avatar = admin.getAvatar();
+        this.name = admin.getName();
     }
 }
