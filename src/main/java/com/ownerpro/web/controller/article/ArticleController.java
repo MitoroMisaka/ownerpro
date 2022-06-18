@@ -380,6 +380,17 @@ public class ArticleController {
         return Result.success("添加成功！");
     }
 
+    //add a reference
+    @RequiresRoles("user")
+    @PostMapping("/add_reference")
+    @ApiOperation(value = "添加文献", notes = "添加文献")
+    public Result addReference(@RequestParam String name, @RequestParam String url) {
+        articleMapper.addReference(name, url);
+        return Result.success("添加成功！");
+    }
+
+
+
 
 
     //update area type keyword writer and reference

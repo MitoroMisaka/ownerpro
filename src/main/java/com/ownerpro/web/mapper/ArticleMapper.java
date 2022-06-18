@@ -94,7 +94,7 @@ public interface ArticleMapper extends MyMapper<Article> {
     List<String> getAreaByArticleId(@Param("article_id")Long article_id);
 
     //select concat name and note from reference natural join article_reference where article_id = #{article_id}
-    @Select("SELECT CONCAT(note,': ',name) FROM reference JOIN article_reference ON reference.reference_id = article_reference.reference_id WHERE article_id =#{article_id}")
+    @Select("SELECT CONCAT(note,': ',name,' ',url) FROM reference JOIN article_reference ON reference.reference_id = article_reference.reference_id WHERE article_id =#{article_id}")
     List<String> getReferenceByArticleId(@Param("article_id")Long article_id);
 
     @Select("SELECT reference_id, name, url FROM reference")
@@ -249,6 +249,9 @@ public interface ArticleMapper extends MyMapper<Article> {
     //update note by note_id
     @Update("UPDATE note SET content = #{content} ,article_id = #{article_id}, publish_time = #{time} WHERE note_id = #{note_id}")
     void updateNote(@Param("note_id")Long note_id,@Param("article_id")Long article_id, @Param("content")String content, @Param("time")Timestamp time);
+
+    @Insert("INSERT INTO reference(name, url) VALUES (#{name}, #{url})")
+    void addReference(@Param("name")String name, @Param("url")String url);
 
     /*@Select("SELECT article_id, title, magazine, date, abstract_content, url, upload_time FROM article WHERE magazine = #{magazine}")
     List<ArticleListResponse> getArticleByMagazine(@Param("magazine") String magazine);
