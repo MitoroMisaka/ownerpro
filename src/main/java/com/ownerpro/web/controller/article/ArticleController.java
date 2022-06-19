@@ -382,7 +382,7 @@ public class ArticleController {
 
     //add a reference
     @RequiresRoles("user")
-    @PostMapping("/add_reference")
+    @PostMapping("/add_reference_itself")
     @ApiOperation(value = "添加文献", notes = "添加文献")
     public Result addReference(@RequestParam String name, @RequestParam String url) {
         articleMapper.addReference(name, url);

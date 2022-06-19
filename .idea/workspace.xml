@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="update add area interface">
+    <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="final project">
+      <change afterPath="$PROJECT_DIR$/TechnicalDocument.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/controller/article/ArticleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/ArticleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ownerpro/web/mapper/ArticleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/area/AreaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ownerpro/web/controller/area/AreaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +84,11 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Settings\ownerpro\src\main\java\com\ownerpro\web\service" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Settings\ownerpro" />
+      <recent name="D:\Settings\ownerpro\InterfaceDocument" />
+      <recent name="D:\Settings\ownerpro\.jpb" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ownerpro.web.util" />
       <recent name="com.ownerpro.web.common" />
@@ -94,8 +98,21 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="paper" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="paper" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="stell" />
+      <module name="paper" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ownerpro.web.WebApplication" />
       <method v="2">
@@ -178,27 +195,6 @@
       <workItem from="1655479844334" duration="105000" />
       <workItem from="1655479967958" duration="2133000" />
       <workItem from="1655533388203" duration="1729000" />
-    </task>
-    <task id="LOCAL-00045" summary="update reference structure and fix comment bug">
-      <created>1655196132376</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1655196132376</updated>
-    </task>
-    <task id="LOCAL-00046" summary="update search user">
-      <created>1655201343702</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1655201343702</updated>
-    </task>
-    <task id="LOCAL-00047" summary="update search user">
-      <created>1655201409531</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1655201409531</updated>
     </task>
     <task id="LOCAL-00048" summary="update search user">
       <created>1655201442078</created>
@@ -522,7 +518,28 @@
       <option name="project" value="LOCAL" />
       <updated>1655533751779</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="final project">
+      <created>1655608278401</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1655608278401</updated>
+    </task>
+    <task id="LOCAL-00095" summary="final project">
+      <created>1655608326960</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1655608326960</updated>
+    </task>
+    <task id="LOCAL-00096" summary="final project">
+      <created>1655608355445</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1655608355445</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,7 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update README.md" />
     <MESSAGE value="update StatisticsController&#10;add some priority control" />
     <MESSAGE value="get note interface" />
     <MESSAGE value="get note interface 2" />
@@ -565,7 +581,8 @@
     <MESSAGE value="update article response interface" />
     <MESSAGE value="update search response interface" />
     <MESSAGE value="update add area interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="update add area interface" />
+    <MESSAGE value="final project" />
+    <option name="LAST_COMMIT_MESSAGE" value="final project" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

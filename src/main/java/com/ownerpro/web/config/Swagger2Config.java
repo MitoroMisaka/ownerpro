@@ -65,6 +65,44 @@ public class Swagger2Config {
                 .build();
     }
 
+    //add area docker
+    @Bean
+    public Docket createAreaApi(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("area")
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.area"))//设定扫描范围
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    //add statistics docker
+    @Bean
+    public Docket createStatisticsApi(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("statistics")
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.statistics"))//设定扫描范围
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    //add comment docker
+    @Bean
+    public Docket createCommentApi(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("comment")
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.ownerpro.web.controller.comment"))//设定扫描范围
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+
+
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("PaperManager API Documentation")
