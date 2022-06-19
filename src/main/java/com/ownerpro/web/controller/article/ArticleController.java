@@ -49,7 +49,7 @@ public class ArticleController {
     @Autowired
     NoteMapper noteMapper;
 
-    @RequiresRoles("user")
+    @RequiresRoles("insert")
     @PostMapping("/addArticle")
     @ApiOperation(value = "添加文章", notes = "添加文章")
     public Result addArticle(@ApiParam @RequestBody ArticleRequest articleRequest) throws ParseException {
@@ -128,6 +128,7 @@ public class ArticleController {
         return Result.success("添加成功！");
     }
 
+    @RequiresRoles("select")
     @GetMapping("/get_all_article")
     @ApiOperation(value = "获取所有文章", notes = "获取所有文章")
     @ApiImplicitParams({
@@ -142,6 +143,7 @@ public class ArticleController {
         return articleService.getAllArticles(pageNum, pageSize, orderBy);
     }
 
+    @RequiresRoles("select")
     @GetMapping("/get_article_info")
     @ApiOperation(value = "获取文章信息", notes = "获取文章信息")
     @ApiModelProperty()
@@ -153,6 +155,7 @@ public class ArticleController {
         }
     }
 
+    @RequiresRoles("insert")
     @PostMapping("/add_reference")
     @ApiOperation(value = "添加文章引用", notes = "添加文章引用")
     public Result addReference(@NotNull @RequestBody ReferenceRequest referenceRequest) {
@@ -162,13 +165,14 @@ public class ArticleController {
         return articleService.insertReference(article_id, reference_id, note);
     }
 
+    @RequiresRoles("select")
     @GetMapping("/get_all_reference")
     @ApiOperation(value = "获取所有引用", notes = "获取所有引用")
     public Object getAllReference() {
         return articleService.getAllReferences();
     }
 
-    @RequiresRoles("user")
+    @RequiresRoles("insert")
     @PostMapping("/add_note")
     @ApiOperation(value = "添加笔记", notes = "添加笔记")
     public Result addNote(@RequestBody NoteRequest noteRequest) {
@@ -183,6 +187,7 @@ public class ArticleController {
         return Result.success("添加成功！");
     }
 
+    @RequiresRoles("update")
     @PostMapping("/update_note")
     @ApiOperation(value = "更新笔记", notes = "更新笔记")
     public Result updateNote(@RequestBody NoteUpdateRequest noteRequest) {
@@ -194,6 +199,7 @@ public class ArticleController {
     }
 
     //get note by article_id
+    @RequiresRoles("select")
     @GetMapping("/get_note")
     @ApiOperation(value = "获取笔记", notes = "获取笔记")
     public Object getNote(@NotNull @RequestParam(value = "article_id") Long article_id, @RequestParam(value = "pageSize") Integer pageSize,
@@ -202,13 +208,14 @@ public class ArticleController {
     }
 
     //get note by note_id
+    @RequiresRoles("select")
     @GetMapping("/get_note_by_id")
     @ApiOperation(value = "获取笔记", notes = "获取笔记")
     public Object getNoteById(@NotNull @RequestParam(value = "note_id") Long note_id) {
         return articleService.getNoteById(note_id);
     }
 
-    @RequiresRoles("user")
+    @RequiresRoles("insert")
     @PostMapping("/add_comment")
     @ApiOperation(value = "添加评论", notes = "添加评论")
     public Result addComment(@RequestBody CommentRequest commentRequest) {
@@ -225,7 +232,7 @@ public class ArticleController {
         return Result.success("添加成功！");
     }
 
-    @RequiresRoles("admin")
+    @RequiresRoles("delete")
     @PostMapping("/delete_article")
     @ApiOperation(value = "删除文章", notes = "删除文章")
     public Result deleteArticle(@RequestParam Long id) {
@@ -233,7 +240,7 @@ public class ArticleController {
     }
 
     //delete comment by comment_id
-    @RequiresRoles("admin")
+    @RequiresRoles("delete")
     @PostMapping("/delete_comment")
     @ApiOperation(value = "删除评论", notes = "删除评论")
     public Result deleteComment(@RequestParam Long comment_id) {
@@ -241,7 +248,7 @@ public class ArticleController {
     }
 
     //delete type by type_id
-    @RequiresRoles("admin")
+    @RequiresRoles("delete")
     @PostMapping("/delete_type")
     @ApiOperation(value = "删除关联表中类型", notes = "删除类型")
     public Result deleteType(@RequestParam Long type_id) {
@@ -249,34 +256,35 @@ public class ArticleController {
     }
 
     //delete keyword by keyword_id
-    @RequiresRoles("admin")
+    @RequiresRoles("delete")
     @PostMapping("/delete_keyword")
     @ApiOperation(value = "删除关联表中关键词", notes = "删除关键词")
     public Result deleteKeyword(@RequestParam Long keyword_id) {
         return articleService.deleteKeyword(keyword_id);
     }
 
-    @RequiresRoles("admin")
+    @RequiresRoles("delete")
     @PostMapping("/delete_reference")
     @ApiOperation(value = "删除引用", notes = "删除引用")
     public Result deleteReference(@RequestParam Long reference_id) {
         return articleService.deleteReference(reference_id);
     }
 
-    @RequiresRoles("admin")
+    @RequiresRoles("delete")
     @PostMapping("/delete_note")
     @ApiOperation(value = "删除笔记", notes = "删除笔记")
     public Result deleteNote(@RequestParam Long note_id) {
         return articleService.deleteNote(note_id);
     }
 
-    @RequiresRoles("admin")
+    @RequiresRoles("delete")
     @PostMapping("/delete_area")
     @ApiOperation(value = "删除关联表中领域", notes = "删除领域")
     public Result deleteArea(@RequestParam Long area_id) {
         return articleService.deleteArea(area_id);
     }
 
+    @RequiresRoles("select")
     @GetMapping("/get_comment")
     @ApiOperation(value = "获取评论", notes = "获取评论")
     public Object getComment(@RequestParam("pageNum") int pageNum, @RequestParam("pageSize") int pageSize,
@@ -300,6 +308,8 @@ public class ArticleController {
         return articleService.likeComment(comment_id);
     }
 
+
+    @RequiresRoles("update")
     @PostMapping("/update_article")
     @ApiOperation(value = "更新文章", notes = "更新文章")
     public Result updateArticle(@RequestBody ArticleUpdateRequest articleRequest) throws ParseException {
@@ -381,7 +391,7 @@ public class ArticleController {
     }
 
     //add a reference
-    @RequiresRoles("user")
+    @RequiresRoles("insert")
     @PostMapping("/add_reference_itself")
     @ApiOperation(value = "添加文献", notes = "添加文献")
     public Result addReference(@RequestParam String name, @RequestParam String url) {

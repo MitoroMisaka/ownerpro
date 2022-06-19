@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ public class SearchController {
     @Autowired
     UserMapper userMapper;
 
+    @RequiresRoles("search")
     @GetMapping("/title")
     @ApiOperation("根据标题搜索(实际上发布会议，主要内容这些都在搜)")
     @ApiImplicitParams({
@@ -40,6 +42,7 @@ public class SearchController {
         return searchService.searchTitle(content, pageSize, pageNum, orderBy);
     }
 
+    @RequiresRoles("user")
     @GetMapping("/history")
     @ApiOperation("个人搜索历史")
     //requires id
@@ -50,6 +53,7 @@ public class SearchController {
         return Result.success("success", searchService.getSearchRecord(id));
     }
 
+    @RequiresRoles("search")
     @GetMapping("/by_label")
     @ApiOperation("根据标签搜索")
     public Result searchByLabel(@RequestParam("content")String content, @RequestParam("label_content")String[] label_content, @RequestParam("label")String label,
@@ -58,6 +62,7 @@ public class SearchController {
     }
 
     //user
+    @RequiresRoles("search")
     @GetMapping("/user")
     @ApiOperation("根据用户名搜索")
     public Result searchByUser(@RequestParam("content")String content, @RequestParam("pageSize")Integer pageSize,

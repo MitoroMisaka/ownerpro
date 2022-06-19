@@ -4,6 +4,7 @@ import com.ownerpro.web.common.Result;
 import com.ownerpro.web.service.statistics.StatisticsService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ public class StatisticsController {
     StatisticsService statisticsService;
 
     //count the number of label search results
+    @RequiresRoles("select")
     @GetMapping("/by_label")
     @ApiOperation("根据标签统计 标签可为 type keyword writer area")
     public Result searchByLabel( @RequestParam("label")String label){

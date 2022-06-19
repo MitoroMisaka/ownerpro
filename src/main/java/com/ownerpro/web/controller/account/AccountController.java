@@ -89,6 +89,7 @@ public class AccountController {
         return Result.success(null);
     }
 
+    @RequiresRoles("user")
     @PostMapping("/changePassword")
     @ApiOperation("修改密码")
     @ApiImplicitParam(name = "password", value = "密码（6到20位）", required = true, paramType = "query", dataType = "String")
@@ -104,6 +105,7 @@ public class AccountController {
         return Result.success("修改成功！");
     }
 
+    @RequiresRoles("user")
     @GetMapping("/checkPassword")
     @ApiOperation("判断密码是否相同")
     @ApiImplicitParam(name = "password", value = "密码（6到20位）", required = true, paramType = "query", dataType = "String")
@@ -120,6 +122,7 @@ public class AccountController {
     }
 
 
+    @RequiresRoles("user")
     @GetMapping("/checkUsername")
     @ApiOperation("检验用户名是否重复")
     public Result checkUsername(@NotNull @RequestParam("username")String username){
@@ -132,6 +135,7 @@ public class AccountController {
         return Result.success("可以注册");
     }
 
+    @RequiresRoles("user")
     @GetMapping("/all")
     @ApiOperation("获取一个登录者的所有信息")
     public Result getMessage(){

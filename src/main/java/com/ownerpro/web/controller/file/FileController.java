@@ -2,6 +2,7 @@ package com.ownerpro.web.controller.file;
 
 import com.ownerpro.web.common.Result;
 import com.ownerpro.web.service.file.FileService;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
@@ -24,6 +25,7 @@ public class FileController {
     @Autowired
     private FileService fileService;
 
+    @RequiresRoles("user")
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
     public Result upLoadFiles(MultipartFile multipartFile){
         if (multipartFile.isEmpty()){
@@ -32,6 +34,7 @@ public class FileController {
         return fileService.upLoadFiles(multipartFile);
     }
 
+    @RequiresRoles("user")
     @RequestMapping(value = "/download/{id}",method = RequestMethod.GET)
     public void downloadFiles(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response){
         OutputStream outputStream=null;
@@ -72,11 +75,13 @@ public class FileController {
         }
     }
 
+    @RequiresRoles("delete")
     @PostMapping("/delete/{id}")
     public Result deleteFile(@PathVariable("id") Long id){
         return fileService.deleteFile(id);
     }
 
+    @RequiresRoles("select")
     @GetMapping(value = "/get-file/{id}")
     public ResponseEntity<FileSystemResource> getFile(@PathVariable("id") Long id) throws FileNotFoundException {
         Files files = fileService.getFileById(id);
