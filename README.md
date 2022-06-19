@@ -20,7 +20,7 @@ ECNU Databse System Design Course Project PaperManager
 
 **汇报PPT**： 主目录  数据库汇报.pptx
 
-**数据库设计** ： 主目录  DB-Design.md & DB-Design.png
+**数据库设计** ： 主目录  DB-Design.pdf & DB-Design.png
 
 **完整演示视频**： 主目录  演示视频.mkv
 

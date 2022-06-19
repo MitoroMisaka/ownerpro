@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="final project">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/第二部分.mkv" beforeDir="false" afterPath="$PROJECT_DIR$/演示视频.mkv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DB-Design.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +64,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -183,28 +183,7 @@
       <workItem from="1655479844334" duration="105000" />
       <workItem from="1655479967958" duration="2133000" />
       <workItem from="1655533388203" duration="1729000" />
-      <workItem from="1655647117758" duration="3028000" />
-    </task>
-    <task id="LOCAL-00054" summary="add delete User interface">
-      <created>1655268944691</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1655268944691</updated>
-    </task>
-    <task id="LOCAL-00055" summary="add delete User interface">
-      <created>1655268993892</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1655268993892</updated>
-    </task>
-    <task id="LOCAL-00056" summary="add delete User interface">
-      <created>1655269030212</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1655269030212</updated>
+      <workItem from="1655647117758" duration="3800000" />
     </task>
     <task id="LOCAL-00057" summary="add delete User interface">
       <created>1655269134566</created>
@@ -528,7 +507,28 @@
       <option name="project" value="LOCAL" />
       <updated>1655652003404</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="final project">
+      <created>1655652113019</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1655652113019</updated>
+    </task>
+    <task id="LOCAL-00104" summary="final project">
+      <created>1655652785215</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1655652785215</updated>
+    </task>
+    <task id="LOCAL-00105" summary="final project">
+      <created>1655652844255</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1655652844255</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,6 +546,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="update StatisticsController&#10;add some priority control" />
     <MESSAGE value="get note interface" />
     <MESSAGE value="get note interface 2" />
