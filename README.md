@@ -8,15 +8,25 @@
 论文管理系统
 
 ## 说明
-JavaWeb SpringBoot 后端项目
+ECNU Databse System Design Course Project PaperManager
 
-该仓库为后端仓库.
+#### 项目已开源
 
-前端仓库为xx
+该仓库为**后端仓库**: https://github.com/MitoroMisaka/ownerpro
 
-**接口文档**：位于InterfaceDocument文件夹下
+**前端文件打包于** ：主目录  paper-manager-frontend.zip
 
-**技术文档**：放于主目录下的TechnicalDocument
+**前端仓库为** ：https://gitee.com/hua-siming/literature.git
+
+**汇报PPT**： 主目录  数据库汇报.pptx
+
+**数据库设计** ： 主目录  DB-Design.md
+
+**完整演示视频**： 主目录  演示视频.mp4
+
+**接口文档**：主目录  InterfaceDocument文件夹下
+
+**技术文档**：主目录 TechnicalDocument.pdf
 
 ## 团队分工
 廖晋川：后端开发
