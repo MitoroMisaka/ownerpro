@@ -22,7 +22,7 @@ ECNU Databse System Design Course Project PaperManager
 
 **数据库设计** ： 主目录  DB-Design.md & DB-Design.png
 
-**完整演示视频**： 主目录  演示视频.mp4
+**完整演示视频**： 主目录  演示视频.mkv
 
 **接口文档**：主目录  InterfaceDocument文件夹下
 
