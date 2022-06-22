@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4378b432-0eaf-47a1-8552-e654545616e1" name="Changes" comment="final project">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,48 +188,8 @@
       <workItem from="1655733624579" duration="16000" />
       <workItem from="1655877240495" duration="743000" />
       <workItem from="1655878013371" duration="83000" />
-    </task>
-    <task id="LOCAL-00059" summary="add delete User interface">
-      <created>1655269195772</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1655269195772</updated>
-    </task>
-    <task id="LOCAL-00060" summary="add delete User interface">
-      <created>1655269236621</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1655269236621</updated>
-    </task>
-    <task id="LOCAL-00061" summary="add delete User interface">
-      <created>1655269282905</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1655269282905</updated>
-    </task>
-    <task id="LOCAL-00062" summary="add delete User interface">
-      <created>1655269357611</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1655269357611</updated>
-    </task>
-    <task id="LOCAL-00063" summary="add delete note interface">
-      <created>1655285686341</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1655285686341</updated>
-    </task>
-    <task id="LOCAL-00064" summary="add delete note interface">
-      <created>1655287636777</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1655287636777</updated>
+      <workItem from="1655878120164" duration="220000" />
+      <workItem from="1655878384747" duration="132000" />
     </task>
     <task id="LOCAL-00065" summary="update reference interface">
       <created>1655290423984</created>
@@ -533,7 +492,49 @@
       <option name="project" value="LOCAL" />
       <updated>1655652981898</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="final project">
+      <created>1655878189938</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1655878189939</updated>
+    </task>
+    <task id="LOCAL-00109" summary="final project">
+      <created>1655878240162</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1655878240162</updated>
+    </task>
+    <task id="LOCAL-00110" summary="final project">
+      <created>1655878281697</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1655878281697</updated>
+    </task>
+    <task id="LOCAL-00111" summary="final project">
+      <created>1655878393364</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1655878393364</updated>
+    </task>
+    <task id="LOCAL-00112" summary="final project">
+      <created>1655878433459</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1655878433459</updated>
+    </task>
+    <task id="LOCAL-00113" summary="final project">
+      <created>1655878485589</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1655878485589</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
