@@ -10,5 +10,14 @@
       <jdbc-url>jdbc:mysql://localhost:3306/ownerpro?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="paper/Hibernate" uuid="18f1c883-3d2e-4421-9f87-c7a696e1ed8a">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://sh-cynosdbmysql-grp-9oc9in82.sql.tencentcdb.com:26625/thesis?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
