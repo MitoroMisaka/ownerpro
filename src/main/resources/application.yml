@@ -14,14 +14,14 @@ spring:
     enabled: true
     host: smtp.126.com
     port: 25
-    username: Liaojinchuan@126.com
-    password: RDPGBPXXGJAIGRIU
+    username: Liaojin*****@126.com
+    password: RDP*******
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://sh-cynosdbmysql-grp-9oc9in82.sql.tencentcdb.com:26625/thesis?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://*******/thesis?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
-    password: Ljc2472319246
+    password: ******
 
   jackson:
     time-zone: GMT+8
